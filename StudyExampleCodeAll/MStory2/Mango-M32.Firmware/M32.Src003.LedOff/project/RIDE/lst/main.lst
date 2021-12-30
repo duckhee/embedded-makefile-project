@@ -1,0 +1,143 @@
+
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\project\RIDE\obj\main.o:     file format elf32-littlearm
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\project\RIDE\obj\main.o
+
+Disassembly of section .text.delay_int_count:
+
+00000000 <delay_int_count>:
+delay_int_count():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:11
+ * Version   : V1.0
+ * Date      : 08/12/2009
+ */
+
+static void delay_int_count(volatile unsigned int nTime)
+{
+   0:	b082      	sub	sp, #8
+   2:	9001      	str	r0, [sp, #4]
+   4:	e002      	b.n	c <delay_int_count+0xc>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:12
+    for(; nTime > 0; nTime--);
+   6:	9b01      	ldr	r3, [sp, #4]
+   8:	3b01      	subs	r3, #1
+   a:	9301      	str	r3, [sp, #4]
+   c:	9b01      	ldr	r3, [sp, #4]
+   e:	2b00      	cmp	r3, #0
+  10:	d1f9      	bne.n	6 <delay_int_count+0x6>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:13
+}
+  12:	b002      	add	sp, #8
+  14:	4770      	bx	lr
+  16:	46c0      	nop			(mov r8, r8)
+Disassembly of section .text.main:
+
+00000000 <main>:
+main():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:25
+ */
+int main(void)
+{
+    int i;
+
+    (*(volatile unsigned *)0x40021018) |= 0x8;
+   0:	4a19      	ldr	r2, [pc, #100]	(68 <main+0x68>)
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:22
+ * Input  : None
+ * Output : None
+ * Return : None
+ */
+int main(void)
+{
+   2:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:25
+    int i;
+
+    (*(volatile unsigned *)0x40021018) |= 0x8;
+   4:	6813      	ldr	r3, [r2, #0]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:31
+    (*(volatile unsigned *)0x40010C04) |= 0x10;
+
+    (*(volatile unsigned *)0x40010C14) |= 0x200;
+
+#if 1
+    delay_int_count(806596);
+   6:	4819      	ldr	r0, [pc, #100]	(6c <main+0x6c>)
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:25
+ */
+int main(void)
+{
+    int i;
+
+    (*(volatile unsigned *)0x40021018) |= 0x8;
+   8:	f043 0308 	orr.w	r3, r3, #8	; 0x8
+   c:	6013      	str	r3, [r2, #0]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:26
+    (*(volatile unsigned *)0x40010C04) |= 0x10;
+   e:	4a18      	ldr	r2, [pc, #96]	(70 <main+0x70>)
+  10:	6813      	ldr	r3, [r2, #0]
+  12:	f043 0310 	orr.w	r3, r3, #16	; 0x10
+  16:	6013      	str	r3, [r2, #0]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:28
+
+    (*(volatile unsigned *)0x40010C14) |= 0x200;
+  18:	3210      	adds	r2, #16
+  1a:	6813      	ldr	r3, [r2, #0]
+  1c:	f443 7300 	orr.w	r3, r3, #512	; 0x200
+  20:	6013      	str	r3, [r2, #0]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:31
+
+#if 1
+    delay_int_count(806596);
+  22:	f7ff fffe 	bl	0 <main>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:32
+    delay_int_count(806596);
+  26:	4811      	ldr	r0, [pc, #68]	(48 <main+0x48>)
+  28:	f7ff fffe 	bl	0 <main>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:33
+    delay_int_count(806596);
+  2c:	480f      	ldr	r0, [pc, #60]	(40 <main+0x40>)
+  2e:	f7ff fffe 	bl	0 <main>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:34
+    delay_int_count(806596);
+  32:	480e      	ldr	r0, [pc, #56]	(3c <main+0x3c>)
+  34:	f7ff fffe 	bl	0 <main>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:35
+    delay_int_count(806596);
+  38:	480c      	ldr	r0, [pc, #48]	(34 <main+0x34>)
+  3a:	f7ff fffe 	bl	0 <main>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:36
+    delay_int_count(806596);
+  3e:	480b      	ldr	r0, [pc, #44]	(30 <main+0x30>)
+  40:	f7ff fffe 	bl	0 <main>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:37
+    delay_int_count(806596);
+  44:	4809      	ldr	r0, [pc, #36]	(28 <main+0x28>)
+  46:	f7ff fffe 	bl	0 <main>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:38
+    delay_int_count(806596);
+  4a:	4808      	ldr	r0, [pc, #32]	(24 <main+0x24>)
+  4c:	f7ff fffe 	bl	0 <main>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:39
+    delay_int_count(806596);
+  50:	4806      	ldr	r0, [pc, #24]	(1c <main+0x1c>)
+  52:	f7ff fffe 	bl	0 <main>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:40
+    delay_int_count(806596);
+  56:	4805      	ldr	r0, [pc, #20]	(18 <main+0x18>)
+  58:	f7ff fffe 	bl	0 <main>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src/main.c:48
+    {
+        delay_int_count(10240);
+    }
+#endif
+
+    (*(volatile unsigned *)0x40010C10) |= 0x200;
+  5c:	4a05      	ldr	r2, [pc, #20]	(74 <main+0x74>)
+  5e:	6813      	ldr	r3, [r2, #0]
+  60:	f443 7300 	orr.w	r3, r3, #512	; 0x200
+  64:	6013      	str	r3, [r2, #0]
+  66:	e7fe      	b.n	66 <main+0x66>
+  68:	40021018 	.word	0x40021018
+  6c:	000c4ec4 	.word	0x000c4ec4
+  70:	40010c04 	.word	0x40010c04
+  74:	40010c10 	.word	0x40010c10

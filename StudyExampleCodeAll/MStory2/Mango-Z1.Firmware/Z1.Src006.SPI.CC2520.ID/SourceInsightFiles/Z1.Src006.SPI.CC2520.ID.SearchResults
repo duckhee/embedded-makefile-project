@@ -1,0 +1,11 @@
+---- SUCCESS Matches (10 in 5 files) ----
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):typedef enum {ERROR = 0, SUCCESS = !ERROR} ErrorStatus;
+stm32f10x_i2c.c (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src):  * - SUCCESS: Last event is equal to the I2C_EVENT
+stm32f10x_i2c.c (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src):    /* SUCCESS: last event is equal to I2C_EVENT */
+stm32f10x_i2c.c (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src):    status = SUCCESS;
+stm32f10x_rcc.c (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src):  * - SUCCESS: HSE oscillator is stable and ready to use
+stm32f10x_rcc.c (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src):    status = SUCCESS;
+usb_core.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32_USB-FS-Device_Driver\inc):   If the return value is not SUCCESS or NOT_READY,
+usb_core.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32_USB-FS-Device_Driver\inc):    If the request is valid, Class_Data_Setup returns SUCCESS, else UNSUPPORT
+usb_core.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32_USB-FS-Device_Driver\inc):   This function is writing by user. It should return "SUCCESS" if the Interface
+usb_type.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32_USB-FS-Device_Driver\inc):typedef enum { ERROR = 0, SUCCESS  = !ERROR} ErrorStatus;

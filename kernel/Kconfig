@@ -1,0 +1,35 @@
+###############################################################################
+# SPDX-License-Identifier: GPL-3.0-or-later
+###############################################################################
+
+
+menuconfig FREE_RTOS
+	bool "FreeRTOS Support"
+	default n
+
+
+if FREE_RTOS
+
+config FreeRTOS_V5 
+	bool "FreeRTOS Version v5.4.2"
+    default n
+
+config FreeRTOS_V10
+	bool "FreeRTOS Version v10.2"
+    default n
+
+
+
+config FREERTOS_VERSION
+    string
+        default "freeRTOS_v5" if FreeRTOS_V5 && y
+
+config FREERTOS_VERSION
+    string
+        default "FreeRTOS_v10" if FreeRTOS_V10 && y
+
+
+
+endif   # if FreeRTOS
+
+###############################################################################

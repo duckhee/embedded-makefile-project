@@ -1,0 +1,20 @@
+###############################################################################
+# SPDX-License-Identifier: GPL-3.0-or-later
+###############################################################################
+
+config USB_FS_DEVICE_DRIVER
+    bool "USB FS Device Driver Select"
+    default n
+    select EXTRA_LIB
+
+config CC2520
+    bool "cc2520 Library Select"
+    default n
+    select EXTRA_LIB
+
+config EDU_CLCD
+    bool "edu board LCD Library Select"
+    default n
+    select EXTRA_LIB
+
+###############################################################################

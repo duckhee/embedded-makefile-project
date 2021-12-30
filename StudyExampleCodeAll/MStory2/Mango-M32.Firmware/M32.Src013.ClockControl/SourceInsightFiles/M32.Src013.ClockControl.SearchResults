@@ -1,0 +1,4 @@
+---- StartUpCounter Matches (3 in 1 files) ----
+hw_config.c (D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src):    __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
+hw_config.c (D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src):        StartUpCounter++;  
+hw_config.c (D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src):    } while((HSEStatus == 0) && (StartUpCounter != HSEStartUp_TimeOut));

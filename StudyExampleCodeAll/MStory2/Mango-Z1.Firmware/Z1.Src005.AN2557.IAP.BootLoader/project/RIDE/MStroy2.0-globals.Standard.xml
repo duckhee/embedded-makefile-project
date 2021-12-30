@@ -1,0 +1,186 @@
+<!-- DWF2XML 2.00.01 - Raisonance Dwarf information extractor -->
+<aoffile Header="MStroy2.0" Path="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\project\RIDE\MStroy2.0.elf">
+ <Def>
+  <Col Header="DeclFile" Desc="File"/>
+  <Col Header="Type" Desc="Type"/>
+  <Col Header="Header" Desc="Name"/>
+ </Def>
+ <type Header="uint8_t" Icon="1" Type="type" Desc=": unsigned char" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="46" Pointer="No"/>
+ <type Header="uint16_t" Icon="1" Type="type" Desc=": unsigned int" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="58" Pointer="No"/>
+ <type Header="int32_t" Icon="1" Type="type" Desc=": long" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="83" Pointer="No"/>
+ <type Header="uint32_t" Icon="1" Type="type" Desc=": unsigned long" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="84" Pointer="No"/>
+ <type Header="FLASH_Status" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h" DeclLine="56" Pointer="No"/>
+ <func Header="Receive_Byte" Icon="3" Type="func" Desc=":   long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\ymodem.c" DeclLine="54"/>
+ <func Header="Send_Byte" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\ymodem.c" DeclLine="71"/>
+ <func Header="Ymodem_Receive" Icon="3" Type="func" Desc=":   long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\ymodem.c" DeclLine="145"/>
+ <variable Header="file_name" Icon="2" Type="variable" Desc=":   unsigned char[256]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\ymodem.c" DeclLine="34" Pointer="No"/>
+ <variable Header="FlashDestination" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\ymodem.c" DeclLine="35" Pointer="No"/>
+ <variable Header="PageSize" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\ymodem.c" DeclLine="36" Pointer="No"/>
+ <variable Header="EraseCounter" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\ymodem.c" DeclLine="37" Pointer="No"/>
+ <variable Header="NbrOfPage" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\ymodem.c" DeclLine="38" Pointer="No"/>
+ <variable Header="FLASHStatus" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\ymodem.c" DeclLine="39" Pointer="No"/>
+ <variable Header="RamSource" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\ymodem.c" DeclLine="40" Pointer="No"/>
+ <type Header="uint8_t" Icon="1" Type="type" Desc=": unsigned char" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="46" Pointer="No"/>
+ <type Header="uint16_t" Icon="1" Type="type" Desc=": unsigned int" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="58" Pointer="No"/>
+ <type Header="int32_t" Icon="1" Type="type" Desc=": long" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="83" Pointer="No"/>
+ <type Header="uint32_t" Icon="1" Type="type" Desc=": unsigned long" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="84" Pointer="No"/>
+ <type Header="bool" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="349" Pointer="No"/>
+ <type Header="FLASH_Status" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h" DeclLine="56" Pointer="No"/>
+ <type Header="pFunction" Icon="1" Type="type" Desc=":  " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\inc\common.h" DeclLine="33" Pointer="No"/>
+ <func Header="Int2Str" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\common.c" DeclLine="48"/>
+ <func Header="Str2Int" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\common.c" DeclLine="76"/>
+ <func Header="FLASH_PagesMask" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\common.c" DeclLine="298"/>
+ <func Header="SerialPutChar" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\common.c" DeclLine="233"/>
+ <func Header="Serial_PutString" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\common.c" DeclLine="244"/>
+ <func Header="FLASH_DisableWriteProtectionPages" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\common.c" DeclLine="320"/>
+ <func Header="SerialKeyPressed" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\common.c" DeclLine="196"/>
+ <func Header="GetKey" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\common.c" DeclLine="215"/>
+ <func Header="Main_Menu" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\common.c" DeclLine="390"/>
+ <type Header="pFunction" Icon="1" Type="type" Desc=":  " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\inc\common.h" DeclLine="33" Pointer="No"/>
+ <variable Header="Jump_To_Application" Icon="2" Type="variable" Desc=":    " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\common.c" DeclLine="32" Pointer="No"/>
+ <variable Header="JumpAddress" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\common.c" DeclLine="33" Pointer="No"/>
+ <variable Header="BlockNbr" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\common.c" DeclLine="34" Pointer="No"/>
+ <variable Header="UserMemoryMask" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\common.c" DeclLine="34" Pointer="No"/>
+ <variable Header="FlashProtection" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\common.c" DeclLine="35" Pointer="No"/>
+ <type Header="uint8_t" Icon="1" Type="type" Desc=": unsigned char" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="46" Pointer="No"/>
+ <type Header="int32_t" Icon="1" Type="type" Desc=": long" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="83" Pointer="No"/>
+ <func Header="SerialDownload" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\download.c" DeclLine="47"/>
+ <variable Header="tab_1024" Icon="2" Type="variable" Desc=":   unsigned char[1024]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\download.c" DeclLine="33" Pointer="No"/>
+ <type Header="uint16_t" Icon="1" Type="type" Desc=": unsigned int" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="58" Pointer="No"/>
+ <type Header="uint32_t" Icon="1" Type="type" Desc=": unsigned long" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="84" Pointer="No"/>
+ <type Header="USART_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h" DeclLine="75" Pointer="No"/>
+ <type Header="pFunction" Icon="1" Type="type" Desc=":  " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\inc\common.h" DeclLine="33" Pointer="No"/>
+ <func Header="main" Icon="3" Type="func" Desc=":   long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\main.c" DeclLine="46"/>
+ <type Header="pFunction" Icon="1" Type="type" Desc=":  " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\inc\common.h" DeclLine="33" Pointer="No"/>
+ <type Header="uint8_t" Icon="1" Type="type" Desc=": unsigned char" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="46" Pointer="No"/>
+ <type Header="uint16_t" Icon="1" Type="type" Desc=": unsigned int" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="58" Pointer="No"/>
+ <type Header="uint32_t" Icon="1" Type="type" Desc=": unsigned long" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="84" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="354" Pointer="No"/>
+ <type Header="GPIO_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="814" Pointer="No"/>
+ <type Header="USART_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="1046" Pointer="No"/>
+ <type Header="EXTIMode_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h" DeclLine="53" Pointer="No"/>
+ <type Header="EXTITrigger_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h" DeclLine="66" Pointer="No"/>
+ <type Header="EXTI_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h" DeclLine="88" Pointer="No"/>
+ <type Header="GPIOSpeed_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h" DeclLine="62" Pointer="No"/>
+ <type Header="GPIOMode_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h" DeclLine="79" Pointer="No"/>
+ <type Header="GPIO_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h" DeclLine="100" Pointer="No"/>
+ <type Header="USART_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h" DeclLine="75" Pointer="No"/>
+ <type Header="NVIC_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h" DeclLine="67" Pointer="No"/>
+ <type Header="Led_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\inc\stm32_eval.h" DeclLine="84" Pointer="No"/>
+ <type Header="Button_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\inc\stm32_eval.h" DeclLine="99" Pointer="No"/>
+ <type Header="Button_Mode_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\inc\stm32_eval.h" DeclLine="105" Pointer="No"/>
+ <type Header="COM_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\inc\stm32_eval.h" DeclLine="121" Pointer="No"/>
+ <func Header="STM_EVAL_COMInit" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="365"/>
+ <func Header="STM_EVAL_PBGetState" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="349"/>
+ <func Header="STM_EVAL_PBInit" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="291"/>
+ <variable Header="GPIO_PORT" Icon="2" Type="variable" Desc=":   struct  CODE*[3]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="62" Pointer="No"/>
+ <variable Header="GPIO_PIN" Icon="2" Type="variable" Desc=":   unsigned int[3]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="63" Pointer="No"/>
+ <variable Header="GPIO_CLK" Icon="2" Type="variable" Desc=":   unsigned long[3]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="64" Pointer="No"/>
+ <variable Header="BUTTON_PORT" Icon="2" Type="variable" Desc=":   struct  CODE*[2]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="104" Pointer="No"/>
+ <variable Header="BUTTON_PIN" Icon="2" Type="variable" Desc=":   unsigned int[2]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="105" Pointer="No"/>
+ <variable Header="BUTTON_CLK" Icon="2" Type="variable" Desc=":   unsigned long[2]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="106" Pointer="No"/>
+ <variable Header="BUTTON_EXTI_LINE" Icon="2" Type="variable" Desc=":   unsigned int[2]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="107" Pointer="No"/>
+ <variable Header="BUTTON_PORT_SOURCE" Icon="2" Type="variable" Desc=":   unsigned int[2]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="109" Pointer="No"/>
+ <variable Header="BUTTON_PIN_SOURCE" Icon="2" Type="variable" Desc=":   unsigned int[2]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="111" Pointer="No"/>
+ <variable Header="BUTTON_IRQn" Icon="2" Type="variable" Desc=":   unsigned int[2]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="113" Pointer="No"/>
+ <variable Header="COM_USART" Icon="2" Type="variable" Desc=":   struct  CODE*[1]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="115" Pointer="No"/>
+ <variable Header="COM_PORT" Icon="2" Type="variable" Desc=":   struct  CODE*[1]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="116" Pointer="No"/>
+ <variable Header="COM_USART_CLK" Icon="2" Type="variable" Desc=":   unsigned long[1]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="117" Pointer="No"/>
+ <variable Header="COM_POR_CLK" Icon="2" Type="variable" Desc=":   unsigned long[1]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="118" Pointer="No"/>
+ <variable Header="COM_TX_PIN" Icon="2" Type="variable" Desc=":   unsigned int[1]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="119" Pointer="No"/>
+ <variable Header="COM_RX_PIN" Icon="2" Type="variable" Desc=":   unsigned int[1]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32_eval.c" DeclLine="120" Pointer="No"/>
+ <func Header="NMI_Handler" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32f10x_it.c" DeclLine="47"/>
+ <func Header="HardFault_Handler" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32f10x_it.c" DeclLine="56"/>
+ <func Header="MemManage_Handler" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32f10x_it.c" DeclLine="69"/>
+ <func Header="BusFault_Handler" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32f10x_it.c" DeclLine="82"/>
+ <func Header="UsageFault_Handler" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32f10x_it.c" DeclLine="95"/>
+ <func Header="SVC_Handler" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32f10x_it.c" DeclLine="108"/>
+ <func Header="DebugMon_Handler" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32f10x_it.c" DeclLine="117"/>
+ <func Header="PendSV_Handler" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32f10x_it.c" DeclLine="126"/>
+ <func Header="SysTick_Handler" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src\stm32f10x_it.c" DeclLine="135"/>
+ <type Header="uint8_t" Icon="1" Type="type" Desc=": unsigned char" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="46" Pointer="No"/>
+ <type Header="uint32_t" Icon="1" Type="type" Desc=": unsigned long" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="84" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="352" Pointer="No"/>
+ <type Header="ITStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="352" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="354" Pointer="No"/>
+ <type Header="ErrorStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="357" Pointer="No"/>
+ <type Header="RCC_ClocksTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h" DeclLine="52" Pointer="No"/>
+ <func Header="RCC_GetClocksFreq" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c" DeclLine="903"/>
+ <func Header="RCC_APB2PeriphClockCmd" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c" DeclLine="1077"/>
+ <func Header="RCC_APB1PeriphClockCmd" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c" DeclLine="1107"/>
+ <variable Header="APBAHBPrescTable" Icon="2" Type="variable" Desc=":   unsigned char[16]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c" DeclLine="200" Pointer="No"/>
+ <variable Header="ADCPrescTable" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c" DeclLine="201" Pointer="No"/>
+ <type Header="uint8_t" Icon="1" Type="type" Desc=": unsigned char" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="46" Pointer="No"/>
+ <type Header="uint32_t" Icon="1" Type="type" Desc=": unsigned long" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="84" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="352" Pointer="No"/>
+ <func Header="WWDG_Enable" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_wwdg.c" DeclLine="185"/>
+ <type Header="uint8_t" Icon="1" Type="type" Desc=": unsigned char" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="46" Pointer="No"/>
+ <type Header="uint32_t" Icon="1" Type="type" Desc=": unsigned long" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="84" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="354" Pointer="No"/>
+ <type Header="NVIC_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h" DeclLine="67" Pointer="No"/>
+ <func Header="NVIC_Init" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c" DeclLine="112"/>
+ <type Header="uint32_t" Icon="1" Type="type" Desc=": unsigned long" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="84" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="352" Pointer="No"/>
+ <type Header="ITStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="352" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="354" Pointer="No"/>
+ <type Header="EXTIMode_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h" DeclLine="53" Pointer="No"/>
+ <type Header="EXTITrigger_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h" DeclLine="66" Pointer="No"/>
+ <type Header="EXTI_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h" DeclLine="88" Pointer="No"/>
+ <func Header="EXTI_Init" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_exti.c" DeclLine="101"/>
+ <type Header="uint8_t" Icon="1" Type="type" Desc=": unsigned char" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="46" Pointer="No"/>
+ <type Header="uint16_t" Icon="1" Type="type" Desc=": unsigned int" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="58" Pointer="No"/>
+ <type Header="uint32_t" Icon="1" Type="type" Desc=": unsigned long" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="84" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="352" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="354" Pointer="No"/>
+ <type Header="FLASH_Status" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_flash.h" DeclLine="56" Pointer="No"/>
+ <func Header="FLASH_Unlock" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c" DeclLine="185"/>
+ <func Header="FLASH_GetUserOptionByte" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c" DeclLine="643"/>
+ <func Header="FLASH_GetWriteProtectionOptionByte" Icon="3" Type="func" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c" DeclLine="654"/>
+ <func Header="FLASH_GetStatus" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c" DeclLine="793"/>
+ <func Header="FLASH_WaitForLastOperation" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c" DeclLine="829"/>
+ <func Header="FLASH_UserOptionByteConfig" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c" DeclLine="602"/>
+ <func Header="FLASH_EnableWriteProtection" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c" DeclLine="461"/>
+ <func Header="FLASH_ProgramWord" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c" DeclLine="328"/>
+ <func Header="FLASH_EraseOptionBytes" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c" DeclLine="272"/>
+ <func Header="FLASH_ErasePage" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c" DeclLine="209"/>
+ <type Header="uint8_t" Icon="1" Type="type" Desc=": unsigned char" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="46" Pointer="No"/>
+ <type Header="uint16_t" Icon="1" Type="type" Desc=": unsigned int" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="58" Pointer="No"/>
+ <type Header="uint32_t" Icon="1" Type="type" Desc=": unsigned long" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="84" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="354" Pointer="No"/>
+ <type Header="GPIO_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="814" Pointer="No"/>
+ <type Header="GPIOSpeed_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h" DeclLine="62" Pointer="No"/>
+ <type Header="GPIOMode_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h" DeclLine="79" Pointer="No"/>
+ <type Header="GPIO_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h" DeclLine="100" Pointer="No"/>
+ <type Header="BitAction" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h" DeclLine="110" Pointer="No"/>
+ <func Header="GPIO_Init" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" DeclLine="173"/>
+ <func Header="GPIO_ReadInputDataBit" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" DeclLine="281"/>
+ <func Header="GPIO_EXTILineConfig" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" DeclLine="577"/>
+ <type Header="uint8_t" Icon="1" Type="type" Desc=": unsigned char" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="46" Pointer="No"/>
+ <type Header="uint16_t" Icon="1" Type="type" Desc=": unsigned int" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="58" Pointer="No"/>
+ <type Header="uint32_t" Icon="1" Type="type" Desc=": unsigned long" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="84" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="352" Pointer="No"/>
+ <type Header="ITStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="352" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="354" Pointer="No"/>
+ <type Header="USART_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\stm32f10x.h" DeclLine="1046" Pointer="No"/>
+ <type Header="RCC_ClocksTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h" DeclLine="52" Pointer="No"/>
+ <type Header="USART_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h" DeclLine="75" Pointer="No"/>
+ <type Header="USART_ClockInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h" DeclLine="96" Pointer="No"/>
+ <func Header="USART_Cmd" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" DeclLine="320"/>
+ <func Header="USART_SendData" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" DeclLine="560"/>
+ <func Header="USART_GetFlagStatus" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" DeclLine="784"/>
+ <func Header="USART_Init" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" DeclLine="166"/>
+ <type Header="uint8_t" Icon="1" Type="type" Desc=": unsigned char" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="46" Pointer="No"/>
+ <type Header="int16_t" Icon="1" Type="type" Desc=": int" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="57" Pointer="No"/>
+ <type Header="uint16_t" Icon="1" Type="type" Desc=": unsigned int" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="58" Pointer="No"/>
+ <type Header="int32_t" Icon="1" Type="type" Desc=": long" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="83" Pointer="No"/>
+ <type Header="uint32_t" Icon="1" Type="type" Desc=": unsigned long" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="84" Pointer="No"/>
+ <func Header="__set_MSP" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\core_cm3.c" DeclLine="518"/>
+ <type Header="uint32_t" Icon="1" Type="type" Desc=": unsigned long" DeclFile="c:\program files\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="84" Pointer="No"/>
+ <func Header="SystemInit" Icon="3" Type="func" Desc=":   void" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\system_stm32f10x.c" DeclLine="188"/>
+ <variable Header="SystemFrequency" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\system_stm32f10x.c" DeclLine="135" Pointer="No"/>
+ <variable Header="SystemFrequency_SysClk" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\system_stm32f10x.c" DeclLine="136" Pointer="No"/>
+ <variable Header="SystemFrequency_AHBClk" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\system_stm32f10x.c" DeclLine="137" Pointer="No"/>
+ <variable Header="SystemFrequency_APB1Clk" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\system_stm32f10x.c" DeclLine="138" Pointer="No"/>
+ <variable Header="SystemFrequency_APB2Clk" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\system_stm32f10x.c" DeclLine="139" Pointer="No"/>
+</aoffile>
+

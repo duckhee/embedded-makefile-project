@@ -1,0 +1,804 @@
+<!-- DWF2XML 2.00.01 - Raisonance Dwarf information extractor -->
+<aoffile Filename="MStroy2.0" dwarf="1">
+ <modulelist>
+  <module Name="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\main.c" >
+   <type Family="typedef" Name="IRQn_Type" Line="301" ID="356" toTI="37"/>
+   <type Family="Base" Name="signed char" ID="368"/>
+   <type Family="Base" Name="unsigned char" ID="386"/>
+   <type Family="typedef" Name="uint8_t" Line="46" ID="375" toTI="386"/>
+   <type Family="Base" Name="short int" ID="393"/>
+   <type Family="Base" Name="short unsigned int" ID="411"/>
+   <type Family="typedef" Name="uint16_t" Line="58" ID="400" toTI="411"/>
+   <type Family="Base" Name="long int" ID="418"/>
+   <type Family="Base" Name="long unsigned int" ID="436"/>
+   <type Family="typedef" Name="uint32_t" Line="84" ID="425" toTI="436"/>
+   <type Family="Base" Name="long long int" ID="443"/>
+   <type Family="Base" Name="long long unsigned int" ID="450"/>
+   <type Family="Base" Name="int" ID="457"/>
+   <type Family="Base" Name="unsigned int" ID="464"/>
+   <type Family="ComponentList" Line="135" ID="471">
+   <type Family="array" ID="673" toTI="425"/>
+    <Component Name="ISER" TI="480" Line="136" Offs="0"/>
+   <type Family="array" ID="697" toTI="425"/>
+    <Component Name="RESERVED0" TI="494" Line="137" Offs="32"/>
+    <Component Name="ICER" TI="508" Line="138" Offs="128"/>
+    <Component Name="RSERVED1" TI="523" Line="139" Offs="160"/>
+    <Component Name="ISPR" TI="538" Line="140" Offs="256"/>
+    <Component Name="RESERVED2" TI="553" Line="141" Offs="288"/>
+    <Component Name="ICPR" TI="568" Line="142" Offs="384"/>
+    <Component Name="RESERVED3" TI="583" Line="143" Offs="416"/>
+    <Component Name="IABR" TI="598" Line="144" Offs="512"/>
+   <type Family="array" ID="733" toTI="425"/>
+    <Component Name="RESERVED4" TI="613" Line="145" Offs="544"/>
+   <type Family="array" ID="749" toTI="375"/>
+    <Component Name="IP" TI="628" Line="146" Offs="768"/>
+   <type Family="array" ID="770" toTI="425"/>
+    <Component Name="RESERVED5" TI="642" Line="147" Offs="1008"/>
+    <Component Name="STIR" TI="657" Line="148" Offs="3584"/>
+   </type>
+   <type Family="ComponentList" Line="154" ID="792">
+    <Component Name="CPUID" TI="800" Line="155" Offs="0"/>
+    <Component Name="ICSR" TI="814" Line="156" Offs="4"/>
+    <Component Name="VTOR" TI="828" Line="157" Offs="8"/>
+    <Component Name="AIRCR" TI="842" Line="158" Offs="12"/>
+    <Component Name="SCR" TI="856" Line="159" Offs="16"/>
+    <Component Name="CCR" TI="870" Line="160" Offs="20"/>
+   <type Family="array" ID="1072" toTI="375"/>
+    <Component Name="SHP" TI="884" Line="161" Offs="24"/>
+    <Component Name="SHCSR" TI="898" Line="162" Offs="36"/>
+    <Component Name="CFSR" TI="912" Line="163" Offs="40"/>
+    <Component Name="HFSR" TI="926" Line="164" Offs="44"/>
+    <Component Name="DFSR" TI="940" Line="165" Offs="48"/>
+    <Component Name="MMFAR" TI="954" Line="166" Offs="52"/>
+    <Component Name="BFAR" TI="968" Line="167" Offs="56"/>
+    <Component Name="AFSR" TI="982" Line="168" Offs="60"/>
+   <type Family="array" ID="1093" toTI="425"/>
+    <Component Name="PFR" TI="996" Line="169" Offs="64"/>
+    <Component Name="DFR" TI="1010" Line="170" Offs="72"/>
+    <Component Name="ADR" TI="1024" Line="171" Offs="76"/>
+   <type Family="array" ID="1119" toTI="425"/>
+    <Component Name="MMFR" TI="1038" Line="172" Offs="80"/>
+   <type Family="array" ID="1145" toTI="425"/>
+    <Component Name="ISAR" TI="1052" Line="173" Offs="96"/>
+   </type>
+   <type Family="ComponentList" Line="179" ID="1171">
+    <Component Name="CTRL" TI="1179" Line="180" Offs="0"/>
+    <Component Name="LOAD" TI="1193" Line="181" Offs="4"/>
+    <Component Name="VAL" TI="1207" Line="182" Offs="8"/>
+    <Component Name="CALIB" TI="1221" Line="183" Offs="12"/>
+   </type>
+   <type Family="ComponentList" Line="1031" ID="1241">
+    <Component Name="SR" TI="1250" Line="1032" Offs="0"/>
+    <Component Name="RESERVED0" TI="1264" Line="1033" Offs="2"/>
+    <Component Name="DR" TI="1279" Line="1034" Offs="4"/>
+    <Component Name="RESERVED1" TI="1293" Line="1035" Offs="6"/>
+    <Component Name="BRR" TI="1308" Line="1036" Offs="8"/>
+    <Component Name="RESERVED2" TI="1323" Line="1037" Offs="10"/>
+    <Component Name="CR1" TI="1338" Line="1038" Offs="12"/>
+    <Component Name="RESERVED3" TI="1353" Line="1039" Offs="14"/>
+    <Component Name="CR2" TI="1368" Line="1040" Offs="16"/>
+    <Component Name="RESERVED4" TI="1383" Line="1041" Offs="18"/>
+    <Component Name="CR3" TI="1398" Line="1042" Offs="20"/>
+    <Component Name="RESERVED5" TI="1413" Line="1043" Offs="22"/>
+    <Component Name="GTPR" TI="1428" Line="1044" Offs="24"/>
+    <Component Name="RESERVED6" TI="1443" Line="1045" Offs="26"/>
+   </type>
+   <type Family="ComponentList" Line="46" ID="1459">
+    <Component Name="SYSCLK_Frequency" TI="1467" Line="47" Offs="0"/>
+    <Component Name="HCLK_Frequency" TI="1481" Line="48" Offs="4"/>
+    <Component Name="PCLK1_Frequency" TI="1495" Line="49" Offs="8"/>
+    <Component Name="PCLK2_Frequency" TI="1509" Line="50" Offs="12"/>
+    <Component Name="ADCCLK_Frequency" TI="1523" Line="51" Offs="16"/>
+   </type>
+   <type Family="typedef" Name="RCC_ClocksTypeDef" Line="52" ID="1538" toTI="1459"/>
+   <type Family="Base" Name="char" ID="1549"/>
+   <function Name="System_Information" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\main.c" Line="21">
+   <type Family="array" ID="1759" toTI="1549"/>
+    <variable Name="__FUNCTION__" FileName="" Line="0" Addr="0x800911C" TI="1775"/>
+   </function >
+   <function Name="main" TI="457" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\main.c" Line="38">
+    <variable Name="ch" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\main.c" Line="39" Addr="0x4" TI="375"/>
+   </function >
+   <variable Name="rcc_clocks" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\main.c" Line="16" Addr="0x20000554" TI="1538"/>
+  </module>
+  <module Name="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" >
+   <type Family="Base" Name="signed char" ID="2155"/>
+   <type Family="Base" Name="unsigned char" ID="2173"/>
+   <type Family="typedef" Name="uint8_t" Line="46" ID="2162" toTI="2173"/>
+   <type Family="Base" Name="short int" ID="2180"/>
+   <type Family="Base" Name="short unsigned int" ID="2198"/>
+   <type Family="typedef" Name="uint16_t" Line="58" ID="2187" toTI="2198"/>
+   <type Family="Base" Name="long int" ID="2205"/>
+   <type Family="Base" Name="long unsigned int" ID="2223"/>
+   <type Family="typedef" Name="uint32_t" Line="84" ID="2212" toTI="2223"/>
+   <type Family="Base" Name="long long int" ID="2230"/>
+   <type Family="Base" Name="long long unsigned int" ID="2237"/>
+   <type Family="Base" Name="int" ID="2244"/>
+   <type Family="Base" Name="unsigned int" ID="2251"/>
+   <type Family="typedef" Name="FunctionalState" Line="354" ID="2315" toTI="2293"/>
+   <type Family="ComponentList" Line="806" ID="2327">
+    <Component Name="CRL" TI="2336" Line="807" Offs="0"/>
+    <Component Name="CRH" TI="2351" Line="808" Offs="4"/>
+    <Component Name="IDR" TI="2366" Line="809" Offs="8"/>
+    <Component Name="ODR" TI="2381" Line="810" Offs="12"/>
+    <Component Name="BSRR" TI="2396" Line="811" Offs="16"/>
+    <Component Name="BRR" TI="2411" Line="812" Offs="20"/>
+    <Component Name="LCKR" TI="2426" Line="813" Offs="24"/>
+   </type>
+   <type Family="ComponentList" Line="1031" ID="2442">
+    <Component Name="SR" TI="2451" Line="1032" Offs="0"/>
+    <Component Name="RESERVED0" TI="2465" Line="1033" Offs="2"/>
+    <Component Name="DR" TI="2480" Line="1034" Offs="4"/>
+    <Component Name="RESERVED1" TI="2494" Line="1035" Offs="6"/>
+    <Component Name="BRR" TI="2509" Line="1036" Offs="8"/>
+    <Component Name="RESERVED2" TI="2524" Line="1037" Offs="10"/>
+    <Component Name="CR1" TI="2539" Line="1038" Offs="12"/>
+    <Component Name="RESERVED3" TI="2554" Line="1039" Offs="14"/>
+    <Component Name="CR2" TI="2569" Line="1040" Offs="16"/>
+    <Component Name="RESERVED4" TI="2584" Line="1041" Offs="18"/>
+    <Component Name="CR3" TI="2599" Line="1042" Offs="20"/>
+    <Component Name="RESERVED5" TI="2614" Line="1043" Offs="22"/>
+    <Component Name="GTPR" TI="2629" Line="1044" Offs="24"/>
+    <Component Name="RESERVED6" TI="2644" Line="1045" Offs="26"/>
+   </type>
+   <type Family="typedef" Name="USART_TypeDef" Line="1046" ID="2660" toTI="2442"/>
+   <type Family="typedef" Name="EXTIMode_TypeDef" Line="53" ID="2693" toTI="2672"/>
+   <type Family="typedef" Name="EXTITrigger_TypeDef" Line="66" ID="2731" toTI="2704"/>
+   <type Family="ComponentList" Line="76" ID="2742">
+    <Component Name="EXTI_Line" TI="2750" Line="77" Offs="0"/>
+    <Component Name="EXTI_Mode" TI="2764" Line="80" Offs="4"/>
+    <Component Name="EXTI_Trigger" TI="2778" Line="83" Offs="5"/>
+    <Component Name="EXTI_LineCmd" TI="2792" Line="86" Offs="6"/>
+   </type>
+   <type Family="typedef" Name="EXTI_InitTypeDef" Line="88" ID="2807" toTI="2742"/>
+   <type Family="typedef" Name="GPIOSpeed_TypeDef" Line="62" ID="2845" toTI="2818"/>
+   <type Family="typedef" Name="GPIOMode_TypeDef" Line="79" ID="2914" toTI="2856"/>
+   <type Family="ComponentList" Line="91" ID="2925">
+    <Component Name="GPIO_Pin" TI="2933" Line="92" Offs="0"/>
+    <Component Name="GPIO_Speed" TI="2947" Line="95" Offs="2"/>
+    <Component Name="GPIO_Mode" TI="2961" Line="98" Offs="3"/>
+   </type>
+   <type Family="typedef" Name="GPIO_InitTypeDef" Line="100" ID="2976" toTI="2925"/>
+   <type Family="ComponentList" Line="50" ID="2987">
+    <Component Name="USART_BaudRate" TI="2995" Line="51" Offs="0"/>
+    <Component Name="USART_WordLength" TI="3009" Line="56" Offs="4"/>
+    <Component Name="USART_StopBits" TI="3023" Line="59" Offs="6"/>
+    <Component Name="USART_Parity" TI="3037" Line="62" Offs="8"/>
+    <Component Name="USART_Mode" TI="3051" Line="69" Offs="10"/>
+    <Component Name="USART_HardwareFlowControl" TI="3065" Line="72" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="USART_InitTypeDef" Line="75" ID="3080" toTI="2987"/>
+   <type Family="ComponentList" Line="50" ID="3091">
+    <Component Name="NVIC_IRQChannel" TI="3099" Line="51" Offs="0"/>
+    <Component Name="NVIC_IRQChannelPreemptionPriority" TI="3113" Line="56" Offs="1"/>
+    <Component Name="NVIC_IRQChannelSubPriority" TI="3127" Line="60" Offs="2"/>
+    <Component Name="NVIC_IRQChannelCmd" TI="3141" Line="64" Offs="3"/>
+   </type>
+   <type Family="typedef" Name="NVIC_InitTypeDef" Line="67" ID="3156" toTI="3091"/>
+   <type Family="Base" Name="char" ID="3167"/>
+   <function Name="Delay" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="208">
+    <parameter Name="nTime" TI="2261" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="208" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="delay_100_milli_second" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="34">
+   </function >
+   <function Name="delay_1_second" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="29">
+   </function >
+   <function Name="TimingDelay_Decrement" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="220">
+   </function >
+   <function Name="USART_GetCharacter" TI="2162" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="251">
+   <type Family="Pointer" TI="3334" toTI="2660"/>
+    <parameter Name="usart_p" TI="3334" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="251" Addr="0x0" Param="Yes"/>
+    <variable Name="data" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="252" Addr="0x4" TI="2162"/>
+   </function >
+   <function Name="__io_putchar" TI="2244" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="234">
+    <parameter Name="ch" TI="2244" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="234" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="EXTI_Configuration" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="176">
+    <variable Name="EXTI_InitStructure" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="177" Addr="0x34000000" TI="2807"/>
+   </function >
+   <function Name="GPIO_Configuration" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="136">
+    <variable Name="GPIO_InitStructure" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="137" Addr="0x34000004" TI="2976"/>
+   </function >
+   <function Name="NVIC_Configuration" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="100">
+    <variable Name="NVIC_InitStructure" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="101" Addr="0x34000004" TI="3156"/>
+   </function >
+   <function Name="RCC_Configuration" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="79">
+   </function >
+   <function Name="USART1_Init" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="45">
+    <variable Name="USART_InitStructure" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="46" Addr="0x34000000" TI="3080"/>
+   </function >
+   <variable Name="TimingDelay" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\hw_config.c" Line="24" Addr="0x20000518" TI="2261"/>
+  </module>
+  <module Name="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\led.c" >
+   <type Family="Base" Name="signed char" ID="3620"/>
+   <type Family="Base" Name="unsigned char" ID="3627"/>
+   <type Family="Base" Name="short int" ID="3634"/>
+   <type Family="Base" Name="short unsigned int" ID="3641"/>
+   <type Family="Base" Name="long int" ID="3648"/>
+   <type Family="Base" Name="long unsigned int" ID="3666"/>
+   <type Family="typedef" Name="uint32_t" Line="84" ID="3655" toTI="3666"/>
+   <type Family="Base" Name="long long int" ID="3673"/>
+   <type Family="Base" Name="long long unsigned int" ID="3680"/>
+   <type Family="Base" Name="int" ID="3687"/>
+   <type Family="Base" Name="unsigned int" ID="3694"/>
+   <type Family="ComponentList" Line="806" ID="3709">
+    <Component Name="CRL" TI="3718" Line="807" Offs="0"/>
+    <Component Name="CRH" TI="3733" Line="808" Offs="4"/>
+    <Component Name="IDR" TI="3748" Line="809" Offs="8"/>
+    <Component Name="ODR" TI="3763" Line="810" Offs="12"/>
+    <Component Name="BSRR" TI="3778" Line="811" Offs="16"/>
+    <Component Name="BRR" TI="3793" Line="812" Offs="20"/>
+    <Component Name="LCKR" TI="3808" Line="813" Offs="24"/>
+   </type>
+   <type Family="Base" Name="char" ID="3824"/>
+   <function Name="LED_Off_Blue" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\led.c" Line="48">
+   </function >
+   <function Name="LED_Off_Yellow" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\led.c" Line="38">
+   </function >
+   <function Name="LED_Off_Red" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\led.c" Line="28">
+   </function >
+   <function Name="LED_Off_All" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\led.c" Line="60">
+   </function >
+   <function Name="LED_On_Blue" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\led.c" Line="43">
+   </function >
+   <function Name="LED_On_Yellow" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\led.c" Line="33">
+   </function >
+   <function Name="LED_On_Red" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\led.c" Line="23">
+   </function >
+   <function Name="LED_OnOffAll_Mult" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\led.c" Line="67">
+    <parameter Name="count" TI="3655" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\led.c" Line="67" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="LED_On_All" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\led.c" Line="53">
+   </function >
+   <function Name="LED_Test" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\led.c" Line="88">
+   </function >
+  </module>
+  <module Name="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\debug.c" >
+   <type Family="Base" Name="signed char" ID="4099"/>
+   <type Family="Base" Name="unsigned char" ID="4117"/>
+   <type Family="typedef" Name="uint8_t" Line="46" ID="4106" toTI="4117"/>
+   <type Family="Base" Name="short int" ID="4124"/>
+   <type Family="Base" Name="short unsigned int" ID="4131"/>
+   <type Family="Base" Name="long int" ID="4138"/>
+   <type Family="Base" Name="long unsigned int" ID="4156"/>
+   <type Family="typedef" Name="uint32_t" Line="84" ID="4145" toTI="4156"/>
+   <type Family="Base" Name="long long int" ID="4163"/>
+   <type Family="Base" Name="long long unsigned int" ID="4170"/>
+   <type Family="Base" Name="int" ID="4177"/>
+   <type Family="Base" Name="unsigned int" ID="4184"/>
+   <type Family="Base" Name="char" ID="4194"/>
+   <type Family="Pointer" TI="4201" toTI="4207"/>
+   <function Name="assert_failed" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\debug.c" Line="61">
+   <type Family="Pointer" TI="4268" toTI="4106"/>
+    <parameter Name="file" TI="4268" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\debug.c" Line="61" Addr="0x0" Param="Yes"/>
+    <parameter Name="line" TI="4145" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\debug.c" Line="61" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="DebugMsg_FunctionStart" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\debug.c" Line="17">
+    <parameter Name="fName_p" TI="4201" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\debug.c" Line="17" Addr="0x0" Param="Yes"/>
+   </function >
+  </module>
+  <module Name="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\key.c" >
+   <type Family="Base" Name="signed char" ID="4558"/>
+   <type Family="Base" Name="unsigned char" ID="4565"/>
+   <type Family="Base" Name="short int" ID="4572"/>
+   <type Family="Base" Name="short unsigned int" ID="4579"/>
+   <type Family="Base" Name="long int" ID="4586"/>
+   <type Family="Base" Name="long unsigned int" ID="4604"/>
+   <type Family="typedef" Name="uint32_t" Line="84" ID="4593" toTI="4604"/>
+   <type Family="Base" Name="long long int" ID="4611"/>
+   <type Family="Base" Name="long long unsigned int" ID="4618"/>
+   <type Family="Base" Name="int" ID="4625"/>
+   <type Family="Base" Name="unsigned int" ID="4632"/>
+   <type Family="ComponentList" Line="806" ID="4647">
+    <Component Name="CRL" TI="4656" Line="807" Offs="0"/>
+    <Component Name="CRH" TI="4671" Line="808" Offs="4"/>
+    <Component Name="IDR" TI="4686" Line="809" Offs="8"/>
+    <Component Name="ODR" TI="4701" Line="810" Offs="12"/>
+    <Component Name="BSRR" TI="4716" Line="811" Offs="16"/>
+    <Component Name="BRR" TI="4731" Line="812" Offs="20"/>
+    <Component Name="LCKR" TI="4746" Line="813" Offs="24"/>
+   </type>
+   <type Family="Base" Name="char" ID="4783"/>
+   <function Name="KEY_Test" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\key.c" Line="28">
+    <variable Name="i" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\key.c" Line="29" Addr="0x4" TI="4593"/>
+   </function >
+  </module>
+  <module Name="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" >
+   <type Family="Base" Name="signed char" ID="4861"/>
+   <type Family="Base" Name="unsigned char" ID="4868"/>
+   <type Family="Base" Name="short int" ID="4875"/>
+   <type Family="Base" Name="short unsigned int" ID="4882"/>
+   <type Family="Base" Name="long int" ID="4889"/>
+   <type Family="Base" Name="long unsigned int" ID="4896"/>
+   <type Family="Base" Name="long long int" ID="4903"/>
+   <type Family="Base" Name="long long unsigned int" ID="4910"/>
+   <type Family="Base" Name="int" ID="4917"/>
+   <type Family="Base" Name="unsigned int" ID="4924"/>
+   <type Family="Base" Name="char" ID="4956"/>
+   <function Name="NMI_Handler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="47">
+   </function >
+   <function Name="HardFault_Handler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="56">
+   </function >
+   <function Name="MemManage_Handler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="69">
+   </function >
+   <function Name="BusFault_Handler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="82">
+   </function >
+   <function Name="UsageFault_Handler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="95">
+   </function >
+   <function Name="SVC_Handler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="108">
+   </function >
+   <function Name="DebugMon_Handler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="117">
+   </function >
+   <function Name="PendSV_Handler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="126">
+   </function >
+   <function Name="WWDG_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="154">
+   </function >
+   <function Name="PVD_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="165">
+   </function >
+   <function Name="TAMPER_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="176">
+   </function >
+   <function Name="RTC_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="187">
+   </function >
+   <function Name="FLASH_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="198">
+   </function >
+   <function Name="RCC_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="209">
+   </function >
+   <function Name="EXTI2_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="250">
+   </function >
+   <function Name="EXTI3_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="261">
+   </function >
+   <function Name="EXTI4_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="272">
+   </function >
+   <function Name="DMA1_Channel1_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="283">
+   </function >
+   <function Name="DMA1_Channel2_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="294">
+   </function >
+   <function Name="DMA1_Channel3_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="305">
+   </function >
+   <function Name="DMA1_Channel4_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="316">
+   </function >
+   <function Name="DMA1_Channel5_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="327">
+   </function >
+   <function Name="DMA1_Channel6_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="338">
+   </function >
+   <function Name="DMA1_Channel7_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="349">
+   </function >
+   <function Name="ADC1_2_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="360">
+   </function >
+   <function Name="USB_HP_CAN1_TX_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="372">
+   </function >
+   <function Name="USB_LP_CAN1_RX0_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="384">
+   </function >
+   <function Name="CAN1_RX1_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="395">
+   </function >
+   <function Name="CAN1_SCE_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="406">
+   </function >
+   <function Name="EXTI9_5_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="417">
+   </function >
+   <function Name="TIM1_BRK_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="428">
+   </function >
+   <function Name="TIM1_UP_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="440">
+   </function >
+   <function Name="TIM1_TRG_COM_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="452">
+   </function >
+   <function Name="TIM1_CC_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="463">
+   </function >
+   <function Name="TIM2_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="474">
+   </function >
+   <function Name="TIM3_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="485">
+   </function >
+   <function Name="TIM4_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="496">
+   </function >
+   <function Name="I2C1_EV_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="507">
+   </function >
+   <function Name="I2C1_ER_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="518">
+   </function >
+   <function Name="I2C2_EV_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="529">
+   </function >
+   <function Name="I2C2_ER_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="540">
+   </function >
+   <function Name="SPI1_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="551">
+   </function >
+   <function Name="SPI2_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="562">
+   </function >
+   <function Name="USART1_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="573">
+   </function >
+   <function Name="USART2_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="584">
+   </function >
+   <function Name="USART3_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="595">
+   </function >
+   <function Name="EXTI15_10_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="606">
+   </function >
+   <function Name="RTCAlarm_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="617">
+   </function >
+   <function Name="USBWakeUp_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="628">
+   </function >
+   <function Name="EXTI1_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="235">
+   </function >
+   <function Name="EXTI0_IRQHandler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="220">
+   </function >
+   <function Name="SysTick_Handler" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src\stm32f10x_it.c" Line="135">
+   </function >
+  </module>
+  <module Name="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" >
+   <type Family="Base" Name="signed char" ID="6029"/>
+   <type Family="Base" Name="unsigned char" ID="6047"/>
+   <type Family="typedef" Name="uint8_t" Line="46" ID="6036" toTI="6047"/>
+   <type Family="Base" Name="short int" ID="6054"/>
+   <type Family="Base" Name="short unsigned int" ID="6072"/>
+   <type Family="typedef" Name="uint16_t" Line="58" ID="6061" toTI="6072"/>
+   <type Family="Base" Name="long int" ID="6079"/>
+   <type Family="Base" Name="long unsigned int" ID="6097"/>
+   <type Family="typedef" Name="uint32_t" Line="84" ID="6086" toTI="6097"/>
+   <type Family="Base" Name="long long int" ID="6104"/>
+   <type Family="Base" Name="long long unsigned int" ID="6111"/>
+   <type Family="Base" Name="int" ID="6118"/>
+   <type Family="Base" Name="unsigned int" ID="6125"/>
+   <type Family="typedef" Name="FlagStatus" Line="352" ID="6162" toTI="6140"/>
+   <type Family="typedef" Name="ITStatus" Line="352" ID="6174" toTI="6140"/>
+   <type Family="typedef" Name="FunctionalState" Line="354" ID="6208" toTI="6186"/>
+   <type Family="ComponentList" Line="1031" ID="6220">
+    <Component Name="SR" TI="6229" Line="1032" Offs="0"/>
+    <Component Name="RESERVED0" TI="6243" Line="1033" Offs="2"/>
+    <Component Name="DR" TI="6258" Line="1034" Offs="4"/>
+    <Component Name="RESERVED1" TI="6272" Line="1035" Offs="6"/>
+    <Component Name="BRR" TI="6287" Line="1036" Offs="8"/>
+    <Component Name="RESERVED2" TI="6302" Line="1037" Offs="10"/>
+    <Component Name="CR1" TI="6317" Line="1038" Offs="12"/>
+    <Component Name="RESERVED3" TI="6332" Line="1039" Offs="14"/>
+    <Component Name="CR2" TI="6347" Line="1040" Offs="16"/>
+    <Component Name="RESERVED4" TI="6362" Line="1041" Offs="18"/>
+    <Component Name="CR3" TI="6377" Line="1042" Offs="20"/>
+    <Component Name="RESERVED5" TI="6392" Line="1043" Offs="22"/>
+    <Component Name="GTPR" TI="6407" Line="1044" Offs="24"/>
+    <Component Name="RESERVED6" TI="6422" Line="1045" Offs="26"/>
+   </type>
+   <type Family="typedef" Name="USART_TypeDef" Line="1046" ID="6438" toTI="6220"/>
+   <type Family="ComponentList" Line="46" ID="6450">
+    <Component Name="SYSCLK_Frequency" TI="6458" Line="47" Offs="0"/>
+    <Component Name="HCLK_Frequency" TI="6472" Line="48" Offs="4"/>
+    <Component Name="PCLK1_Frequency" TI="6486" Line="49" Offs="8"/>
+    <Component Name="PCLK2_Frequency" TI="6500" Line="50" Offs="12"/>
+    <Component Name="ADCCLK_Frequency" TI="6514" Line="51" Offs="16"/>
+   </type>
+   <type Family="typedef" Name="RCC_ClocksTypeDef" Line="52" ID="6529" toTI="6450"/>
+   <type Family="ComponentList" Line="50" ID="6540">
+    <Component Name="USART_BaudRate" TI="6548" Line="51" Offs="0"/>
+    <Component Name="USART_WordLength" TI="6562" Line="56" Offs="4"/>
+    <Component Name="USART_StopBits" TI="6576" Line="59" Offs="6"/>
+    <Component Name="USART_Parity" TI="6590" Line="62" Offs="8"/>
+    <Component Name="USART_Mode" TI="6604" Line="69" Offs="10"/>
+    <Component Name="USART_HardwareFlowControl" TI="6618" Line="72" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="USART_InitTypeDef" Line="75" ID="6633" toTI="6540"/>
+   <type Family="ComponentList" Line="82" ID="6644">
+    <Component Name="USART_Clock" TI="6652" Line="84" Offs="0"/>
+    <Component Name="USART_CPOL" TI="6666" Line="87" Offs="2"/>
+    <Component Name="USART_CPHA" TI="6680" Line="90" Offs="4"/>
+    <Component Name="USART_LastBit" TI="6694" Line="93" Offs="6"/>
+   </type>
+   <type Family="typedef" Name="USART_ClockInitTypeDef" Line="96" ID="6709" toTI="6644"/>
+   <type Family="Pointer" TI="6757" toTI="6633"/>
+   <type Family="Pointer" TI="6802" toTI="6709"/>
+   <type Family="Pointer" TI="6891" toTI="6438"/>
+   <function Name="USART_GetFlagStatus" TI="6162" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="784">
+    <parameter Name="USARTx" TI="6891" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="784" Addr="0x0" Param="Yes"/>
+    <parameter Name="USART_FLAG" TI="6061" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="784" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="USART_ReceiveData" TI="6061" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="577">
+    <parameter Name="USARTx" TI="6891" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="577" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="USART_SendData" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="560">
+    <parameter Name="USARTx" TI="6891" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="560" Addr="0x0" Param="Yes"/>
+    <parameter Name="Data" TI="6061" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="560" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="USART_Cmd" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="320">
+    <parameter Name="USARTx" TI="6891" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="320" Addr="0x0" Param="Yes"/>
+    <parameter Name="NewState" TI="6208" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="320" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="USART_Init" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="166">
+    <parameter Name="USARTx" TI="6891" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="166" Addr="0x0" Param="Yes"/>
+    <parameter Name="USART_InitStruct" TI="6757" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="166" Addr="0x1" Param="Yes"/>
+    <variable Name="tmpreg" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="167" Addr="0x3" TI="6086"/>
+    <variable Name="apbclock" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="167" Addr="0x3" TI="6086"/>
+    <variable Name="integerdivider" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="168" Addr="0x2" TI="6086"/>
+    <variable Name="RCC_ClocksStatus" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Line="171" Addr="0x34000004" TI="6529"/>
+   </function >
+  </module>
+  <module Name="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" >
+   <type Family="Base" Name="signed char" ID="8565"/>
+   <type Family="Base" Name="unsigned char" ID="8583"/>
+   <type Family="typedef" Name="uint8_t" Line="46" ID="8572" toTI="8583"/>
+   <type Family="Base" Name="short int" ID="8590"/>
+   <type Family="Base" Name="short unsigned int" ID="8608"/>
+   <type Family="typedef" Name="uint16_t" Line="58" ID="8597" toTI="8608"/>
+   <type Family="Base" Name="long int" ID="8615"/>
+   <type Family="Base" Name="long unsigned int" ID="8633"/>
+   <type Family="typedef" Name="uint32_t" Line="84" ID="8622" toTI="8633"/>
+   <type Family="Base" Name="long long int" ID="8640"/>
+   <type Family="Base" Name="long long unsigned int" ID="8647"/>
+   <type Family="Base" Name="int" ID="8654"/>
+   <type Family="Base" Name="unsigned int" ID="8661"/>
+   <type Family="array" ID="8676" toTI="8622"/>
+   <type Family="typedef" Name="FunctionalState" Line="354" ID="8714" toTI="8692"/>
+   <type Family="ComponentList" Line="806" ID="8726">
+    <Component Name="CRL" TI="8735" Line="807" Offs="0"/>
+    <Component Name="CRH" TI="8750" Line="808" Offs="4"/>
+    <Component Name="IDR" TI="8765" Line="809" Offs="8"/>
+    <Component Name="ODR" TI="8780" Line="810" Offs="12"/>
+    <Component Name="BSRR" TI="8795" Line="811" Offs="16"/>
+    <Component Name="BRR" TI="8810" Line="812" Offs="20"/>
+    <Component Name="LCKR" TI="8825" Line="813" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="GPIO_TypeDef" Line="814" ID="8841" toTI="8726"/>
+   <type Family="ComponentList" Line="821" ID="8853">
+    <Component Name="EVCR" TI="8862" Line="822" Offs="0"/>
+    <Component Name="MAPR" TI="8877" Line="823" Offs="4"/>
+    <Component Name="EXTICR" TI="8892" Line="824" Offs="8"/>
+   </type>
+   <type Family="typedef" Name="GPIOSpeed_TypeDef" Line="62" ID="8940" toTI="8913"/>
+   <type Family="typedef" Name="GPIOMode_TypeDef" Line="79" ID="9009" toTI="8951"/>
+   <type Family="ComponentList" Line="91" ID="9020">
+    <Component Name="GPIO_Pin" TI="9028" Line="92" Offs="0"/>
+    <Component Name="GPIO_Speed" TI="9042" Line="95" Offs="2"/>
+    <Component Name="GPIO_Mode" TI="9056" Line="98" Offs="3"/>
+   </type>
+   <type Family="typedef" Name="GPIO_InitTypeDef" Line="100" ID="9071" toTI="9020"/>
+   <type Family="typedef" Name="BitAction" Line="110" ID="9103" toTI="9082"/>
+   <type Family="Pointer" TI="9153" toTI="9071"/>
+   <function Name="GPIO_EXTILineConfig" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="577">
+    <parameter Name="GPIO_PortSource" TI="8572" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="577" Addr="0x0" Param="Yes"/>
+    <parameter Name="GPIO_PinSource" TI="8572" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="577" Addr="0x1" Param="Yes"/>
+   </function >
+   <type Family="Pointer" TI="9579" toTI="8841"/>
+   <function Name="GPIO_ResetBits" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="374">
+    <parameter Name="GPIOx" TI="9579" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="374" Addr="0x0" Param="Yes"/>
+    <parameter Name="GPIO_Pin" TI="8597" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="374" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="GPIO_SetBits" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="358">
+    <parameter Name="GPIOx" TI="9579" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="358" Addr="0x0" Param="Yes"/>
+    <parameter Name="GPIO_Pin" TI="8597" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="358" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="GPIO_ReadInputDataBit" TI="8572" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="281">
+    <parameter Name="GPIOx" TI="9579" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="281" Addr="0x0" Param="Yes"/>
+    <parameter Name="GPIO_Pin" TI="8597" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="281" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="GPIO_Init" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="173">
+    <parameter Name="GPIOx" TI="9579" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="173" Addr="0x0" Param="Yes"/>
+    <parameter Name="GPIO_InitStruct" TI="9153" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="173" Addr="0x1" Param="Yes"/>
+    <variable Name="currentmode" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="174" Addr="0x7" TI="8622"/>
+    <variable Name="currentpin" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="174" Addr="0x0" TI="8622"/>
+    <variable Name="pinpos" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="174" Addr="0x1" TI="8622"/>
+    <variable Name="pos" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="174" Addr="0x3" TI="8622"/>
+    <variable Name="tmpreg" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Line="175" Addr="0x5" TI="8622"/>
+   </function >
+  </module>
+  <module Name="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c" >
+   <type Family="Base" Name="signed char" ID="10317"/>
+   <type Family="Base" Name="unsigned char" ID="10335"/>
+   <type Family="typedef" Name="uint8_t" Line="46" ID="10324" toTI="10335"/>
+   <type Family="Base" Name="short int" ID="10342"/>
+   <type Family="Base" Name="short unsigned int" ID="10349"/>
+   <type Family="Base" Name="long int" ID="10356"/>
+   <type Family="Base" Name="long unsigned int" ID="10374"/>
+   <type Family="typedef" Name="uint32_t" Line="84" ID="10363" toTI="10374"/>
+   <type Family="Base" Name="long long int" ID="10381"/>
+   <type Family="Base" Name="long long unsigned int" ID="10388"/>
+   <type Family="Base" Name="int" ID="10395"/>
+   <type Family="Base" Name="unsigned int" ID="10402"/>
+   <type Family="typedef" Name="FlagStatus" Line="352" ID="10439" toTI="10417"/>
+   <type Family="typedef" Name="ITStatus" Line="352" ID="10451" toTI="10417"/>
+   <type Family="typedef" Name="FunctionalState" Line="354" ID="10485" toTI="10463"/>
+   <type Family="typedef" Name="ErrorStatus" Line="357" ID="10519" toTI="10497"/>
+   <type Family="ComponentList" Line="879" ID="10531">
+    <Component Name="CR" TI="10540" Line="880" Offs="0"/>
+    <Component Name="CFGR" TI="10554" Line="881" Offs="4"/>
+    <Component Name="CIR" TI="10569" Line="882" Offs="8"/>
+    <Component Name="APB2RSTR" TI="10584" Line="883" Offs="12"/>
+    <Component Name="APB1RSTR" TI="10599" Line="884" Offs="16"/>
+    <Component Name="AHBENR" TI="10614" Line="885" Offs="20"/>
+    <Component Name="APB2ENR" TI="10629" Line="886" Offs="24"/>
+    <Component Name="APB1ENR" TI="10644" Line="887" Offs="28"/>
+    <Component Name="BDCR" TI="10659" Line="888" Offs="32"/>
+    <Component Name="CSR" TI="10674" Line="889" Offs="36"/>
+   </type>
+   <type Family="ComponentList" Line="46" ID="10690">
+    <Component Name="SYSCLK_Frequency" TI="10698" Line="47" Offs="0"/>
+    <Component Name="HCLK_Frequency" TI="10712" Line="48" Offs="4"/>
+    <Component Name="PCLK1_Frequency" TI="10726" Line="49" Offs="8"/>
+    <Component Name="PCLK2_Frequency" TI="10740" Line="50" Offs="12"/>
+    <Component Name="ADCCLK_Frequency" TI="10754" Line="51" Offs="16"/>
+   </type>
+   <type Family="typedef" Name="RCC_ClocksTypeDef" Line="52" ID="10769" toTI="10690"/>
+   <function Name="RCC_GetClocksFreq" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c" Line="903">
+   <type Family="Pointer" TI="10922" toTI="10769"/>
+    <parameter Name="RCC_Clocks" TI="10922" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c" Line="903" Addr="0x0" Param="Yes"/>
+    <variable Name="tmp" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c" Line="904" Addr="0x3" TI="10363"/>
+    <variable Name="pllmull" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c" Line="904" Addr="0x1" TI="10363"/>
+   </function >
+   <function Name="RCC_APB2PeriphClockCmd" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c" Line="1077">
+    <parameter Name="RCC_APB2Periph" TI="10363" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c" Line="1077" Addr="0x0" Param="Yes"/>
+    <parameter Name="NewState" TI="10485" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c" Line="1077" Addr="0x1" Param="Yes"/>
+   </function >
+   <type Family="array" ID="12456" toTI="10324"/>
+   <variable Name="APBAHBPrescTable" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c" Line="200" Addr="0x20000000" TI="12489"/>
+   <type Family="array" ID="12499" toTI="10324"/>
+   <variable Name="ADCPrescTable" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c" Line="201" Addr="0x20000010" TI="12532"/>
+  </module>
+  <module Name="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c" >
+   <type Family="Base" Name="signed char" ID="12580"/>
+   <type Family="Base" Name="unsigned char" ID="12598"/>
+   <type Family="typedef" Name="uint8_t" Line="46" ID="12587" toTI="12598"/>
+   <type Family="Base" Name="short int" ID="12605"/>
+   <type Family="Base" Name="short unsigned int" ID="12612"/>
+   <type Family="Base" Name="long int" ID="12619"/>
+   <type Family="Base" Name="long unsigned int" ID="12637"/>
+   <type Family="typedef" Name="uint32_t" Line="84" ID="12626" toTI="12637"/>
+   <type Family="Base" Name="long long int" ID="12644"/>
+   <type Family="Base" Name="long long unsigned int" ID="12651"/>
+   <type Family="Base" Name="int" ID="12658"/>
+   <type Family="Base" Name="unsigned int" ID="12665"/>
+   <type Family="ComponentList" Line="135" ID="12672">
+   <type Family="array" ID="12874" toTI="12626"/>
+    <Component Name="ISER" TI="12681" Line="136" Offs="0"/>
+   <type Family="array" ID="12898" toTI="12626"/>
+    <Component Name="RESERVED0" TI="12695" Line="137" Offs="32"/>
+    <Component Name="ICER" TI="12709" Line="138" Offs="128"/>
+    <Component Name="RSERVED1" TI="12724" Line="139" Offs="160"/>
+    <Component Name="ISPR" TI="12739" Line="140" Offs="256"/>
+    <Component Name="RESERVED2" TI="12754" Line="141" Offs="288"/>
+    <Component Name="ICPR" TI="12769" Line="142" Offs="384"/>
+    <Component Name="RESERVED3" TI="12784" Line="143" Offs="416"/>
+    <Component Name="IABR" TI="12799" Line="144" Offs="512"/>
+   <type Family="array" ID="12934" toTI="12626"/>
+    <Component Name="RESERVED4" TI="12814" Line="145" Offs="544"/>
+   <type Family="array" ID="12950" toTI="12587"/>
+    <Component Name="IP" TI="12829" Line="146" Offs="768"/>
+   <type Family="array" ID="12971" toTI="12626"/>
+    <Component Name="RESERVED5" TI="12843" Line="147" Offs="1008"/>
+    <Component Name="STIR" TI="12858" Line="148" Offs="3584"/>
+   </type>
+   <type Family="ComponentList" Line="154" ID="12993">
+    <Component Name="CPUID" TI="13001" Line="155" Offs="0"/>
+    <Component Name="ICSR" TI="13015" Line="156" Offs="4"/>
+    <Component Name="VTOR" TI="13029" Line="157" Offs="8"/>
+    <Component Name="AIRCR" TI="13043" Line="158" Offs="12"/>
+    <Component Name="SCR" TI="13057" Line="159" Offs="16"/>
+    <Component Name="CCR" TI="13071" Line="160" Offs="20"/>
+   <type Family="array" ID="13273" toTI="12587"/>
+    <Component Name="SHP" TI="13085" Line="161" Offs="24"/>
+    <Component Name="SHCSR" TI="13099" Line="162" Offs="36"/>
+    <Component Name="CFSR" TI="13113" Line="163" Offs="40"/>
+    <Component Name="HFSR" TI="13127" Line="164" Offs="44"/>
+    <Component Name="DFSR" TI="13141" Line="165" Offs="48"/>
+    <Component Name="MMFAR" TI="13155" Line="166" Offs="52"/>
+    <Component Name="BFAR" TI="13169" Line="167" Offs="56"/>
+    <Component Name="AFSR" TI="13183" Line="168" Offs="60"/>
+   <type Family="array" ID="13294" toTI="12626"/>
+    <Component Name="PFR" TI="13197" Line="169" Offs="64"/>
+    <Component Name="DFR" TI="13211" Line="170" Offs="72"/>
+    <Component Name="ADR" TI="13225" Line="171" Offs="76"/>
+   <type Family="array" ID="13320" toTI="12626"/>
+    <Component Name="MMFR" TI="13239" Line="172" Offs="80"/>
+   <type Family="array" ID="13346" toTI="12626"/>
+    <Component Name="ISAR" TI="13253" Line="173" Offs="96"/>
+   </type>
+   <type Family="ComponentList" Line="179" ID="13372">
+    <Component Name="CTRL" TI="13380" Line="180" Offs="0"/>
+    <Component Name="LOAD" TI="13394" Line="181" Offs="4"/>
+    <Component Name="VAL" TI="13408" Line="182" Offs="8"/>
+    <Component Name="CALIB" TI="13422" Line="183" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="FunctionalState" Line="354" ID="13459" toTI="13437"/>
+   <type Family="ComponentList" Line="50" ID="13471">
+    <Component Name="NVIC_IRQChannel" TI="13479" Line="51" Offs="0"/>
+    <Component Name="NVIC_IRQChannelPreemptionPriority" TI="13493" Line="56" Offs="1"/>
+    <Component Name="NVIC_IRQChannelSubPriority" TI="13507" Line="60" Offs="2"/>
+    <Component Name="NVIC_IRQChannelCmd" TI="13521" Line="64" Offs="3"/>
+   </type>
+   <type Family="typedef" Name="NVIC_InitTypeDef" Line="67" ID="13536" toTI="13471"/>
+   <function Name="NVIC_SetVectorTable" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c" Line="155">
+    <parameter Name="NVIC_VectTab" TI="12626" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c" Line="155" Addr="0x0" Param="Yes"/>
+    <parameter Name="Offset" TI="12626" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c" Line="155" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="NVIC_Init" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c" Line="112">
+   <type Family="Pointer" TI="13778" toTI="13536"/>
+    <parameter Name="NVIC_InitStruct" TI="13778" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c" Line="112" Addr="0x0" Param="Yes"/>
+    <variable Name="tmppriority" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c" Line="113" Addr="0x2" TI="12626"/>
+   </function >
+   <function Name="NVIC_PriorityGroupConfig" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c" Line="96">
+    <parameter Name="NVIC_PriorityGroup" TI="12626" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\misc.c" Line="96" Addr="0x0" Param="Yes"/>
+   </function >
+  </module>
+  <module Name="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_exti.c" >
+   <type Family="Base" Name="signed char" ID="13859"/>
+   <type Family="Base" Name="unsigned char" ID="13866"/>
+   <type Family="Base" Name="short int" ID="13873"/>
+   <type Family="Base" Name="short unsigned int" ID="13880"/>
+   <type Family="Base" Name="long int" ID="13887"/>
+   <type Family="Base" Name="long unsigned int" ID="13905"/>
+   <type Family="typedef" Name="uint32_t" Line="84" ID="13894" toTI="13905"/>
+   <type Family="Base" Name="long long int" ID="13912"/>
+   <type Family="Base" Name="long long unsigned int" ID="13919"/>
+   <type Family="Base" Name="int" ID="13926"/>
+   <type Family="Base" Name="unsigned int" ID="13933"/>
+   <type Family="typedef" Name="FlagStatus" Line="352" ID="13970" toTI="13948"/>
+   <type Family="typedef" Name="ITStatus" Line="352" ID="13982" toTI="13948"/>
+   <type Family="typedef" Name="FunctionalState" Line="354" ID="14016" toTI="13994"/>
+   <type Family="ComponentList" Line="700" ID="14028">
+    <Component Name="IMR" TI="14037" Line="701" Offs="0"/>
+    <Component Name="EMR" TI="14052" Line="702" Offs="4"/>
+    <Component Name="RTSR" TI="14067" Line="703" Offs="8"/>
+    <Component Name="FTSR" TI="14082" Line="704" Offs="12"/>
+    <Component Name="SWIER" TI="14097" Line="705" Offs="16"/>
+    <Component Name="PR" TI="14112" Line="706" Offs="20"/>
+   </type>
+   <type Family="typedef" Name="EXTIMode_TypeDef" Line="53" ID="14148" toTI="14127"/>
+   <type Family="typedef" Name="EXTITrigger_TypeDef" Line="66" ID="14186" toTI="14159"/>
+   <type Family="ComponentList" Line="76" ID="14197">
+    <Component Name="EXTI_Line" TI="14205" Line="77" Offs="0"/>
+    <Component Name="EXTI_Mode" TI="14219" Line="80" Offs="4"/>
+    <Component Name="EXTI_Trigger" TI="14233" Line="83" Offs="5"/>
+    <Component Name="EXTI_LineCmd" TI="14247" Line="86" Offs="6"/>
+   </type>
+   <type Family="typedef" Name="EXTI_InitTypeDef" Line="88" ID="14262" toTI="14197"/>
+   <type Family="Pointer" TI="14329" toTI="14262"/>
+   <function Name="EXTI_ClearITPendingBit" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_exti.c" Line="249">
+    <parameter Name="EXTI_Line" TI="13894" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_exti.c" Line="249" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="EXTI_GetITStatus" TI="13982" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_exti.c" Line="224">
+    <parameter Name="EXTI_Line" TI="13894" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_exti.c" Line="224" Addr="0x0" Param="Yes"/>
+    <variable Name="bitstatus" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_exti.c" Line="225" Addr="0x0" TI="13982"/>
+   </function >
+   <function Name="EXTI_Init" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_exti.c" Line="101">
+    <parameter Name="EXTI_InitStruct" TI="14329" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_exti.c" Line="101" Addr="0x0" Param="Yes"/>
+   </function >
+  </module>
+  <module Name="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\system_stm32f10x.c" >
+   <type Family="Base" Name="signed char" ID="14671"/>
+   <type Family="Base" Name="unsigned char" ID="14678"/>
+   <type Family="Base" Name="short int" ID="14685"/>
+   <type Family="Base" Name="short unsigned int" ID="14692"/>
+   <type Family="Base" Name="long int" ID="14699"/>
+   <type Family="Base" Name="long unsigned int" ID="14717"/>
+   <type Family="typedef" Name="uint32_t" Line="84" ID="14706" toTI="14717"/>
+   <type Family="Base" Name="long long int" ID="14724"/>
+   <type Family="Base" Name="long long unsigned int" ID="14731"/>
+   <type Family="Base" Name="int" ID="14738"/>
+   <type Family="Base" Name="unsigned int" ID="14745"/>
+   <type Family="ComponentList" Line="714" ID="14787">
+    <Component Name="ACR" TI="14796" Line="715" Offs="0"/>
+    <Component Name="KEYR" TI="14811" Line="716" Offs="4"/>
+    <Component Name="OPTKEYR" TI="14826" Line="717" Offs="8"/>
+    <Component Name="SR" TI="14841" Line="718" Offs="12"/>
+    <Component Name="CR" TI="14855" Line="719" Offs="16"/>
+    <Component Name="AR" TI="14869" Line="720" Offs="20"/>
+    <Component Name="RESERVED" TI="14883" Line="721" Offs="24"/>
+    <Component Name="OBR" TI="14898" Line="722" Offs="28"/>
+    <Component Name="WRPR" TI="14913" Line="723" Offs="32"/>
+   </type>
+   <type Family="ComponentList" Line="879" ID="14929">
+    <Component Name="CR" TI="14938" Line="880" Offs="0"/>
+    <Component Name="CFGR" TI="14952" Line="881" Offs="4"/>
+    <Component Name="CIR" TI="14967" Line="882" Offs="8"/>
+    <Component Name="APB2RSTR" TI="14982" Line="883" Offs="12"/>
+    <Component Name="APB1RSTR" TI="14997" Line="884" Offs="16"/>
+    <Component Name="AHBENR" TI="15012" Line="885" Offs="20"/>
+    <Component Name="APB2ENR" TI="15027" Line="886" Offs="24"/>
+    <Component Name="APB1ENR" TI="15042" Line="887" Offs="28"/>
+    <Component Name="BDCR" TI="15057" Line="888" Offs="32"/>
+    <Component Name="CSR" TI="15072" Line="889" Offs="36"/>
+   </type>
+   <function Name="SystemInit" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\system_stm32f10x.c" Line="188">
+    <variable Name="StartUpCounter" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\system_stm32f10x.c" Line="820" Addr="0x3400000C" TI="0"/>
+    <variable Name="HSEStatus" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\system_stm32f10x.c" Line="820" Addr="0x34000008" TI="0"/>
+   </function >
+   <variable Name="SystemFrequency" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\system_stm32f10x.c" Line="135" Addr="0x0" TI="14760"/>
+   <variable Name="SystemFrequency_SysClk" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\system_stm32f10x.c" Line="136" Addr="0x0" TI="14760"/>
+   <variable Name="SystemFrequency_AHBClk" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\system_stm32f10x.c" Line="137" Addr="0x0" TI="14760"/>
+   <variable Name="SystemFrequency_APB1Clk" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\system_stm32f10x.c" Line="138" Addr="0x0" TI="14760"/>
+   <variable Name="SystemFrequency_APB2Clk" FileName="D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3\system_stm32f10x.c" Line="139" Addr="0x0" TI="14760"/>
+  </module>
+ </modulelist>
+</aoffile>
+

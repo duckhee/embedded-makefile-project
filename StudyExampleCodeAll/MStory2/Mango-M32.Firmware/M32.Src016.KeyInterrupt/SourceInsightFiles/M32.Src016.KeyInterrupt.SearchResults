@@ -1,0 +1,4 @@
+---- NVIC_PriorityGroupConfig Matches (3 in 3 files) ----
+hw_config.c (D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src):    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
+stm.c (D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src):void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup)
+stm.h (D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\inc):void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup);

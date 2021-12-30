@@ -1,0 +1,17 @@
+###############################################################################
+# SPDX-License-Identifier: GPL-3.0-or-later
+###############################################################################
+
+menu "Select Extra Library Select Menu"
+    source "Library/extraLib/Kconfig"
+endmenu
+
+menu "Select Middle Ware Select Menu"
+    source "Library/middleWare/Kconfig"
+endmenu
+
+menu "Select module Lbrary Select Menu"
+    source "Library/module/Kconfig"
+endmenu
+
+###############################################################################

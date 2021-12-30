@@ -1,0 +1,31 @@
+###############################################################################
+# SPDX-License-Identifier: GPL-3.0-or-later
+###############################################################################
+
+config MANGO_M3
+    bool "Select mango-m3 Board"
+    default n
+    select ARCH_M3
+
+config MANGO_Z1
+    bool "Select mango-z1 Board"
+    default n
+    select ARCH_M3
+
+config MANGO_M32F2
+    bool "Select mango-m32F2 Board"
+    default n
+    select ARCH_M3
+
+config MANGO_M4
+    bool "Select mango-m4 Board"
+    default n
+    select ARCH_M4
+
+config EDU_BOARD
+    bool "Select EDU-M4 Board"
+    default n
+    select ARCH_M4
+
+
+###############################################################################

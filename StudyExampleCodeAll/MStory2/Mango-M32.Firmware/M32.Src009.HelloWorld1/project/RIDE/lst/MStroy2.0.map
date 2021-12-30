@@ -1,0 +1,568 @@
+
+Discarded input sections
+
+ .text          0x00000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .data          0x00000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .bss           0x00000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .text.delay_1_second
+                0x00000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .text          0x00000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\startup_stm32f10x_md.o
+ .data          0x00000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\startup_stm32f10x_md.o
+ .bss           0x00000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\startup_stm32f10x_md.o
+ .text          0x00000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .data          0x00000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .bss           0x00000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .text.LED_On_All
+                0x00000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .text.LED_OnOffAll_Mult
+                0x00000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .text.LED_Test
+                0x00000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .text          0x00000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+ .data          0x00000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+ .bss           0x00000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x20000000         0x00005000         xrw
+FLASH            0x08000000         0x00020000         xr
+FLASHPATCH       0x00000000         0x00000000         r
+ENDFLASH         0x00000000         0x00000000         xr
+FLASHB1          0x00000000         0x00000000         xr
+EXTMEMB0         0x00000000         0x00000000         xr
+EXTMEMB1         0x00000000         0x00000000         xr
+EXTMEMB2         0x00000000         0x00000000         xr
+EXTMEMB3         0x00000000         0x00000000         xr
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+LOAD D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\startup_stm32f10x_md.o
+LOAD D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+LOAD D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+                0x00000400                __Stack_Size = 0x400
+                0x00000400                PROVIDE (_Stack_Size, __Stack_Size)
+                0x20004c00                __Stack_Init = (_estack - __Stack_Size)
+                0x20004c00                PROVIDE (_Stack_Init, __Stack_Init)
+                0x00000100                _Minimum_Stack_Size = 0x100
+                0x00000000                PROVIDE (Undefined_Handler, 0x0)
+                0x00000000                PROVIDE (SWI_Handler, 0x0)
+                0x00000000                PROVIDE (IRQ_Handler, 0x0)
+                0x00000000                PROVIDE (Prefetch_Handler, 0x0)
+                0x00000000                PROVIDE (Abort_Handler, 0x0)
+                0x00000000                PROVIDE (FIQ_Handler, 0x0)
+                0x00000000                PROVIDE (NMIException, 0x0)
+                0x00000000                PROVIDE (NMI_Handler, 0x0)
+                0x00000000                PROVIDE (HardFaultException, 0x0)
+                0x00000000                PROVIDE (HardFault_Handler, 0x0)
+                0x00000000                PROVIDE (MemManageException, 0x0)
+                0x00000000                PROVIDE (MemManage_Handler, 0x0)
+                0x00000000                PROVIDE (BusFaultException, 0x0)
+                0x00000000                PROVIDE (BusFault_Handler, 0x0)
+                0x00000000                PROVIDE (UsageFaultException, 0x0)
+                0x00000000                PROVIDE (UsageFault_Handler, 0x0)
+                0x00000000                PROVIDE (SVCHandler, 0x0)
+                0x00000000                PROVIDE (SVC_Handler, 0x0)
+                0x00000000                PROVIDE (DebugMonitor, 0x0)
+                0x00000000                PROVIDE (DebugMon_Handler, 0x0)
+                0x00000000                PROVIDE (PendSVC, 0x0)
+                0x00000000                PROVIDE (PendSV_Handler, 0x0)
+                0x00000000                PROVIDE (SysTickHandler, 0x0)
+                0x00000000                PROVIDE (SysTick_Handler, 0x0)
+                0x00000000                PROVIDE (WWDG_IRQHandler, 0x0)
+                0x00000000                PROVIDE (PVD_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TAMPER_IRQHandler, 0x0)
+                0x00000000                PROVIDE (RTC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (FLASH_IRQHandler, 0x0)
+                0x00000000                PROVIDE (RCC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI0_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI4_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel4_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel5_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel6_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel7_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel4_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel5_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel6_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel7_IRQHandler, 0x0)
+                0x00000000                PROVIDE (ADC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (ADC1_2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USB_HP_CAN_TX_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USB_HP_CAN1_TX_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USB_LP_CAN_RX0_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USB_LP_CAN1_RX0_IRQHandler, 0x0)
+                0x00000000                PROVIDE (CAN_RX1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (CAN1_RX1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (CAN_SCE_IRQHandler, 0x0)
+                0x00000000                PROVIDE (CAN1_SCE_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI9_5_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM1_BRK_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM1_UP_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM1_TRG_COM_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM1_CC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM4_IRQHandler, 0x0)
+                0x00000000                PROVIDE (I2C1_EV_IRQHandler, 0x0)
+                0x00000000                PROVIDE (I2C1_ER_IRQHandler, 0x0)
+                0x00000000                PROVIDE (I2C2_EV_IRQHandler, 0x0)
+                0x00000000                PROVIDE (I2C2_ER_IRQHandler, 0x0)
+                0x00000000                PROVIDE (SPI1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (SPI2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USART1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USART2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USART3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI15_10_IRQHandler, 0x0)
+                0x00000000                PROVIDE (RTCAlarm_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USBWakeUp_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM8_BRK_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM8_UP_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM8_TRG_COM_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM8_CC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (ADC3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (FSMC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (SDIO_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM5_IRQHandler, 0x0)
+                0x00000000                PROVIDE (SPI3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (UART4_IRQHandler, 0x0)
+                0x00000000                PROVIDE (UART5_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM6_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM7_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA2_Channel1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA2_Channel2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA2_Channel3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA2_Channel4_5_IRQHandler, 0x0)
+                0x42000000                PERIPH_BB_BASE = 0x42000000
+                0x22000000                SRAM_BB_BASE = 0x22000000
+                0x20000000                SRAM_BASE = 0x20000000
+                0x40000000                PERIPH_BASE = 0x40000000
+                0x40022000                PROVIDE (FLASH_BASE, 0x40022000)
+                0x1ffff800                PROVIDE (OB_BASE, 0x1ffff800)
+                0x40000000                APB1PERIPH_BASE = PERIPH_BASE
+                0x40010000                APB2PERIPH_BASE = (PERIPH_BASE + 0x10000)
+                0x40020000                AHBPERIPH_BASE = (PERIPH_BASE + 0x20000)
+                0x40000000                PROVIDE (TIM2, (APB1PERIPH_BASE + 0x0))
+                0x40000400                PROVIDE (TIM3, (APB1PERIPH_BASE + 0x400))
+                0x40000800                PROVIDE (TIM4, (APB1PERIPH_BASE + 0x800))
+                0x40002800                PROVIDE (RTC, (APB1PERIPH_BASE + 0x2800))
+                0x40002c00                PROVIDE (WWDG, (APB1PERIPH_BASE + 0x2c00))
+                0x40003000                PROVIDE (IWDG, (APB1PERIPH_BASE + 0x3000))
+                0x40003800                PROVIDE (SPI2, (APB1PERIPH_BASE + 0x3800))
+                0x40004400                PROVIDE (USART2, (APB1PERIPH_BASE + 0x4400))
+                0x40004800                PROVIDE (USART3, (APB1PERIPH_BASE + 0x4800))
+                0x40005400                PROVIDE (I2C1, (APB1PERIPH_BASE + 0x5400))
+                0x40005800                PROVIDE (I2C2, (APB1PERIPH_BASE + 0x5800))
+                0x40006400                PROVIDE (CAN, (APB1PERIPH_BASE + 0x6400))
+                0x40006c00                PROVIDE (BKP, (APB1PERIPH_BASE + 0x6c00))
+                0x40007000                PROVIDE (PWR, (APB1PERIPH_BASE + 0x7000))
+                0x40010000                PROVIDE (AFIO, (APB2PERIPH_BASE + 0x0))
+                0x40010400                PROVIDE (EXTI, (APB2PERIPH_BASE + 0x400))
+                0x40010800                PROVIDE (GPIOA, (APB2PERIPH_BASE + 0x800))
+                0x40010c00                PROVIDE (GPIOB, (APB2PERIPH_BASE + 0xc00))
+                0x40011000                PROVIDE (GPIOC, (APB2PERIPH_BASE + 0x1000))
+                0x40011400                PROVIDE (GPIOD, (APB2PERIPH_BASE + 0x1400))
+                0x40011800                PROVIDE (GPIOE, (APB2PERIPH_BASE + 0x1800))
+                0x40012400                PROVIDE (ADC1, (APB2PERIPH_BASE + 0x2400))
+                0x40012800                PROVIDE (ADC2, (APB2PERIPH_BASE + 0x2800))
+                0x40012c00                PROVIDE (TIM1, (APB2PERIPH_BASE + 0x2c00))
+                0x40013000                PROVIDE (SPI1, (APB2PERIPH_BASE + 0x3000))
+                0x40013800                PROVIDE (USART1, (APB2PERIPH_BASE + 0x3800))
+                0x40020000                PROVIDE (DMA, (AHBPERIPH_BASE + 0x0))
+                0x40020008                PROVIDE (DMA_Channel1, (AHBPERIPH_BASE + 0x8))
+                0x4002001c                PROVIDE (DMA_Channel2, (AHBPERIPH_BASE + 0x1c))
+                0x40020030                PROVIDE (DMA_Channel3, (AHBPERIPH_BASE + 0x30))
+                0x40020044                PROVIDE (DMA_Channel4, (AHBPERIPH_BASE + 0x44))
+                0x40020058                PROVIDE (DMA_Channel5, (AHBPERIPH_BASE + 0x58))
+                0x4002006c                PROVIDE (DMA_Channel6, (AHBPERIPH_BASE + 0x6c))
+                0x40020080                PROVIDE (DMA_Channel7, (AHBPERIPH_BASE + 0x80))
+                0x40021000                PROVIDE (RCC, (AHBPERIPH_BASE + 0x1000))
+                0xe000e000                SCS_BASE = 0xe000e000
+                0xe000e010                PROVIDE (SysTick, (SCS_BASE + 0x10))
+                0xe000e100                PROVIDE (NVIC, (SCS_BASE + 0x100))
+                0xe000ed00                PROVIDE (SCB, (SCS_BASE + 0xd00))
+                0x20005000                _estack = 0x20005000
+
+.isr_vector     0x08000000      0x10c
+                0x08000000                . = ALIGN (0x4)
+ *(.isr_vector)
+ .isr_vector    0x08000000      0x10c D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\startup_stm32f10x_md.o
+                0x08000000                g_pfnVectors
+                0x0800010c                . = ALIGN (0x4)
+
+.flashtext      0x0800010c        0x0
+                0x0800010c                . = ALIGN (0x4)
+ *(.flashtext)
+                0x0800010c                . = ALIGN (0x4)
+
+.text           0x0800010c      0x3c0
+                0x0800010c                . = ALIGN (0x4)
+ *(.text)
+ *(.text.*)
+ .text.delay_int_count
+                0x0800010c       0x18 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .text.delay_100_milli_second
+                0x08000124       0x10 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+                0x08000124                delay_100_milli_second
+ .text.USART_SendData
+                0x08000134        0x8 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+                0x08000134                USART_SendData
+ .text.USART_GetFlagStatus
+                0x0800013c        0xc D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+                0x0800013c                USART_GetFlagStatus
+ .text.SerialPutChar
+                0x08000148       0x1c D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+                0x08000148                SerialPutChar
+ .text.Serial_PutString
+                0x08000164       0x18 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+                0x08000164                Serial_PutString
+ .text.USART_Init
+                0x0800017c       0x70 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+                0x0800017c                USART_Init
+ .text.USART1_Init
+                0x080001ec       0x40 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+                0x080001ec                USART1_Init
+ .text.GPIO_Init
+                0x0800022c       0xa8 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+                0x0800022c                GPIO_Init
+ .text.GPIO_Configuration
+                0x080002d4       0x8c D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+                0x080002d4                GPIO_Configuration
+ .text.main     0x08000360       0x38 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+                0x08000360                main
+ .text.Reset_Handler
+                0x08000398       0x40 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\startup_stm32f10x_md.o
+                0x08000398                Reset_Handler
+ .text.Default_Handler
+                0x080003d8        0x2 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\startup_stm32f10x_md.o
+                0x080003d8                EXTI2_IRQHandler
+                0x080003d8                DebugMon_Handler
+                0x080003d8                TIM1_CC_IRQHandler
+                0x080003d8                HardFault_Handler
+                0x080003d8                SysTick_Handler
+                0x080003d8                PVD_IRQHandler
+                0x080003d8                PendSV_Handler
+                0x080003d8                NMI_Handler
+                0x080003d8                EXTI3_IRQHandler
+                0x080003d8                EXTI0_IRQHandler
+                0x080003d8                I2C2_EV_IRQHandler
+                0x080003d8                UsageFault_Handler
+                0x080003d8                ADC1_2_IRQHandler
+                0x080003d8                SPI1_IRQHandler
+                0x080003d8                TAMPER_IRQHandler
+                0x080003d8                DMA1_Channel4_IRQHandler
+                0x080003d8                USART3_IRQHandler
+                0x080003d8                RTC_IRQHandler
+                0x080003d8                DMA1_Channel7_IRQHandler
+                0x080003d8                CAN1_RX1_IRQHandler
+                0x080003d8                TIM4_IRQHandler
+                0x080003d8                I2C1_EV_IRQHandler
+                0x080003d8                DMA1_Channel6_IRQHandler
+                0x080003d8                TIM3_IRQHandler
+                0x080003d8                RCC_IRQHandler
+                0x080003d8                TIM1_TRG_COM_IRQHandler
+                0x080003d8                DMA1_Channel1_IRQHandler
+                0x080003d8                Default_Handler
+                0x080003d8                EXTI15_10_IRQHandler
+                0x080003d8                EXTI9_5_IRQHandler
+                0x080003d8                SPI2_IRQHandler
+                0x080003d8                MemManage_Handler
+                0x080003d8                SVC_Handler
+                0x080003d8                DMA1_Channel5_IRQHandler
+                0x080003d8                EXTI4_IRQHandler
+                0x080003d8                USB_LP_CAN1_RX0_IRQHandler
+                0x080003d8                USB_HP_CAN1_TX_IRQHandler
+                0x080003d8                DMA1_Channel3_IRQHandler
+                0x080003d8                TIM1_UP_IRQHandler
+                0x080003d8                WWDG_IRQHandler
+                0x080003d8                TIM2_IRQHandler
+                0x080003d8                TIM1_BRK_IRQHandler
+                0x080003d8                EXTI1_IRQHandler
+                0x080003d8                RTCAlarm_IRQHandler
+                0x080003d8                USART2_IRQHandler
+                0x080003d8                I2C2_ER_IRQHandler
+                0x080003d8                DMA1_Channel2_IRQHandler
+                0x080003d8                CAN1_SCE_IRQHandler
+                0x080003d8                FLASH_IRQHandler
+                0x080003d8                BusFault_Handler
+                0x080003d8                USART1_IRQHandler
+                0x080003d8                I2C1_ER_IRQHandler
+                0x080003d8                USBWakeUp_IRQHandler
+ *fill*         0x080003da        0x2 00
+ .text.LED_On_Red
+                0x080003dc       0x10 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+                0x080003dc                LED_On_Red
+ .text.LED_Off_Red
+                0x080003ec       0x10 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+                0x080003ec                LED_Off_Red
+ .text.LED_On_Yellow
+                0x080003fc       0x10 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+                0x080003fc                LED_On_Yellow
+ .text.LED_Off_Yellow
+                0x0800040c       0x10 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+                0x0800040c                LED_Off_Yellow
+ .text.LED_On_Blue
+                0x0800041c       0x10 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+                0x0800041c                LED_On_Blue
+ .text.LED_Off_Blue
+                0x0800042c       0x10 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+                0x0800042c                LED_Off_Blue
+ .text.LED_Off_All
+                0x0800043c       0x10 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+                0x0800043c                LED_Off_All
+ .text.GPIO_ReadInputDataBit
+                0x0800044c        0xc D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+                0x0800044c                GPIO_ReadInputDataBit
+ .text.KEY_Test
+                0x08000458       0x50 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+                0x08000458                KEY_Test
+ *(.rodata)
+ *(.rodata*)
+ .rodata.str1.1
+                0x080004a8       0x22 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ *(.glue_7)
+ *fill*         0x080004ca        0x2 00
+ .glue_7        0x080004cc        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .glue_7        0x080004cc        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\startup_stm32f10x_md.o
+ .glue_7        0x080004cc        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .glue_7        0x080004cc        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+ *(.glue_7t)
+ .glue_7t       0x080004cc        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .glue_7t       0x080004cc        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\startup_stm32f10x_md.o
+ .glue_7t       0x080004cc        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .glue_7t       0x080004cc        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+                0x080004cc                . = ALIGN (0x4)
+                0x080004cc                _etext = .
+                0x080004cc                _sidata = _etext
+
+.vfp11_veneer   0x20000000        0x0
+ .vfp11_veneer  0x20000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .vfp11_veneer  0x20000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\startup_stm32f10x_md.o
+ .vfp11_veneer  0x20000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .vfp11_veneer  0x20000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+
+.janus_2cc_veneer
+                0x20000000        0x0
+ .janus_2cc_veneer
+                0x20000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .janus_2cc_veneer
+                0x20000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\startup_stm32f10x_md.o
+ .janus_2cc_veneer
+                0x20000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .janus_2cc_veneer
+                0x20000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+
+.v4_bx          0x20000000        0x0
+ .v4_bx         0x20000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .v4_bx         0x20000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\startup_stm32f10x_md.o
+ .v4_bx         0x20000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .v4_bx         0x20000000        0x0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+
+.flashpatch     0x00000000        0x0
+                0x00000000                . = ALIGN (0x4)
+ *(.flashpatch)
+                0x00000000                . = ALIGN (0x4)
+
+.endflash       0x00000000        0x0
+                0x00000000                . = ALIGN (0x4)
+ *(.endflash)
+                0x00000000                . = ALIGN (0x4)
+
+.data           0x20000000        0x0 load address 0x080004cc
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _sdata = .
+ *(.data)
+ *(.data.*)
+ *(.RAMtext)
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _edata = .
+
+.bss            0x20000000        0x0
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _sbss = .
+ *(.bss)
+ *(COMMON)
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _ebss = .
+                0x20000000                PROVIDE (end, _ebss)
+                0x20000000                PROVIDE (_end, _ebss)
+
+._usrstack      0x20000000      0x100
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _susrstack = .
+                0x20000100                . = (. + _Minimum_Stack_Size)
+ *fill*         0x20000000      0x100 00
+                0x20000100                . = ALIGN (0x4)
+                0x20000100                _eusrstack = .
+
+.b1text
+ *(.b1text)
+ *(.b1rodata)
+ *(.b1rodata*)
+
+.eb0text
+ *(.eb0text)
+ *(.eb0rodata)
+ *(.eb0rodata*)
+
+.eb1text
+ *(.eb1text)
+ *(.eb1rodata)
+ *(.eb1rodata*)
+
+.eb2text
+ *(.eb2text)
+ *(.eb2rodata)
+ *(.eb2rodata*)
+
+.eb3text
+ *(.eb3text)
+ *(.eb3rodata)
+ *(.eb3rodata*)
+                0x20000100                __exidx_start = .
+                0x20000100                __exidx_end = .
+
+/DISCARD/
+ libc.a(*)
+ libm.a(*)
+ libgcc.a(*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x7e
+ *(.comment)
+ .comment       0x00000000       0x2a D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .comment       0x0000002a       0x2a D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .comment       0x00000054       0x2a D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x108
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x78 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .debug_aranges
+                0x00000078       0x68 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .debug_aranges
+                0x000000e0       0x28 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+
+.debug_pubnames
+                0x00000000      0x1d1
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0xdf D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .debug_pubnames
+                0x000000df       0xb9 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .debug_pubnames
+                0x00000198       0x39 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+
+.debug_info     0x00000000      0x986
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x63e D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .debug_info    0x0000063e      0x1c1 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .debug_info    0x000007ff      0x187 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+
+.debug_abbrev   0x00000000      0x34f
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x1a6 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .debug_abbrev  0x000001a6       0xb9 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .debug_abbrev  0x0000025f       0xf0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+
+.debug_line     0x00000000      0x632
+ *(.debug_line)
+ .debug_line    0x00000000      0x2b0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .debug_line    0x000002b0      0x20b D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .debug_line    0x000004bb      0x177 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+
+.debug_frame    0x00000000      0x244
+ *(.debug_frame)
+ .debug_frame   0x00000000      0x13c D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .debug_frame   0x0000013c       0xd0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .debug_frame   0x0000020c       0x38 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+
+.debug_str      0x00000000      0x590
+ *(.debug_str)
+ .debug_str     0x00000000      0x452 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+                                0x49c (size before relaxing)
+ .debug_str     0x00000452       0xc6 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+                                0x16f (size before relaxing)
+ .debug_str     0x00000518       0x78 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+                                0x152 (size before relaxing)
+
+.debug_loc      0x00000000      0x39c
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x2d0 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .debug_loc     0x000002d0       0x9a D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .debug_loc     0x0000036a       0x32 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+START GROUP
+LOAD c:/program files/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.3.2/thumb2\libgcc.a
+LOAD c:/program files/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.3.2/../../../../arm-none-eabi/lib/thumb2\libc.a
+END GROUP
+OUTPUT(D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\MStroy2.0.elf elf32-littlearm)
+
+.debug_ranges   0x00000000       0xf0
+ .debug_ranges  0x00000000       0x70 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .debug_ranges  0x00000070       0x60 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .debug_ranges  0x000000d0       0x20 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o
+
+.ARM.attributes
+                0x00000000       0x31
+ .ARM.attributes
+                0x00000000       0x31 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\main.o
+ .ARM.attributes
+                0x00000031       0x21 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\startup_stm32f10x_md.o
+ .ARM.attributes
+                0x00000052       0x31 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\led.o
+ .ARM.attributes
+                0x00000083       0x31 D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src009.HelloWorld1\project\RIDE\obj\key.o

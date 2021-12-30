@@ -1,0 +1,99 @@
+
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src002.LedKeyControl\project\RIDE\obj\debug.o:     file format elf32-littlearm
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src002.LedKeyControl\project\RIDE\obj\debug.o
+
+Disassembly of section .text.DebugMsg_FunctionError:
+
+00000000 <DebugMsg_FunctionError>:
+DebugMsg_FunctionError():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src002.LedKeyControl\src/debug.c:26
+    printf("%s() %d\n", fName_p, lineNum);
+#endif
+}
+
+void DebugMsg_FunctionError(char const * fName_p, int lineNum)
+{
+   0:	4603      	mov	r3, r0
+   2:	460a      	mov	r2, r1
+   4:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src002.LedKeyControl\src/debug.c:28
+#ifdef  DEBUG_MSG_LEVEL0
+    printf("[ERROR] %s() %d\n", fName_p, lineNum);
+   6:	4619      	mov	r1, r3
+   8:	4801      	ldr	r0, [pc, #4]	(10 <DebugMsg_FunctionError+0x10>)
+   a:	f7ff fffe 	bl	0 <printf>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src002.LedKeyControl\src/debug.c:30
+#endif
+}
+   e:	bd10      	pop	{r4, pc}
+  10:	00000000 	.word	0x00000000
+Disassembly of section .text.DebugMsg_FunctionNotify:
+
+00000000 <DebugMsg_FunctionNotify>:
+DebugMsg_FunctionNotify():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src002.LedKeyControl\src/debug.c:19
+    printf("%s() E\n", fName_p);
+#endif
+}
+
+void DebugMsg_FunctionNotify(char const * fName_p, int lineNum)
+{
+   0:	4603      	mov	r3, r0
+   2:	460a      	mov	r2, r1
+   4:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src002.LedKeyControl\src/debug.c:21
+#ifdef  DEBUG_MSG_LEVEL0
+    printf("%s() %d\n", fName_p, lineNum);
+   6:	4619      	mov	r1, r3
+   8:	4801      	ldr	r0, [pc, #4]	(10 <DebugMsg_FunctionNotify+0x10>)
+   a:	f7ff fffe 	bl	0 <printf>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src002.LedKeyControl\src/debug.c:23
+#endif
+}
+   e:	bd10      	pop	{r4, pc}
+  10:	00000011 	.word	0x00000011
+Disassembly of section .text.DebugMsg_FunctionEnd:
+
+00000000 <DebugMsg_FunctionEnd>:
+DebugMsg_FunctionEnd():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src002.LedKeyControl\src/debug.c:12
+    printf("%s() S\n", fName_p);
+#endif
+}
+
+void DebugMsg_FunctionEnd(char const * fName_p)
+{
+   0:	4601      	mov	r1, r0
+   2:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src002.LedKeyControl\src/debug.c:14
+#ifdef  DEBUG_MSG_LEVEL0
+    printf("%s() E\n", fName_p);
+   4:	4801      	ldr	r0, [pc, #4]	(c <DebugMsg_FunctionEnd+0xc>)
+   6:	f7ff fffe 	bl	0 <printf>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src002.LedKeyControl\src/debug.c:16
+#endif
+}
+   a:	bd10      	pop	{r4, pc}
+   c:	0000001a 	.word	0x0000001a
+Disassembly of section .text.DebugMsg_FunctionStart:
+
+00000000 <DebugMsg_FunctionStart>:
+DebugMsg_FunctionStart():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src002.LedKeyControl\src/debug.c:5
+/* Includes ------------------------------------------------------------------*/
+#include "debug.h"
+
+void DebugMsg_FunctionStart(char const * fName_p)
+{
+   0:	4601      	mov	r1, r0
+   2:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src002.LedKeyControl\src/debug.c:7
+#ifdef  DEBUG_MSG_LEVEL0
+    printf("%s() S\n", fName_p);
+   4:	4801      	ldr	r0, [pc, #4]	(c <DebugMsg_FunctionStart+0xc>)
+   6:	f7ff fffe 	bl	0 <printf>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src002.LedKeyControl\src/debug.c:9
+#endif
+}
+   a:	bd10      	pop	{r4, pc}
+   c:	00000022 	.word	0x00000022

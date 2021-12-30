@@ -1,0 +1,528 @@
+
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\project\RIDE\obj\stm.o:     file format elf32-littlearm
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\project\RIDE\obj\stm.o
+
+Disassembly of section .text.GPIO_ReadInputDataBit:
+
+00000000 <GPIO_ReadInputDataBit>:
+GPIO_ReadInputDataBit():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:20
+
+uint8_t GPIO_ReadInputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+{
+    uint8_t bitstatus = 0x00;
+
+    if ((GPIOx->IDR & GPIO_Pin) != (uint32_t)Bit_RESET)
+   0:	6883      	ldr	r3, [r0, #8]
+   2:	4219      	tst	r1, r3
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:29
+    else
+    {
+        bitstatus = (uint8_t)Bit_RESET;
+    }
+    return bitstatus;
+}
+   4:	bf0c      	ite	eq
+   6:	2000      	moveq	r0, #0
+   8:	2001      	movne	r0, #1
+   a:	4770      	bx	lr
+Disassembly of section .text.USART_SendData:
+
+00000000 <USART_SendData>:
+USART_SendData():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:34
+
+void USART_SendData(USART_TypeDef* USARTx, uint16_t Data)
+{
+  /* Transmit Data */
+  USARTx->DR = (Data & (uint16_t)0x01FF);
+   0:	05c9      	lsls	r1, r1, #23
+   2:	0dc9      	lsrs	r1, r1, #23
+   4:	8081      	strh	r1, [r0, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:35
+}
+   6:	4770      	bx	lr
+Disassembly of section .text.USART_ReceiveData:
+
+00000000 <USART_ReceiveData>:
+USART_ReceiveData():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:40
+
+uint16_t USART_ReceiveData(USART_TypeDef* USARTx)
+{
+  /* Receive Data */
+  return (uint16_t)(USARTx->DR & (uint16_t)0x01FF);
+   0:	8880      	ldrh	r0, [r0, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:41
+}
+   2:	05c0      	lsls	r0, r0, #23
+   4:	0dc0      	lsrs	r0, r0, #23
+   6:	4770      	bx	lr
+Disassembly of section .text.USART_GetFlagStatus:
+
+00000000 <USART_GetFlagStatus>:
+USART_GetFlagStatus():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:47
+
+FlagStatus USART_GetFlagStatus(USART_TypeDef* USARTx, uint16_t USART_FLAG)
+{
+  FlagStatus bitstatus = RESET;
+  
+  if ((USARTx->SR & USART_FLAG) != (uint16_t)RESET)
+   0:	8803      	ldrh	r3, [r0, #0]
+   2:	4219      	tst	r1, r3
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:56
+  else
+  {
+    bitstatus = RESET;
+  }
+  return bitstatus;
+}
+   4:	bf0c      	ite	eq
+   6:	2000      	moveq	r0, #0
+   8:	2001      	movne	r0, #1
+   a:	4770      	bx	lr
+Disassembly of section .text.USART_Init:
+
+00000000 <USART_Init>:
+USART_Init():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:69
+
+  uint32_t integerdivider = 0x00;
+  uint32_t fractionaldivider = 0x00;
+
+/*---------------------------- USART CR2 Configuration -----------------------*/
+  tmpreg = USARTx->CR2;
+   0:	8a03      	ldrh	r3, [r0, #16]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:77
+  /* Configure the USART Stop Bits, Clock, CPOL, CPHA and LastBit ------------*/
+  /* Set STOP[13:12] bits according to USART_StopBits value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_StopBits;
+  
+  /* Write to USART CR2 */
+  USARTx->CR2 = (uint16_t)tmpreg;
+   2:	88ca      	ldrh	r2, [r1, #6]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:71
+  uint32_t fractionaldivider = 0x00;
+
+/*---------------------------- USART CR2 Configuration -----------------------*/
+  tmpreg = USARTx->CR2;
+  /* Clear STOP[13:12] bits */
+  tmpreg &= CR2_STOP_CLEAR_Mask;
+   4:	f423 5340 	bic.w	r3, r3, #12288	; 0x3000
+   8:	041b      	lsls	r3, r3, #16
+   a:	0c1b      	lsrs	r3, r3, #16
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:77
+  /* Configure the USART Stop Bits, Clock, CPOL, CPHA and LastBit ------------*/
+  /* Set STOP[13:12] bits according to USART_StopBits value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_StopBits;
+  
+  /* Write to USART CR2 */
+  USARTx->CR2 = (uint16_t)tmpreg;
+   c:	4313      	orrs	r3, r2
+   e:	8203      	strh	r3, [r0, #16]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:80
+
+/*---------------------------- USART CR1 Configuration -----------------------*/
+  tmpreg = USARTx->CR1;
+  10:	8982      	ldrh	r2, [r0, #12]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:90
+  /* Set PCE and PS bits according to USART_Parity value */
+  /* Set TE and RE bits according to USART_Mode value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
+            USART_InitStruct->USART_Mode;
+  /* Write to USART CR1 */
+  USARTx->CR1 = (uint16_t)tmpreg;
+  12:	890b      	ldrh	r3, [r1, #8]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:59
+  }
+  return bitstatus;
+}
+
+void USART_Init(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct)
+{
+  14:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:90
+  /* Set PCE and PS bits according to USART_Parity value */
+  /* Set TE and RE bits according to USART_Mode value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
+            USART_InitStruct->USART_Mode;
+  /* Write to USART CR1 */
+  USARTx->CR1 = (uint16_t)tmpreg;
+  16:	888c      	ldrh	r4, [r1, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:82
+  USARTx->CR2 = (uint16_t)tmpreg;
+
+/*---------------------------- USART CR1 Configuration -----------------------*/
+  tmpreg = USARTx->CR1;
+  /* Clear M, PCE, PS, TE and RE bits */
+  tmpreg &= CR1_CLEAR_Mask;
+  18:	f422 52b0 	bic.w	r2, r2, #5632	; 0x1600
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:90
+  /* Set PCE and PS bits according to USART_Parity value */
+  /* Set TE and RE bits according to USART_Mode value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
+            USART_InitStruct->USART_Mode;
+  /* Write to USART CR1 */
+  USARTx->CR1 = (uint16_t)tmpreg;
+  1c:	4323      	orrs	r3, r4
+  1e:	894c      	ldrh	r4, [r1, #10]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:82
+  USARTx->CR2 = (uint16_t)tmpreg;
+
+/*---------------------------- USART CR1 Configuration -----------------------*/
+  tmpreg = USARTx->CR1;
+  /* Clear M, PCE, PS, TE and RE bits */
+  tmpreg &= CR1_CLEAR_Mask;
+  20:	f022 020c 	bic.w	r2, r2, #12	; 0xc
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:90
+  /* Set PCE and PS bits according to USART_Parity value */
+  /* Set TE and RE bits according to USART_Mode value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
+            USART_InitStruct->USART_Mode;
+  /* Write to USART CR1 */
+  USARTx->CR1 = (uint16_t)tmpreg;
+  24:	4323      	orrs	r3, r4
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:82
+  USARTx->CR2 = (uint16_t)tmpreg;
+
+/*---------------------------- USART CR1 Configuration -----------------------*/
+  tmpreg = USARTx->CR1;
+  /* Clear M, PCE, PS, TE and RE bits */
+  tmpreg &= CR1_CLEAR_Mask;
+  26:	0412      	lsls	r2, r2, #16
+  28:	0c12      	lsrs	r2, r2, #16
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:90
+  /* Set PCE and PS bits according to USART_Parity value */
+  /* Set TE and RE bits according to USART_Mode value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
+            USART_InitStruct->USART_Mode;
+  /* Write to USART CR1 */
+  USARTx->CR1 = (uint16_t)tmpreg;
+  2a:	b29b      	uxth	r3, r3
+  2c:	4313      	orrs	r3, r2
+  2e:	8183      	strh	r3, [r0, #12]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:93
+
+/*---------------------------- USART CR3 Configuration -----------------------*/  
+  tmpreg = USARTx->CR3;
+  30:	8a83      	ldrh	r3, [r0, #20]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:100
+  tmpreg &= CR3_CLEAR_Mask;
+  /* Configure the USART HFC -------------------------------------------------*/
+  /* Set CTSE and RTSE bits according to USART_HardwareFlowControl value */
+  tmpreg |= USART_InitStruct->USART_HardwareFlowControl;
+  /* Write to USART CR3 */
+  USARTx->CR3 = (uint16_t)tmpreg;
+  32:	898a      	ldrh	r2, [r1, #12]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:95
+  USARTx->CR1 = (uint16_t)tmpreg;
+
+/*---------------------------- USART CR3 Configuration -----------------------*/  
+  tmpreg = USARTx->CR3;
+  /* Clear CTSE and RTSE bits */
+  tmpreg &= CR3_CLEAR_Mask;
+  34:	f423 7340 	bic.w	r3, r3, #768	; 0x300
+  38:	041b      	lsls	r3, r3, #16
+  3a:	0c1b      	lsrs	r3, r3, #16
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:100
+  /* Configure the USART HFC -------------------------------------------------*/
+  /* Set CTSE and RTSE bits according to USART_HardwareFlowControl value */
+  tmpreg |= USART_InitStruct->USART_HardwareFlowControl;
+  /* Write to USART CR3 */
+  USARTx->CR3 = (uint16_t)tmpreg;
+  3c:	4313      	orrs	r3, r2
+  3e:	8283      	strh	r3, [r0, #20]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:105
+
+/*---------------------------- USART BRR Configuration -----------------------*/
+  /* Configure the USART Baud Rate -------------------------------------------*/
+  /* Determine the integer part */
+  integerdivider = ((0x19 * apbclock) / (0x04 * (USART_InitStruct->USART_BaudRate)));
+  40:	680b      	ldr	r3, [r1, #0]
+  42:	4a0a      	ldr	r2, [pc, #40]	(6c <USART_Init+0x6c>)
+  44:	009b      	lsls	r3, r3, #2
+  46:	fbb2 f2f3 	udiv	r2, r2, r3
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:106
+  tmpreg = (integerdivider / 0x64) << 0x04;
+  4a:	2464      	movs	r4, #100
+  4c:	fbb2 f1f4 	udiv	r1, r2, r4
+  50:	0109      	lsls	r1, r1, #4
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:109
+  /* Determine the fractional part */
+  fractionaldivider = integerdivider - (0x64 * (tmpreg >> 0x04));
+  tmpreg |= ((((fractionaldivider * 0x10) + 0x32) / 0x64)) & ((uint8_t)0x0F);
+  52:	090b      	lsrs	r3, r1, #4
+  54:	fb04 2313 	mls	r3, r4, r3, r2
+  58:	011b      	lsls	r3, r3, #4
+  5a:	3332      	adds	r3, #50
+  5c:	fbb3 f3f4 	udiv	r3, r3, r4
+  60:	f003 030f 	and.w	r3, r3, #15	; 0xf
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:111
+  /* Write to USART BRR */
+  USARTx->BRR = (uint16_t)tmpreg;
+  64:	430b      	orrs	r3, r1
+  66:	b29b      	uxth	r3, r3
+  68:	8103      	strh	r3, [r0, #8]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:112
+}
+  6a:	bd10      	pop	{r4, pc}
+  6c:	6b49d200 	.word	0x6b49d200
+Disassembly of section .text.GPIO_Init:
+
+00000000 <GPIO_Init>:
+GPIO_Init():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:115
+
+void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef* GPIO_InitStruct)
+{
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:120
+  uint32_t currentmode = 0x00, currentpin = 0x00, pinpos = 0x00, pos = 0x00;
+  uint32_t tmpreg = 0x00, pinmask = 0x00;
+  
+/*---------------------------- GPIO Mode Configuration -----------------------*/
+  currentmode = ((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x0F);
+   2:	78cd      	ldrb	r5, [r1, #3]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:128
+    /* Output mode */
+    currentmode |= (uint32_t)GPIO_InitStruct->GPIO_Speed;
+  }
+/*---------------------------- GPIO CRL Configuration ------------------------*/
+  /* Configure the eight low port pins */
+  if (((uint32_t)GPIO_InitStruct->GPIO_Pin & ((uint32_t)0x00FF)) != 0x00)
+   4:	880e      	ldrh	r6, [r1, #0]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:121
+  uint32_t currentmode = 0x00, currentpin = 0x00, pinpos = 0x00, pos = 0x00;
+  uint32_t tmpreg = 0x00, pinmask = 0x00;
+  
+/*---------------------------- GPIO Mode Configuration -----------------------*/
+  currentmode = ((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x0F);
+  if ((((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x10)) != 0x00)
+   6:	f015 0f10 	tst.w	r5, #16	; 0x10
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:124
+  { 
+    /* Output mode */
+    currentmode |= (uint32_t)GPIO_InitStruct->GPIO_Speed;
+   a:	bf18      	it	ne
+   c:	788b      	ldrbne	r3, [r1, #2]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:120
+{
+  uint32_t currentmode = 0x00, currentpin = 0x00, pinpos = 0x00, pos = 0x00;
+  uint32_t tmpreg = 0x00, pinmask = 0x00;
+  
+/*---------------------------- GPIO Mode Configuration -----------------------*/
+  currentmode = ((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x0F);
+   e:	f005 070f 	and.w	r7, r5, #15	; 0xf
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:124
+  if ((((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x10)) != 0x00)
+  { 
+    /* Output mode */
+    currentmode |= (uint32_t)GPIO_InitStruct->GPIO_Speed;
+  12:	bf18      	it	ne
+  14:	431f      	orrne	r7, r3
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:128
+  }
+/*---------------------------- GPIO CRL Configuration ------------------------*/
+  /* Configure the eight low port pins */
+  if (((uint32_t)GPIO_InitStruct->GPIO_Pin & ((uint32_t)0x00FF)) != 0x00)
+  16:	f016 0fff 	tst.w	r6, #255	; 0xff
+  1a:	d020      	beq.n	5e <GPIO_Init+0x5e>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:130
+  {
+    tmpreg = GPIOx->CRL;
+  1c:	6804      	ldr	r4, [r0, #0]
+  1e:	f04f 0c00 	mov.w	ip, #0	; 0x0
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:133
+    for (pinpos = 0x00; pinpos < 0x08; pinpos++)
+    {
+      pos = ((uint32_t)0x01) << pinpos;
+  22:	2301      	movs	r3, #1
+  24:	fa03 f30c 	lsl.w	r3, r3, ip
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:135
+      /* Get the port pins position */
+      currentpin = (GPIO_InitStruct->GPIO_Pin) & pos;
+  28:	ea03 0106 	and.w	r1, r3, r6
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:136
+      if (currentpin == pos)
+  2c:	4299      	cmp	r1, r3
+  2e:	d110      	bne.n	52 <GPIO_Init+0x52>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:140
+      {
+        pos = pinpos << 2;
+        /* Clear the corresponding low control register bits */
+        pinmask = ((uint32_t)0x0F) << pos;
+  30:	ea4f 028c 	mov.w	r2, ip, lsl #2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:141
+        tmpreg &= ~pinmask;
+  34:	230f      	movs	r3, #15
+  36:	4093      	lsls	r3, r2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:143
+        /* Write the mode configuration in the corresponding bits */
+        tmpreg |= (currentmode << pos);
+  38:	fa17 f202 	lsls.w	r2, r7, r2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:141
+      if (currentpin == pos)
+      {
+        pos = pinpos << 2;
+        /* Clear the corresponding low control register bits */
+        pinmask = ((uint32_t)0x0F) << pos;
+        tmpreg &= ~pinmask;
+  3c:	ea24 0303 	bic.w	r3, r4, r3
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:145
+        /* Write the mode configuration in the corresponding bits */
+        tmpreg |= (currentmode << pos);
+        /* Reset the corresponding ODR bit */
+        if (GPIO_InitStruct->GPIO_Mode == GPIO_Mode_IPD)
+  40:	2d28      	cmp	r5, #40
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:143
+        pos = pinpos << 2;
+        /* Clear the corresponding low control register bits */
+        pinmask = ((uint32_t)0x0F) << pos;
+        tmpreg &= ~pinmask;
+        /* Write the mode configuration in the corresponding bits */
+        tmpreg |= (currentmode << pos);
+  42:	ea43 0402 	orr.w	r4, r3, r2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:145
+        /* Reset the corresponding ODR bit */
+        if (GPIO_InitStruct->GPIO_Mode == GPIO_Mode_IPD)
+  46:	d101      	bne.n	4c <GPIO_Init+0x4c>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:147
+        {
+          GPIOx->BRR = (((uint32_t)0x01) << pinpos);
+  48:	6141      	str	r1, [r0, #20]
+  4a:	e002      	b.n	52 <GPIO_Init+0x52>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:152
+        }
+        else
+        {
+          /* Set the corresponding ODR bit */
+          if (GPIO_InitStruct->GPIO_Mode == GPIO_Mode_IPU)
+  4c:	2d48      	cmp	r5, #72
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:154
+          {
+            GPIOx->BSRR = (((uint32_t)0x01) << pinpos);
+  4e:	bf08      	it	eq
+  50:	6101      	streq	r1, [r0, #16]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:131
+/*---------------------------- GPIO CRL Configuration ------------------------*/
+  /* Configure the eight low port pins */
+  if (((uint32_t)GPIO_InitStruct->GPIO_Pin & ((uint32_t)0x00FF)) != 0x00)
+  {
+    tmpreg = GPIOx->CRL;
+    for (pinpos = 0x00; pinpos < 0x08; pinpos++)
+  52:	f10c 0c01 	add.w	ip, ip, #1	; 0x1
+  56:	f1bc 0f08 	cmp.w	ip, #8	; 0x8
+  5a:	d1e2      	bne.n	22 <GPIO_Init+0x22>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:159
+            GPIOx->BSRR = (((uint32_t)0x01) << pinpos);
+          }
+        }
+      }
+    }
+    GPIOx->CRL = tmpreg;
+  5c:	6004      	str	r4, [r0, #0]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:163
+  }
+/*---------------------------- GPIO CRH Configuration ------------------------*/
+  /* Configure the eight high port pins */
+  if (GPIO_InitStruct->GPIO_Pin > 0x00FF)
+  5e:	2eff      	cmp	r6, #255
+  60:	d921      	bls.n	a6 <GPIO_Init+0xa6>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:165
+  {
+    tmpreg = GPIOx->CRH;
+  62:	6844      	ldr	r4, [r0, #4]
+  64:	f04f 0c00 	mov.w	ip, #0	; 0x0
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:168
+    for (pinpos = 0x00; pinpos < 0x08; pinpos++)
+    {
+      pos = (((uint32_t)0x01) << (pinpos + 0x08));
+  68:	2301      	movs	r3, #1
+  6a:	f10c 0208 	add.w	r2, ip, #8	; 0x8
+  6e:	4093      	lsls	r3, r2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:170
+      /* Get the port pins position */
+      currentpin = ((GPIO_InitStruct->GPIO_Pin) & pos);
+  70:	ea03 0106 	and.w	r1, r3, r6
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:171
+      if (currentpin == pos)
+  74:	4299      	cmp	r1, r3
+  76:	d110      	bne.n	9a <GPIO_Init+0x9a>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:175
+      {
+        pos = pinpos << 2;
+        /* Clear the corresponding high control register bits */
+        pinmask = ((uint32_t)0x0F) << pos;
+  78:	ea4f 028c 	mov.w	r2, ip, lsl #2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:176
+        tmpreg &= ~pinmask;
+  7c:	230f      	movs	r3, #15
+  7e:	4093      	lsls	r3, r2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:178
+        /* Write the mode configuration in the corresponding bits */
+        tmpreg |= (currentmode << pos);
+  80:	fa17 f202 	lsls.w	r2, r7, r2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:176
+      if (currentpin == pos)
+      {
+        pos = pinpos << 2;
+        /* Clear the corresponding high control register bits */
+        pinmask = ((uint32_t)0x0F) << pos;
+        tmpreg &= ~pinmask;
+  84:	ea24 0303 	bic.w	r3, r4, r3
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:180
+        /* Write the mode configuration in the corresponding bits */
+        tmpreg |= (currentmode << pos);
+        /* Reset the corresponding ODR bit */
+        if (GPIO_InitStruct->GPIO_Mode == GPIO_Mode_IPD)
+  88:	2d28      	cmp	r5, #40
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:178
+        pos = pinpos << 2;
+        /* Clear the corresponding high control register bits */
+        pinmask = ((uint32_t)0x0F) << pos;
+        tmpreg &= ~pinmask;
+        /* Write the mode configuration in the corresponding bits */
+        tmpreg |= (currentmode << pos);
+  8a:	ea43 0402 	orr.w	r4, r3, r2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:180
+        /* Reset the corresponding ODR bit */
+        if (GPIO_InitStruct->GPIO_Mode == GPIO_Mode_IPD)
+  8e:	d101      	bne.n	94 <GPIO_Init+0x94>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:182
+        {
+          GPIOx->BRR = (((uint32_t)0x01) << (pinpos + 0x08));
+  90:	6141      	str	r1, [r0, #20]
+  92:	e002      	b.n	9a <GPIO_Init+0x9a>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:185
+        }
+        /* Set the corresponding ODR bit */
+        if (GPIO_InitStruct->GPIO_Mode == GPIO_Mode_IPU)
+  94:	2d48      	cmp	r5, #72
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:187
+        {
+          GPIOx->BSRR = (((uint32_t)0x01) << (pinpos + 0x08));
+  96:	bf08      	it	eq
+  98:	6101      	streq	r1, [r0, #16]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:166
+/*---------------------------- GPIO CRH Configuration ------------------------*/
+  /* Configure the eight high port pins */
+  if (GPIO_InitStruct->GPIO_Pin > 0x00FF)
+  {
+    tmpreg = GPIOx->CRH;
+    for (pinpos = 0x00; pinpos < 0x08; pinpos++)
+  9a:	f10c 0c01 	add.w	ip, ip, #1	; 0x1
+  9e:	f1bc 0f08 	cmp.w	ip, #8	; 0x8
+  a2:	d1e1      	bne.n	68 <GPIO_Init+0x68>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:191
+        {
+          GPIOx->BSRR = (((uint32_t)0x01) << (pinpos + 0x08));
+        }
+      }
+    }
+    GPIOx->CRH = tmpreg;
+  a4:	6044      	str	r4, [r0, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src013.ClockControl\src/stm.c:193
+  }
+}
+  a6:	bdf0      	pop	{r4, r5, r6, r7, pc}

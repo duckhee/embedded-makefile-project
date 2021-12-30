@@ -1,0 +1,742 @@
+
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\project\RIDE\obj\hw_config.o:     file format elf32-littlearm
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\project\RIDE\obj\hw_config.o
+
+Disassembly of section .text.Delay:
+
+00000000 <Delay>:
+Delay():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:208
+  * @brief  Inserts a delay time.
+  * @param  nTime: specifies the delay time length, in milliseconds.
+  * @retval None
+  */
+void Delay(__IO uint32_t nTime)
+{ 
+   0:	b082      	sub	sp, #8
+   2:	9001      	str	r0, [sp, #4]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:209
+  TimingDelay = nTime;
+   4:	9a01      	ldr	r2, [sp, #4]
+   6:	4b04      	ldr	r3, [pc, #16]	(18 <Delay+0x18>)
+   8:	601a      	str	r2, [r3, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:211
+
+  while(TimingDelay != 0);
+   a:	4b03      	ldr	r3, [pc, #12]	(18 <Delay+0x18>)
+   c:	681b      	ldr	r3, [r3, #0]
+   e:	2b00      	cmp	r3, #0
+  10:	d1fb      	bne.n	a <Delay+0xa>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:212
+}
+  12:	b002      	add	sp, #8
+  14:	4770      	bx	lr
+  16:	46c0      	nop			(mov r8, r8)
+  18:	00000000 	.word	0x00000000
+Disassembly of section .text.delay_100_milli_second:
+
+00000000 <delay_100_milli_second>:
+delay_100_milli_second():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:34
+{
+    Delay(1000);
+}
+
+void delay_100_milli_second(void)
+{
+   0:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:35
+    Delay(100);
+   2:	2064      	movs	r0, #100
+   4:	f7ff fffe 	bl	0 <delay_100_milli_second>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:36
+}
+   8:	bd10      	pop	{r4, pc}
+   a:	46c0      	nop			(mov r8, r8)
+Disassembly of section .text.delay_1_second:
+
+00000000 <delay_1_second>:
+delay_1_second():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:29
+static volatile uint32_t TimingDelay;
+
+/* functions */
+
+void delay_1_second(void)
+{
+   0:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:30
+    Delay(1000);
+   2:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
+   6:	f7ff fffe 	bl	0 <delay_1_second>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:31
+}
+   a:	bd10      	pop	{r4, pc}
+Disassembly of section .text.TimingDelay_Decrement:
+
+00000000 <TimingDelay_Decrement>:
+TimingDelay_Decrement():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:221
+  * @param  None
+  * @retval None
+  */
+void TimingDelay_Decrement(void)
+{
+  if (TimingDelay != 0x00)
+   0:	4a03      	ldr	r2, [pc, #12]	(10 <TimingDelay_Decrement+0x10>)
+   2:	6813      	ldr	r3, [r2, #0]
+   4:	b113      	cbz	r3, c <TimingDelay_Decrement+0xc>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:223
+  { 
+    TimingDelay--;
+   6:	6813      	ldr	r3, [r2, #0]
+   8:	3b01      	subs	r3, #1
+   a:	6013      	str	r3, [r2, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:225
+  }
+}
+   c:	4770      	bx	lr
+   e:	46c0      	nop			(mov r8, r8)
+  10:	00000000 	.word	0x00000000
+Disassembly of section .text.USART_GetCharacter:
+
+00000000 <USART_GetCharacter>:
+USART_GetCharacter():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:251
+
+    return ch;
+}
+
+uint8_t USART_GetCharacter(USART_TypeDef *  usart_p)
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4605      	mov	r5, r0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:255
+    uint8_t data;
+
+    /* Loop until the end of transmission */
+    while(USART_GetFlagStatus(usart_p, USART_FLAG_RXNE) == RESET);
+   4:	4628      	mov	r0, r5
+   6:	2120      	movs	r1, #32
+   8:	f7ff fffe 	bl	0 <USART_GetFlagStatus>
+   c:	2800      	cmp	r0, #0
+   e:	d0f9      	beq.n	4 <USART_GetCharacter+0x4>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:258
+
+    /* Write a character to the USART */
+    data = USART_ReceiveData(usart_p);
+  10:	4628      	mov	r0, r5
+  12:	f7ff fffe 	bl	0 <USART_ReceiveData>
+  16:	b2c4      	uxtb	r4, r0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:260
+
+    USART_SendData(usart_p, data);
+  18:	4621      	mov	r1, r4
+  1a:	4628      	mov	r0, r5
+  1c:	f7ff fffe 	bl	0 <USART_SendData>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:261
+    while(USART_GetFlagStatus(usart_p, USART_FLAG_TXE) == RESET);
+  20:	4628      	mov	r0, r5
+  22:	2180      	movs	r1, #128
+  24:	f7ff fffe 	bl	0 <USART_GetFlagStatus>
+  28:	2800      	cmp	r0, #0
+  2a:	d0f9      	beq.n	20 <USART_GetFlagStatus+0x20>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:265
+
+    if( data == '\r' )  return (int)('\n');
+    else                return(data);
+}
+  2c:	2c0d      	cmp	r4, #13
+  2e:	bf14      	ite	ne
+  30:	4620      	movne	r0, r4
+  32:	200a      	moveq	r0, #10
+  34:	bd70      	pop	{r4, r5, r6, pc}
+  36:	46c0      	nop			(mov r8, r8)
+Disassembly of section .text.__io_putchar:
+
+00000000 <__io_putchar>:
+__io_putchar():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:236
+ * Return : None
+ */
+PUTCHAR_PROTOTYPE
+{
+    /* Write a character to the USART */  
+    if( ch == '\n') {
+   0:	280a      	cmp	r0, #10
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:234
+ * Input  : None
+ * Output : None
+ * Return : None
+ */
+PUTCHAR_PROTOTYPE
+{
+   2:	b510      	push	{r4, lr}
+   4:	4604      	mov	r4, r0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:236
+    /* Write a character to the USART */  
+    if( ch == '\n') {
+   6:	d10c      	bne.n	22 <__io_putchar+0x22>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:237
+        USART_SendData(USART1, '\r');
+   8:	480c      	ldr	r0, [pc, #48]	(3c <__io_putchar+0x3c>)
+   a:	210d      	movs	r1, #13
+   c:	f7ff fffe 	bl	0 <USART_SendData>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:238
+        while(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
+  10:	480a      	ldr	r0, [pc, #40]	(3c <__io_putchar+0x3c>)
+  12:	2180      	movs	r1, #128
+  14:	f7ff fffe 	bl	0 <USART_GetFlagStatus>
+  18:	2800      	cmp	r0, #0
+  1a:	d0f9      	beq.n	10 <__io_putchar+0x10>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:239
+        USART_SendData(USART1, '\n');
+  1c:	4807      	ldr	r0, [pc, #28]	(3c <__io_putchar+0x3c>)
+  1e:	210a      	movs	r1, #10
+  20:	e001      	b.n	26 <__io_putchar+0x26>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:241
+    }else {
+        USART_SendData(USART1, (u8) ch);
+  22:	4806      	ldr	r0, [pc, #24]	(3c <__io_putchar+0x3c>)
+  24:	b2e1      	uxtb	r1, r4
+  26:	f7ff fffe 	bl	0 <USART_SendData>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:245
+    }
+
+    /* Loop until the end of transmission */
+    while(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
+  2a:	4804      	ldr	r0, [pc, #16]	(3c <__io_putchar+0x3c>)
+  2c:	2180      	movs	r1, #128
+  2e:	f7ff fffe 	bl	0 <USART_GetFlagStatus>
+  32:	2800      	cmp	r0, #0
+  34:	d0f9      	beq.n	2a <USART_GetFlagStatus+0x2a>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:248
+
+    return ch;
+}
+  36:	4620      	mov	r0, r4
+  38:	bd10      	pop	{r4, pc}
+  3a:	46c0      	nop			(mov r8, r8)
+  3c:	40013800 	.word	0x40013800
+Disassembly of section .text.EXTI_Configuration:
+
+00000000 <EXTI_Configuration>:
+EXTI_Configuration():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:176
+* Input         : None.
+* Output        : None.
+* Return value  : The direction value.
+*******************************************************************************/
+void EXTI_Configuration(void)
+{ 
+   0:	e92d 4177 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r8, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:181
+    EXTI_InitTypeDef EXTI_InitStructure;
+
+    /* Configure gpio as input : Button Left-WKUP */
+    /* Connect EXTI Line to gpio pin */
+    GPIO_EXTILineConfig(GPIO_PORTSOURCE_KEY, GPIO_PINSOURCE_KEY1);
+   4:	2000      	movs	r0, #0
+   6:	4601      	mov	r1, r0
+   8:	f7ff fffe 	bl	0 <GPIO_EXTILineConfig>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:184
+
+    /* Configure EXTI Line to generate an interrupt */
+    EXTI_InitStructure.EXTI_Line    = GPIO_EXTI_Line_KEY1;
+   c:	2501      	movs	r5, #1
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:185
+    EXTI_InitStructure.EXTI_Mode    = EXTI_Mode_Interrupt;
+   e:	2400      	movs	r4, #0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:186
+    EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
+  10:	f04f 080c 	mov.w	r8, #12	; 0xc
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:188
+    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+    EXTI_Init(&EXTI_InitStructure);
+  14:	4668      	mov	r0, sp
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:184
+    /* Configure gpio as input : Button Left-WKUP */
+    /* Connect EXTI Line to gpio pin */
+    GPIO_EXTILineConfig(GPIO_PORTSOURCE_KEY, GPIO_PINSOURCE_KEY1);
+
+    /* Configure EXTI Line to generate an interrupt */
+    EXTI_InitStructure.EXTI_Line    = GPIO_EXTI_Line_KEY1;
+  16:	9500      	str	r5, [sp, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:185
+    EXTI_InitStructure.EXTI_Mode    = EXTI_Mode_Interrupt;
+  18:	f88d 4004 	strb.w	r4, [sp, #4]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:186
+    EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
+  1c:	f88d 8005 	strb.w	r8, [sp, #5]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:187
+    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+  20:	f88d 5006 	strb.w	r5, [sp, #6]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:188
+    EXTI_Init(&EXTI_InitStructure);
+  24:	f7ff fffe 	bl	0 <EXTI_Init>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:192
+
+    /* Configure gpio as input : Button Right-USER */
+    /* Connect EXTI Line to gpio pin */
+    GPIO_EXTILineConfig(GPIO_PORTSOURCE_KEY, GPIO_PINSOURCE_KEY2);
+  28:	4620      	mov	r0, r4
+  2a:	4629      	mov	r1, r5
+  2c:	f7ff fffe 	bl	0 <GPIO_EXTILineConfig>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:195
+
+    /* Configure EXTI Line to generate an interrupt */  
+    EXTI_InitStructure.EXTI_Line    = GPIO_EXTI_Line_KEY2;
+  30:	2302      	movs	r3, #2
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:199
+    EXTI_InitStructure.EXTI_Mode    = EXTI_Mode_Interrupt;
+    EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
+    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+    EXTI_Init(&EXTI_InitStructure);
+  32:	4668      	mov	r0, sp
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:188
+    /* Configure EXTI Line to generate an interrupt */
+    EXTI_InitStructure.EXTI_Line    = GPIO_EXTI_Line_KEY1;
+    EXTI_InitStructure.EXTI_Mode    = EXTI_Mode_Interrupt;
+    EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
+    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+    EXTI_Init(&EXTI_InitStructure);
+  34:	466e      	mov	r6, sp
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:195
+    /* Configure gpio as input : Button Right-USER */
+    /* Connect EXTI Line to gpio pin */
+    GPIO_EXTILineConfig(GPIO_PORTSOURCE_KEY, GPIO_PINSOURCE_KEY2);
+
+    /* Configure EXTI Line to generate an interrupt */  
+    EXTI_InitStructure.EXTI_Line    = GPIO_EXTI_Line_KEY2;
+  36:	9300      	str	r3, [sp, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:196
+    EXTI_InitStructure.EXTI_Mode    = EXTI_Mode_Interrupt;
+  38:	f88d 4004 	strb.w	r4, [sp, #4]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:197
+    EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
+  3c:	f88d 8005 	strb.w	r8, [sp, #5]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:198
+    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+  40:	f88d 5006 	strb.w	r5, [sp, #6]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:199
+    EXTI_Init(&EXTI_InitStructure);
+  44:	f7ff fffe 	bl	0 <EXTI_Init>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:200
+}
+  48:	e8bd 817e 	ldmia.w	sp!, {r1, r2, r3, r4, r5, r6, r8, pc}
+Disassembly of section .text.GPIO_Configuration:
+
+00000000 <GPIO_Configuration>:
+GPIO_Configuration():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:136
+ * Input  : None
+ * Output : None
+ * Return : None
+ */
+void GPIO_Configuration(void)
+{
+   0:	e92d 4177 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r8, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:145
+
+    /* Configure USARTx_Tx as alternate function push-pull */
+    GPIO_InitStructure.GPIO_Pin   = GPIO_USART_Tx_Pin;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_PP;
+    GPIO_Init(GPIO_USART, &GPIO_InitStructure);
+   4:	4c19      	ldr	r4, [pc, #100]	(6c <GPIO_Configuration+0x6c>)
+   6:	ad01      	add	r5, sp, #4
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:142
+    GPIO_InitTypeDef GPIO_InitStructure;
+
+    // UART configuration ...
+
+    /* Configure USARTx_Tx as alternate function push-pull */
+    GPIO_InitStructure.GPIO_Pin   = GPIO_USART_Tx_Pin;
+   8:	f44f 7300 	mov.w	r3, #512	; 0x200
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:143
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+   c:	f04f 0803 	mov.w	r8, #3	; 0x3
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:142
+    GPIO_InitTypeDef GPIO_InitStructure;
+
+    // UART configuration ...
+
+    /* Configure USARTx_Tx as alternate function push-pull */
+    GPIO_InitStructure.GPIO_Pin   = GPIO_USART_Tx_Pin;
+  10:	f8ad 3004 	strh.w	r3, [sp, #4]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:145
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_PP;
+    GPIO_Init(GPIO_USART, &GPIO_InitStructure);
+  14:	4620      	mov	r0, r4
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:144
+    // UART configuration ...
+
+    /* Configure USARTx_Tx as alternate function push-pull */
+    GPIO_InitStructure.GPIO_Pin   = GPIO_USART_Tx_Pin;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_PP;
+  16:	2318      	movs	r3, #24
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:145
+    GPIO_Init(GPIO_USART, &GPIO_InitStructure);
+  18:	4629      	mov	r1, r5
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:144
+    // UART configuration ...
+
+    /* Configure USARTx_Tx as alternate function push-pull */
+    GPIO_InitStructure.GPIO_Pin   = GPIO_USART_Tx_Pin;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_PP;
+  1a:	f88d 3007 	strb.w	r3, [sp, #7]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:149
+    GPIO_Init(GPIO_USART, &GPIO_InitStructure);
+
+    /* Configure USARTx_Rx as input floating */
+    GPIO_InitStructure.GPIO_Pin  = GPIO_USART_Rx_Pin;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  1e:	2604      	movs	r6, #4
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:143
+
+    // UART configuration ...
+
+    /* Configure USARTx_Tx as alternate function push-pull */
+    GPIO_InitStructure.GPIO_Pin   = GPIO_USART_Tx_Pin;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  20:	f88d 8006 	strb.w	r8, [sp, #6]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:145
+    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_PP;
+    GPIO_Init(GPIO_USART, &GPIO_InitStructure);
+  24:	f7ff fffe 	bl	0 <GPIO_Init>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:148
+
+    /* Configure USARTx_Rx as input floating */
+    GPIO_InitStructure.GPIO_Pin  = GPIO_USART_Rx_Pin;
+  28:	f44f 6380 	mov.w	r3, #1024	; 0x400
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:150
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    GPIO_Init(GPIO_USART, &GPIO_InitStructure);
+  2c:	4620      	mov	r0, r4
+  2e:	4629      	mov	r1, r5
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:148
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_PP;
+    GPIO_Init(GPIO_USART, &GPIO_InitStructure);
+
+    /* Configure USARTx_Rx as input floating */
+    GPIO_InitStructure.GPIO_Pin  = GPIO_USART_Rx_Pin;
+  30:	f8ad 3004 	strh.w	r3, [sp, #4]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:149
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  34:	f88d 6007 	strb.w	r6, [sp, #7]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:150
+    GPIO_Init(GPIO_USART, &GPIO_InitStructure);
+  38:	f7ff fffe 	bl	0 <GPIO_Init>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:157
+    // Key configuration ...
+
+    /* Configure gpio as input : Button WKUP & USER */
+    GPIO_InitStructure.GPIO_Pin = GPIO_KEY1_PIN | GPIO_KEY2_PIN;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+    GPIO_Init(GPIO_KEY, &GPIO_InitStructure);
+  3c:	4620      	mov	r0, r4
+  3e:	4629      	mov	r1, r5
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:155
+    GPIO_Init(GPIO_USART, &GPIO_InitStructure);
+
+    // Key configuration ...
+
+    /* Configure gpio as input : Button WKUP & USER */
+    GPIO_InitStructure.GPIO_Pin = GPIO_KEY1_PIN | GPIO_KEY2_PIN;
+  40:	f8ad 8004 	strh.w	r8, [sp, #4]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:156
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  44:	f88d 6007 	strb.w	r6, [sp, #7]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:157
+    GPIO_Init(GPIO_KEY, &GPIO_InitStructure);
+  48:	f7ff fffe 	bl	0 <GPIO_Init>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:162
+
+    // LED configuration ...
+
+    /* Configure gpio as output : LED1, LED2, LED3 */
+    GPIO_InitStructure.GPIO_Pin = GPIO_LED1_PIN | GPIO_LED2_PIN | GPIO_LED3_PIN ;
+  4c:	f44f 7348 	mov.w	r3, #800	; 0x320
+  50:	f8ad 3004 	strh.w	r3, [sp, #4]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:165
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_Init(GPIO_LED, &GPIO_InitStructure);
+  54:	4806      	ldr	r0, [pc, #24]	(70 <GPIO_Configuration+0x70>)
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:164
+    // LED configuration ...
+
+    /* Configure gpio as output : LED1, LED2, LED3 */
+    GPIO_InitStructure.GPIO_Pin = GPIO_LED1_PIN | GPIO_LED2_PIN | GPIO_LED3_PIN ;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  56:	2310      	movs	r3, #16
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:165
+    GPIO_Init(GPIO_LED, &GPIO_InitStructure);
+  58:	4629      	mov	r1, r5
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:163
+
+    // LED configuration ...
+
+    /* Configure gpio as output : LED1, LED2, LED3 */
+    GPIO_InitStructure.GPIO_Pin = GPIO_LED1_PIN | GPIO_LED2_PIN | GPIO_LED3_PIN ;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  5a:	f88d 8006 	strb.w	r8, [sp, #6]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:164
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  5e:	f88d 3007 	strb.w	r3, [sp, #7]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:165
+    GPIO_Init(GPIO_LED, &GPIO_InitStructure);
+  62:	f7ff fffe 	bl	0 <GPIO_Init>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:166
+}
+  66:	e8bd 817e 	ldmia.w	sp!, {r1, r2, r3, r4, r5, r6, r8, pc}
+  6a:	46c0      	nop			(mov r8, r8)
+  6c:	40010800 	.word	0x40010800
+  70:	40010c00 	.word	0x40010c00
+Disassembly of section .text.NVIC_Configuration:
+
+00000000 <NVIC_Configuration>:
+NVIC_Configuration():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:100
+* Input          : None
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void NVIC_Configuration(void)
+{ 
+   0:	b573      	push	{r0, r1, r4, r5, r6, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:108
+#ifdef  VECT_TAB_RAM
+    /* Set the Vector Table base location at 0x20000000 */ 
+    NVIC_SetVectorTable(NVIC_VectTab_RAM, 0x0); 
+#else  /* VECT_TAB_FLASH  */
+    /* Set the Vector Table base location at 0x08000000 */ 
+    NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x2000);   
+   2:	f44f 5100 	mov.w	r1, #8192	; 0x2000
+   6:	f04f 6000 	mov.w	r0, #134217728	; 0x8000000
+   a:	f7ff fffe 	bl	0 <NVIC_SetVectorTable>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:119
+    /* Enable the EXTI0 Interrupt */
+    NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
+   e:	ae01      	add	r6, sp, #4
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:112
+    /* Set the Vector Table base location at 0x08000000 */ 
+    NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x2000);   
+#endif
+
+    /* Configure one bit for preemption priority */
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
+  10:	f44f 60e0 	mov.w	r0, #1792	; 0x700
+  14:	f7ff fffe 	bl	0 <NVIC_PriorityGroupConfig>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:116
+
+    /* Enable the EXTI0 Interrupt */
+    NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+  18:	2500      	movs	r5, #0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:115
+
+    /* Configure one bit for preemption priority */
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
+
+    /* Enable the EXTI0 Interrupt */
+    NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;
+  1a:	2306      	movs	r3, #6
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:118
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  1c:	2401      	movs	r4, #1
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:119
+    NVIC_Init(&NVIC_InitStructure);
+  1e:	4630      	mov	r0, r6
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:115
+
+    /* Configure one bit for preemption priority */
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
+
+    /* Enable the EXTI0 Interrupt */
+    NVIC_InitStructure.NVIC_IRQChannel = EXTI0_IRQn;
+  20:	f88d 3004 	strb.w	r3, [sp, #4]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:116
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+  24:	f88d 5005 	strb.w	r5, [sp, #5]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:117
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+  28:	f88d 5006 	strb.w	r5, [sp, #6]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:118
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  2c:	f88d 4007 	strb.w	r4, [sp, #7]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:119
+    NVIC_Init(&NVIC_InitStructure);
+  30:	f7ff fffe 	bl	0 <NVIC_Init>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:122
+
+    /* Enable the EXTI1 Interrupt */
+    NVIC_InitStructure.NVIC_IRQChannel = EXTI1_IRQn;
+  34:	2307      	movs	r3, #7
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:126
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
+  36:	4630      	mov	r0, r6
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:122
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
+
+    /* Enable the EXTI1 Interrupt */
+    NVIC_InitStructure.NVIC_IRQChannel = EXTI1_IRQn;
+  38:	f88d 3004 	strb.w	r3, [sp, #4]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:123
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+  3c:	f88d 5005 	strb.w	r5, [sp, #5]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:124
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+  40:	f88d 4006 	strb.w	r4, [sp, #6]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:125
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  44:	f88d 4007 	strb.w	r4, [sp, #7]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:126
+    NVIC_Init(&NVIC_InitStructure);
+  48:	f7ff fffe 	bl	0 <NVIC_Init>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:127
+}
+  4c:	bd7c      	pop	{r2, r3, r4, r5, r6, pc}
+  4e:	46c0      	nop			(mov r8, r8)
+Disassembly of section .text.RCC_Configuration:
+
+00000000 <RCC_Configuration>:
+RCC_Configuration():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:79
+ * Input  : None
+ * Output : None
+ * Return : None
+ */
+void RCC_Configuration(void)
+{
+   0:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:80
+    SystemInit();
+   2:	f7ff fffe 	bl	0 <SystemInit>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:83
+
+    /* Enable GPIOA clock */
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIO_USART, ENABLE);
+   6:	2004      	movs	r0, #4
+   8:	2101      	movs	r1, #1
+   a:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:86
+
+    /* Enable GPIOB clock */
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIO_LED, ENABLE);
+   e:	2008      	movs	r0, #8
+  10:	2101      	movs	r1, #1
+  12:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:89
+
+    /* Enable USART1 clocks */
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
+  16:	f44f 4080 	mov.w	r0, #16384	; 0x4000
+  1a:	2101      	movs	r1, #1
+  1c:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:90
+}
+  20:	bd10      	pop	{r4, pc}
+  22:	46c0      	nop			(mov r8, r8)
+Disassembly of section .text.USART1_Init:
+
+00000000 <USART1_Init>:
+USART1_Init():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:45
+ * Input  : None
+ * Output : None
+ * Return : None
+ */
+void USART1_Init(void)
+{
+   0:	b51f      	push	{r0, r1, r2, r3, r4, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:66
+    USART_InitStructure.USART_HardwareFlowControl
+                                         = USART_HardwareFlowControl_None;
+    USART_InitStructure.USART_Mode       = USART_Mode_Rx | USART_Mode_Tx;
+
+    /* Configure the USARTx */ 
+    USART_Init(USART1, &USART_InitStructure);
+   2:	4c0d      	ldr	r4, [pc, #52]	(38 <USART1_Init+0x38>)
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:57
+     - One Stop Bit
+     - No parity
+     - Hardware flow control disabled (RTS and CTS signals)
+     - Receive and transmit enabled
+     */
+    USART_InitStructure.USART_BaudRate   = 115200;
+   4:	f44f 33e1 	mov.w	r3, #115200	; 0x1c200
+   8:	9300      	str	r3, [sp, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:58
+    USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+   a:	f5a3 33e1 	sub.w	r3, r3, #115200	; 0x1c200
+   e:	f8ad 3004 	strh.w	r3, [sp, #4]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:59
+    USART_InitStructure.USART_StopBits   = USART_StopBits_1;
+  12:	f8ad 3006 	strh.w	r3, [sp, #6]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:60
+    USART_InitStructure.USART_Parity     = USART_Parity_No ;
+  16:	f8ad 3008 	strh.w	r3, [sp, #8]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:61
+    USART_InitStructure.USART_HardwareFlowControl
+  1a:	f8ad 300c 	strh.w	r3, [sp, #12]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:66
+                                         = USART_HardwareFlowControl_None;
+    USART_InitStructure.USART_Mode       = USART_Mode_Rx | USART_Mode_Tx;
+
+    /* Configure the USARTx */ 
+    USART_Init(USART1, &USART_InitStructure);
+  1e:	4620      	mov	r0, r4
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:63
+    USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+    USART_InitStructure.USART_StopBits   = USART_StopBits_1;
+    USART_InitStructure.USART_Parity     = USART_Parity_No ;
+    USART_InitStructure.USART_HardwareFlowControl
+                                         = USART_HardwareFlowControl_None;
+    USART_InitStructure.USART_Mode       = USART_Mode_Rx | USART_Mode_Tx;
+  20:	f04f 030c 	mov.w	r3, #12	; 0xc
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:66
+
+    /* Configure the USARTx */ 
+    USART_Init(USART1, &USART_InitStructure);
+  24:	4669      	mov	r1, sp
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:63
+    USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+    USART_InitStructure.USART_StopBits   = USART_StopBits_1;
+    USART_InitStructure.USART_Parity     = USART_Parity_No ;
+    USART_InitStructure.USART_HardwareFlowControl
+                                         = USART_HardwareFlowControl_None;
+    USART_InitStructure.USART_Mode       = USART_Mode_Rx | USART_Mode_Tx;
+  26:	f8ad 300a 	strh.w	r3, [sp, #10]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:66
+
+    /* Configure the USARTx */ 
+    USART_Init(USART1, &USART_InitStructure);
+  2a:	f7ff fffe 	bl	0 <USART_Init>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:69
+
+    /* Enable the USART1 */
+    USART_Cmd(USART1, ENABLE);
+  2e:	4620      	mov	r0, r4
+  30:	2101      	movs	r1, #1
+  32:	f7ff fffe 	bl	0 <USART_Cmd>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.KeyInterrupt_for_AN2557.IAP\src/hw_config.c:70
+}
+  36:	bd1f      	pop	{r0, r1, r2, r3, r4, pc}
+  38:	40013800 	.word	0x40013800

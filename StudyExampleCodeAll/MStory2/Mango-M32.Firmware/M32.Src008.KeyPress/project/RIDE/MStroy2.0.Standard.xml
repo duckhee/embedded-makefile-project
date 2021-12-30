@@ -1,0 +1,130 @@
+<!-- DWF2XML 2.00.01 - Raisonance Dwarf information extractor -->
+<aoffile Filename="MStroy2.0" dwarf="1">
+ <modulelist>
+  <module Name="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\main.c" >
+   <type Family="Base" Name="signed char" ID="37"/>
+   <type Family="Base" Name="unsigned char" ID="44"/>
+   <type Family="Base" Name="short int" ID="51"/>
+   <type Family="Base" Name="short unsigned int" ID="69"/>
+   <type Family="typedef" Name="uint16_t" Line="58" ID="58" toTI="69"/>
+   <type Family="Base" Name="long int" ID="76"/>
+   <type Family="Base" Name="long unsigned int" ID="94"/>
+   <type Family="typedef" Name="uint32_t" Line="84" ID="83" toTI="94"/>
+   <type Family="Base" Name="long long int" ID="101"/>
+   <type Family="Base" Name="long long unsigned int" ID="108"/>
+   <type Family="Base" Name="int" ID="115"/>
+   <type Family="Base" Name="unsigned int" ID="122"/>
+   <type Family="typedef" Name="GPIOSpeed_TypeDef" Line="25" ID="162" toTI="129"/>
+   <type Family="ComponentList" Line="87" ID="233">
+    <Component Name="CR" TI="241" Line="88" Offs="0"/>
+    <Component Name="CFGR" TI="254" Line="89" Offs="4"/>
+    <Component Name="CIR" TI="268" Line="90" Offs="8"/>
+    <Component Name="APB2RSTR" TI="282" Line="91" Offs="12"/>
+    <Component Name="APB1RSTR" TI="296" Line="92" Offs="16"/>
+    <Component Name="AHBENR" TI="310" Line="93" Offs="20"/>
+    <Component Name="APB2ENR" TI="324" Line="94" Offs="24"/>
+    <Component Name="APB1ENR" TI="338" Line="95" Offs="28"/>
+    <Component Name="BDCR" TI="352" Line="96" Offs="32"/>
+    <Component Name="CSR" TI="366" Line="97" Offs="36"/>
+   </type>
+   <type Family="ComponentList" Line="105" ID="386">
+    <Component Name="CRL" TI="394" Line="106" Offs="0"/>
+    <Component Name="CRH" TI="408" Line="107" Offs="4"/>
+    <Component Name="IDR" TI="422" Line="108" Offs="8"/>
+    <Component Name="ODR" TI="436" Line="109" Offs="12"/>
+    <Component Name="BSRR" TI="450" Line="110" Offs="16"/>
+    <Component Name="BRR" TI="464" Line="111" Offs="20"/>
+    <Component Name="LCKR" TI="478" Line="112" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="GPIO_TypeDef" Line="113" ID="493" toTI="386"/>
+   <function Name="delay_int_count" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\main.c" Line="17">
+    <parameter Name="nTime" TI="544" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\main.c" Line="17" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="delay_1_second" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\main.c" Line="22">
+   </function >
+   <function Name="delay_100_milli_second" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\main.c" Line="27">
+   </function >
+   <function Name="GPIO_Port_Init" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\main.c" Line="34">
+   <type Family="Pointer" TI="701" toTI="493"/>
+    <parameter Name="GPIOx" TI="701" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\main.c" Line="34" Addr="0x0" Param="Yes"/>
+    <parameter Name="pinNum" TI="58" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\main.c" Line="34" Addr="0x1" Param="Yes"/>
+    <parameter Name="speedValE" TI="162" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\main.c" Line="34" Addr="0x2" Param="Yes"/>
+    <parameter Name="modeE" TI="83" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\main.c" Line="34" Addr="0x3" Param="Yes"/>
+    <variable Name="tmpVal" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\main.c" Line="35" Addr="0xC" TI="83"/>
+    <variable Name="pinpos" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\main.c" Line="36" Addr="0x2" TI="83"/>
+   </function >
+   <function Name="main" TI="115" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\main.c" Line="77">
+   </function >
+  </module>
+  <module Name="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\led.c" >
+   <type Family="Base" Name="signed char" ID="770"/>
+   <type Family="Base" Name="unsigned char" ID="777"/>
+   <type Family="Base" Name="short int" ID="784"/>
+   <type Family="Base" Name="short unsigned int" ID="791"/>
+   <type Family="Base" Name="long int" ID="798"/>
+   <type Family="Base" Name="long unsigned int" ID="816"/>
+   <type Family="typedef" Name="uint32_t" Line="84" ID="805" toTI="816"/>
+   <type Family="Base" Name="long long int" ID="823"/>
+   <type Family="Base" Name="long long unsigned int" ID="830"/>
+   <type Family="Base" Name="int" ID="837"/>
+   <type Family="Base" Name="unsigned int" ID="844"/>
+   <type Family="ComponentList" Line="105" ID="856">
+    <Component Name="CRL" TI="864" Line="106" Offs="0"/>
+    <Component Name="CRH" TI="878" Line="107" Offs="4"/>
+    <Component Name="IDR" TI="892" Line="108" Offs="8"/>
+    <Component Name="ODR" TI="906" Line="109" Offs="12"/>
+    <Component Name="BSRR" TI="920" Line="110" Offs="16"/>
+    <Component Name="BRR" TI="934" Line="111" Offs="20"/>
+    <Component Name="LCKR" TI="948" Line="112" Offs="24"/>
+   </type>
+   <function Name="LED_On_Red" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\led.c" Line="23">
+   </function >
+   <function Name="LED_Off_Red" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\led.c" Line="28">
+   </function >
+   <function Name="LED_On_Yellow" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\led.c" Line="33">
+   </function >
+   <function Name="LED_Off_Yellow" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\led.c" Line="38">
+   </function >
+   <function Name="LED_On_Blue" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\led.c" Line="43">
+   </function >
+   <function Name="LED_Off_Blue" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\led.c" Line="48">
+   </function >
+   <function Name="LED_Off_All" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\led.c" Line="60">
+   </function >
+  </module>
+  <module Name="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\key.c" >
+   <type Family="Base" Name="signed char" ID="1219"/>
+   <type Family="Base" Name="unsigned char" ID="1237"/>
+   <type Family="typedef" Name="uint8_t" Line="46" ID="1226" toTI="1237"/>
+   <type Family="Base" Name="short int" ID="1244"/>
+   <type Family="Base" Name="short unsigned int" ID="1262"/>
+   <type Family="typedef" Name="uint16_t" Line="58" ID="1251" toTI="1262"/>
+   <type Family="Base" Name="long int" ID="1269"/>
+   <type Family="Base" Name="long unsigned int" ID="1287"/>
+   <type Family="typedef" Name="uint32_t" Line="84" ID="1276" toTI="1287"/>
+   <type Family="Base" Name="long long int" ID="1294"/>
+   <type Family="Base" Name="long long unsigned int" ID="1301"/>
+   <type Family="Base" Name="int" ID="1308"/>
+   <type Family="Base" Name="unsigned int" ID="1315"/>
+   <type Family="ComponentList" Line="105" ID="1348">
+    <Component Name="CRL" TI="1356" Line="106" Offs="0"/>
+    <Component Name="CRH" TI="1370" Line="107" Offs="4"/>
+    <Component Name="IDR" TI="1384" Line="108" Offs="8"/>
+    <Component Name="ODR" TI="1398" Line="109" Offs="12"/>
+    <Component Name="BSRR" TI="1412" Line="110" Offs="16"/>
+    <Component Name="BRR" TI="1426" Line="111" Offs="20"/>
+    <Component Name="LCKR" TI="1440" Line="112" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="GPIO_TypeDef" Line="113" ID="1455" toTI="1348"/>
+   <function Name="GPIO_ReadInputDataBit" TI="1226" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\key.c" Line="17">
+   <type Family="Pointer" TI="1533" toTI="1455"/>
+    <parameter Name="GPIOx" TI="1533" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\key.c" Line="17" Addr="0x0" Param="Yes"/>
+    <parameter Name="GPIO_Pin" TI="1251" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\key.c" Line="17" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="KEY_Test" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\key.c" Line="43">
+    <variable Name="i" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src008.KeyPress\src\key.c" Line="44" Addr="0x4" TI="1276"/>
+   </function >
+  </module>
+ </modulelist>
+</aoffile>
+

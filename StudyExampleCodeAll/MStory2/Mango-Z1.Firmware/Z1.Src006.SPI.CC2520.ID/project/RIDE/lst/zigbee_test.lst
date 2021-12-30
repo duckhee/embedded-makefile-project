@@ -1,0 +1,47 @@
+
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src006.SPI.CC2520.ID\project\RIDE\obj\zigbee_test.o:     file format elf32-littlearm
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src006.SPI.CC2520.ID\project\RIDE\obj\zigbee_test.o
+
+Disassembly of section .text.ZigBee_Test:
+
+00000000 <ZigBee_Test>:
+ZigBee_Test():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src006.SPI.CC2520.ID\src/zigbee_test.c:10
+/* includes */
+
+#include "hw_config.h"
+
+void ZigBee_Test(void)
+{
+   0:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src006.SPI.CC2520.ID\src/zigbee_test.c:11
+    DEBUG_MSG_FUNC_START;
+   2:	480a      	ldr	r0, [pc, #40]	(2c <ZigBee_Test+0x2c>)
+   4:	f7ff fffe 	bl	0 <DebugMsg_FunctionStart>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src006.SPI.CC2520.ID\src/zigbee_test.c:13
+
+    SPIx_Init();
+   8:	f7ff fffe 	bl	0 <SPIx_Init>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src006.SPI.CC2520.ID\src/zigbee_test.c:15
+
+    halRfInit();
+   c:	f7ff fffe 	bl	0 <halRfInit>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src006.SPI.CC2520.ID\src/zigbee_test.c:17
+
+    printf("chipid : 0x%x\n", halRfGetChipId());
+  10:	f7ff fffe 	bl	0 <halRfGetChipId>
+  14:	4601      	mov	r1, r0
+  16:	4806      	ldr	r0, [pc, #24]	(30 <ZigBee_Test+0x30>)
+  18:	f7ff fffe 	bl	0 <printf>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src006.SPI.CC2520.ID\src/zigbee_test.c:18
+    printf("version : 0x%x\n", halRfGetChipVer());
+  1c:	f7ff fffe 	bl	0 <halRfGetChipVer>
+  20:	4601      	mov	r1, r0
+  22:	4804      	ldr	r0, [pc, #16]	(34 <ZigBee_Test+0x34>)
+  24:	f7ff fffe 	bl	0 <printf>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src006.SPI.CC2520.ID\src/zigbee_test.c:19
+}
+  28:	bd10      	pop	{r4, pc}
+  2a:	46c0      	nop			(mov r8, r8)
+	...
+  34:	0000000f 	.word	0x0000000f

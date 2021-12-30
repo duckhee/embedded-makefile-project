@@ -1,0 +1,342 @@
+
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\project\RIDE\obj\main.o:     file format elf32-littlearm
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\project\RIDE\obj\main.o
+
+Disassembly of section .text.Delay:
+
+00000000 <Delay>:
+Delay():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:151
+  * @param  nTime: specifies the delay time length, in milliseconds.
+  * @retval None
+  */
+void Delay(uint32_t nTime)
+{ 
+  TimingDelay = nTime;
+   0:	4b03      	ldr	r3, [pc, #12]	(10 <Delay+0x10>)
+   2:	6018      	str	r0, [r3, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:153
+
+  while(TimingDelay != 0);
+   4:	4b02      	ldr	r3, [pc, #8]	(10 <Delay+0x10>)
+   6:	681b      	ldr	r3, [r3, #0]
+   8:	2b00      	cmp	r3, #0
+   a:	d1fb      	bne.n	4 <Delay+0x4>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:154
+}
+   c:	4770      	bx	lr
+   e:	46c0      	nop			(mov r8, r8)
+  10:	00000000 	.word	0x00000000
+Disassembly of section .text.TimingDelay_Decrement:
+
+00000000 <TimingDelay_Decrement>:
+TimingDelay_Decrement():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:163
+  * @param  None
+  * @retval None
+  */
+void TimingDelay_Decrement(void)
+{
+  if (TimingDelay != 0x00)
+   0:	4a03      	ldr	r2, [pc, #12]	(10 <TimingDelay_Decrement+0x10>)
+   2:	6813      	ldr	r3, [r2, #0]
+   4:	b113      	cbz	r3, c <TimingDelay_Decrement+0xc>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:165
+  { 
+    TimingDelay--;
+   6:	6813      	ldr	r3, [r2, #0]
+   8:	3b01      	subs	r3, #1
+   a:	6013      	str	r3, [r2, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:167
+  }
+}
+   c:	4770      	bx	lr
+   e:	46c0      	nop			(mov r8, r8)
+  10:	00000000 	.word	0x00000000
+Disassembly of section .text.UART1_Init:
+
+00000000 <UART1_Init>:
+UART1_Init():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:79
+
+    return ch;
+}
+
+void UART1_Init(void)
+{
+   0:	b51f      	push	{r0, r1, r2, r3, r4, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:91
+        - One Stop Bit
+        - No parity
+        - Hardware flow control disabled (RTS and CTS signals)
+        - Receive and transmit enabled
+  */
+  USART_InitStructure.USART_BaudRate = 115200;
+   2:	f44f 33e1 	mov.w	r3, #115200	; 0x1c200
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:92
+  USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+   6:	2000      	movs	r0, #0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:91
+        - One Stop Bit
+        - No parity
+        - Hardware flow control disabled (RTS and CTS signals)
+        - Receive and transmit enabled
+  */
+  USART_InitStructure.USART_BaudRate = 115200;
+   8:	9300      	str	r3, [sp, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:98
+  USART_InitStructure.USART_StopBits = USART_StopBits_1;
+  USART_InitStructure.USART_Parity = USART_Parity_No;
+  USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+  USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+
+  STM_EVAL_COMInit(COM1, &USART_InitStructure);  
+   a:	4669      	mov	r1, sp
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:96
+  USART_InitStructure.USART_BaudRate = 115200;
+  USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+  USART_InitStructure.USART_StopBits = USART_StopBits_1;
+  USART_InitStructure.USART_Parity = USART_Parity_No;
+  USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+  USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+   c:	f04f 030c 	mov.w	r3, #12	; 0xc
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:92
+        - No parity
+        - Hardware flow control disabled (RTS and CTS signals)
+        - Receive and transmit enabled
+  */
+  USART_InitStructure.USART_BaudRate = 115200;
+  USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+  10:	f8ad 0004 	strh.w	r0, [sp, #4]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:93
+  USART_InitStructure.USART_StopBits = USART_StopBits_1;
+  14:	f8ad 0006 	strh.w	r0, [sp, #6]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:94
+  USART_InitStructure.USART_Parity = USART_Parity_No;
+  18:	f8ad 0008 	strh.w	r0, [sp, #8]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:95
+  USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+  1c:	f8ad 000c 	strh.w	r0, [sp, #12]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:96
+  USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+  20:	f8ad 300a 	strh.w	r3, [sp, #10]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:98
+
+  STM_EVAL_COMInit(COM1, &USART_InitStructure);  
+  24:	f7ff fffe 	bl	0 <STM_EVAL_COMInit>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:99
+}
+  28:	b005      	add	sp, #20
+  2a:	bd00      	pop	{pc}
+Disassembly of section .text.main:
+
+00000000 <main>:
+main():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:107
+  * @brief  Main program.
+  * @param  None
+  * @retval None
+  */
+int main(void)
+{
+   0:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:110
+  /* Setup the microcontroller system. Initialize the Embedded Flash Interface,
+     initialize the PLL and update the SystemFrequency variable. */
+  SystemInit();
+   2:	f7ff fffe 	bl	0 <SystemInit>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:112
+
+    UART1_Init();
+   6:	f7ff fffe 	bl	0 <main>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:114
+
+    printf("POOH, Program ^^\n");
+   a:	481f      	ldr	r0, [pc, #124]	(80 <puts+0x80>)
+   c:	f7ff fffe 	bl	0 <puts>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:117
+
+  /* Initialize Leds mounted on STM3210X-EVAL board */
+  STM_EVAL_LEDInit(LED1);
+  10:	2000      	movs	r0, #0
+  12:	f7ff fffe 	bl	0 <STM_EVAL_LEDInit>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:118
+  STM_EVAL_LEDInit(LED2);
+  16:	2001      	movs	r0, #1
+  18:	f7ff fffe 	bl	0 <STM_EVAL_LEDInit>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:119
+  STM_EVAL_LEDInit(LED3);
+  1c:	2002      	movs	r0, #2
+  1e:	f7ff fffe 	bl	0 <STM_EVAL_LEDInit>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:122
+
+  /* Set the Vector Table base location at 0x2000 */ 
+  NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x2000);
+  22:	f44f 5100 	mov.w	r1, #8192	; 0x2000
+  26:	f04f 6000 	mov.w	r0, #134217728	; 0x8000000
+  2a:	f7ff fffe 	bl	0 <NVIC_SetVectorTable>
+SysTick_Config():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\project\RIDE\..\..\..\Libraries\CMSIS\Core\CM3/core_cm3.h:1303
+ */
+static __INLINE uint32_t SysTick_Config(uint32_t ticks)
+{ 
+  if (ticks > SYSTICK_MAXCOUNT)  return (1);                                             /* Reload value impossible */
+
+  SysTick->LOAD  =  (ticks & SYSTICK_MAXCOUNT) - 1;                                      /* set reload register */
+  2e:	4b17      	ldr	r3, [pc, #92]	(8c <main+0x8c>)
+  30:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
+  34:	681b      	ldr	r3, [r3, #0]
+NVIC_SetPriority():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\project\RIDE\..\..\..\Libraries\CMSIS\Core\CM3/core_cm3.h:1187
+ * Note: The priority cannot be set for every core interrupt.
+ */
+static __INLINE void NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
+{
+  if(IRQn < 0) {
+    SCB->SHP[((uint32_t)(IRQn) & 0xF)-4] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff); } /* set Priority for Cortex-M3 System Interrupts */
+  36:	f06f 010f 	mvn.w	r1, #15	; 0xf
+SysTick_Config():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\project\RIDE\..\..\..\Libraries\CMSIS\Core\CM3/core_cm3.h:1303
+ */
+static __INLINE uint32_t SysTick_Config(uint32_t ticks)
+{ 
+  if (ticks > SYSTICK_MAXCOUNT)  return (1);                                             /* Reload value impossible */
+
+  SysTick->LOAD  =  (ticks & SYSTICK_MAXCOUNT) - 1;                                      /* set reload register */
+  3a:	fbb3 f3f2 	udiv	r3, r3, r2
+  3e:	f023 437f 	bic.w	r3, r3, #4278190080	; 0xff000000
+  42:	4a13      	ldr	r2, [pc, #76]	(90 <main+0x90>)
+  44:	3b01      	subs	r3, #1
+  46:	6053      	str	r3, [r2, #4]
+NVIC_SetPriority():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\project\RIDE\..\..\..\Libraries\CMSIS\Core\CM3/core_cm3.h:1187
+ * Note: The priority cannot be set for every core interrupt.
+ */
+static __INLINE void NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
+{
+  if(IRQn < 0) {
+    SCB->SHP[((uint32_t)(IRQn) & 0xF)-4] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff); } /* set Priority for Cortex-M3 System Interrupts */
+  48:	4b12      	ldr	r3, [pc, #72]	(94 <main+0x94>)
+  4a:	f883 1023 	strb.w	r1, [r3, #35]
+SysTick_Config():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\project\RIDE\..\..\..\Libraries\CMSIS\Core\CM3/core_cm3.h:1305
+{ 
+  if (ticks > SYSTICK_MAXCOUNT)  return (1);                                             /* Reload value impossible */
+
+  SysTick->LOAD  =  (ticks & SYSTICK_MAXCOUNT) - 1;                                      /* set reload register */
+  NVIC_SetPriority (SysTick_IRQn, (1<<__NVIC_PRIO_BITS) - 1);                            /* set Priority for Cortex-M0 System Interrupts */
+  SysTick->VAL   =  (0x00);                                                              /* Load the SysTick Counter Value */
+  4e:	2300      	movs	r3, #0
+  50:	6093      	str	r3, [r2, #8]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\project\RIDE\..\..\..\Libraries\CMSIS\Core\CM3/core_cm3.h:1306
+  SysTick->CTRL = (1 << SYSTICK_CLKSOURCE) | (1<<SYSTICK_ENABLE) | (1<<SYSTICK_TICKINT); /* Enable SysTick IRQ and SysTick Timer */
+  52:	3307      	adds	r3, #7
+  54:	6013      	str	r3, [r2, #0]
+main():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:133
+    while (1);
+  }
+
+  while (1)
+  {
+    STM_EVAL_LEDOn(LED1);
+  56:	2000      	movs	r0, #0
+  58:	f7ff fffe 	bl	0 <STM_EVAL_LEDOn>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:134
+    STM_EVAL_LEDOn(LED2);
+  5c:	2001      	movs	r0, #1
+  5e:	f7ff fffe 	bl	0 <STM_EVAL_LEDOn>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:135
+    STM_EVAL_LEDOn(LED3);
+  62:	2002      	movs	r0, #2
+  64:	f7ff fffe 	bl	0 <STM_EVAL_LEDOn>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:136
+    Delay(100);
+  68:	2064      	movs	r0, #100
+  6a:	f7ff fffe 	bl	0 <main>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:137
+    STM_EVAL_LEDOff(LED1);
+  6e:	2000      	movs	r0, #0
+  70:	f7ff fffe 	bl	0 <STM_EVAL_LEDOff>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:138
+    STM_EVAL_LEDOff(LED2);
+  74:	2001      	movs	r0, #1
+  76:	f7ff fffe 	bl	0 <STM_EVAL_LEDOff>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:139
+    STM_EVAL_LEDOff(LED3);
+  7a:	2002      	movs	r0, #2
+  7c:	f7ff fffe 	bl	0 <STM_EVAL_LEDOff>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:140
+    Delay(100);
+  80:	2064      	movs	r0, #100
+  82:	f7ff fffe 	bl	0 <main>
+  86:	e7e6      	b.n	ffffffd0 <TimingDelay+0xffffffd0>
+	...
+  90:	e000e010 	.word	0xe000e010
+  94:	e000ed00 	.word	0xe000ed00
+Disassembly of section .text.__io_putchar:
+
+00000000 <__io_putchar>:
+__io_putchar():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:64
+ * Return : None
+ */
+PUTCHAR_PROTOTYPE
+{
+    /* Write a character to the USART */  
+    if( ch == '\n') {
+   0:	280a      	cmp	r0, #10
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:62
+ * Input  : None
+ * Output : None
+ * Return : None
+ */
+PUTCHAR_PROTOTYPE
+{
+   2:	b510      	push	{r4, lr}
+   4:	4604      	mov	r4, r0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:64
+    /* Write a character to the USART */  
+    if( ch == '\n') {
+   6:	d10c      	bne.n	22 <__io_putchar+0x22>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:65
+        USART_SendData(USART1, '\r');
+   8:	480c      	ldr	r0, [pc, #48]	(3c <__io_putchar+0x3c>)
+   a:	210d      	movs	r1, #13
+   c:	f7ff fffe 	bl	0 <USART_SendData>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:66
+        while(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
+  10:	480a      	ldr	r0, [pc, #40]	(3c <__io_putchar+0x3c>)
+  12:	2180      	movs	r1, #128
+  14:	f7ff fffe 	bl	0 <USART_GetFlagStatus>
+  18:	2800      	cmp	r0, #0
+  1a:	d0f9      	beq.n	10 <__io_putchar+0x10>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:67
+        USART_SendData(USART1, '\n');
+  1c:	4807      	ldr	r0, [pc, #28]	(3c <__io_putchar+0x3c>)
+  1e:	210a      	movs	r1, #10
+  20:	e001      	b.n	26 <__io_putchar+0x26>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:69
+    }else {
+        USART_SendData(USART1, (u8) ch);
+  22:	4806      	ldr	r0, [pc, #24]	(3c <__io_putchar+0x3c>)
+  24:	b2e1      	uxtb	r1, r4
+  26:	f7ff fffe 	bl	0 <USART_SendData>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:73
+    }
+
+    /* Loop until the end of transmission */
+    while(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
+  2a:	4804      	ldr	r0, [pc, #16]	(3c <__io_putchar+0x3c>)
+  2c:	2180      	movs	r1, #128
+  2e:	f7ff fffe 	bl	0 <USART_GetFlagStatus>
+  32:	2800      	cmp	r0, #0
+  34:	d0f9      	beq.n	2a <USART_GetFlagStatus+0x2a>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.binary_template\src/main.c:76
+
+    return ch;
+}
+  36:	4620      	mov	r0, r4
+  38:	bd10      	pop	{r4, pc}
+  3a:	46c0      	nop			(mov r8, r8)
+  3c:	40013800 	.word	0x40013800

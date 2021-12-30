@@ -1,0 +1,80 @@
+
+<ApplicationBuild Header="MStroy2.0" Extern=".\MStroy2.0.rapp" Path=".\MStroy2.0.rapp" OutputFile=".\MStroy2.0.elf" sate="96" >
+	<Group Header="src" Marker="-1" OutputFile="" sate="98" >
+		<NodeC Path="..\..\src\main.c" Header="main.c" Marker="-1" OutputFile=".\obj\main.o" sate="0" />
+		<NodeC Path="..\..\src\hw_config.c" Header="hw_config.c" Marker="-1" OutputFile=".\obj\hw_config.o" sate="0" />
+		<NodeC Path="..\..\src\led.c" Header="led.c" Marker="-1" OutputFile=".\obj\led.o" sate="0" />
+		<NodeC Path="..\..\src\debug.c" Header="debug.c" Marker="-1" OutputFile=".\obj\debug.o" sate="0" />
+		<NodeC Path="..\..\src\key.c" Header="key.c" Marker="-1" OutputFile=".\obj\key.o" sate="0" />
+																		
+	</Group>
+	<Group Header="STM32F10x_StdPeriph_Driver" Marker="-1" OutputFile="" sate="96" >
+		<NodeC Path="..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c" Header="stm32f10x_usart.c" Marker="-1" OutputFile=".\obj\stm32f10x_usart.o" sate="0" />
+		<NodeC Path="..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_gpio.c" Header="stm32f10x_gpio.c" Marker="-1" OutputFile=".\obj\stm32f10x_gpio.o" sate="0" />
+		<NodeC Path="..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_rcc.c" Header="stm32f10x_rcc.c" Marker="-1" OutputFile=".\obj\stm32f10x_rcc.o" sate="0" />
+						
+	</Group>
+	<Group Header="CMSIS" Marker="-1" OutputFile="" sate="96" >
+		<NodeASM Path="..\..\..\Libraries\CMSIS\Core\CM3\startup\gcc\startup_stm32f10x_md.s" Header="startup_stm32f10x_md.s" Marker="-1" OutputFile=".\obj\startup_stm32f10x_md.o" sate="0" />
+						
+	</Group>
+	<Options>
+		<Config Header="Standard" >
+			<Set Header="ApplicationBuild" >
+				<Section Header="General" >
+					<Property Header="TargetFamily" Value="ARM" />
+																																																																						
+				</Section>
+				<Section Header="Directories" >
+					<Property Header="OutDir" Value="$(ApplicationDir)\obj" Removable="1" />
+					<Property Header="ListDir" Value="$(ApplicationDir)\lst" Removable="1" />
+					<Property Header="LinkerOutputDir" Value="Application Directory" Removable="1" />
+					<Property Header="IncDir" Value="$(ApplicationDir)\..\..\inc;$(ApplicationDir)\..\..\..\Libraries\CMSIS\Core\CM3;$(ApplicationDir)\..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc" Removable="1" />
+																
+				</Section>
+												
+			</Set>
+			<Set Header="Target" >
+				<Section Header="ProcessorARM" >
+					<Property Header="Processor" Value="STM32F103RBT6" />
+																																																																						
+				</Section>
+				<Section Header="ToolSetARM" >
+					<Property Header="BuildToolSetARM" Value="ARM\\GNU.config" Removable="1" />
+																																																																						
+				</Section>
+																																																						
+			</Set>
+			<Set Header="GCC" >
+				<Section Header="OPTIMIZE" >
+					<Property Header="Optimize" Value="-Os" Removable="1" />
+																																																				
+				</Section>
+				<Section Header="Defines" >
+					<Property Header="Defines" Value="USE_STDPERIPH_DRIVER" Removable="1" />
+																									
+				</Section>
+																			
+			</Set>
+			<Set Header="LD" >
+				<Section Header="Startup" >
+					<Property Header="DEFAULTSTARTUP" Value="No" Removable="1" />
+					<Property Header="File" Value="" Removable="1" />
+																																																				
+				</Section>
+				<Section Header="Scripts" >
+					<Property Header="StarterKitLimit" Value="No" Removable="1" />
+																																																				
+				</Section>
+				<Section Header="LIB" >
+					<Property Header="SMALLP" Value="0" Removable="1" />
+					<Property Header="STLIB" Value="0" Removable="1" />
+																									
+				</Section>
+																			
+			</Set>
+					
+		</Config>
+			
+	</Options>
+</ApplicationBuild>

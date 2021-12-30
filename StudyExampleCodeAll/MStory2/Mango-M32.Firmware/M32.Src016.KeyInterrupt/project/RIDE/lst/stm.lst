@@ -1,0 +1,1231 @@
+
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\project\RIDE\obj\stm.o:     file format elf32-littlearm
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\project\RIDE\obj\stm.o
+
+Disassembly of section .text.GPIO_ReadInputDataBit:
+
+00000000 <GPIO_ReadInputDataBit>:
+GPIO_ReadInputDataBit():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:20
+
+uint8_t GPIO_ReadInputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+{
+    uint8_t bitstatus = 0x00;
+
+    if ((GPIOx->IDR & GPIO_Pin) != (uint32_t)Bit_RESET)
+   0:	6883      	ldr	r3, [r0, #8]
+   2:	4219      	tst	r1, r3
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:29
+    else
+    {
+        bitstatus = (uint8_t)Bit_RESET;
+    }
+    return bitstatus;
+}
+   4:	bf0c      	ite	eq
+   6:	2000      	moveq	r0, #0
+   8:	2001      	movne	r0, #1
+   a:	4770      	bx	lr
+Disassembly of section .text.USART_SendData:
+
+00000000 <USART_SendData>:
+USART_SendData():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:34
+
+void USART_SendData(USART_TypeDef* USARTx, uint16_t Data)
+{
+  /* Transmit Data */
+  USARTx->DR = (Data & (uint16_t)0x01FF);
+   0:	05c9      	lsls	r1, r1, #23
+   2:	0dc9      	lsrs	r1, r1, #23
+   4:	8081      	strh	r1, [r0, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:35
+}
+   6:	4770      	bx	lr
+Disassembly of section .text.USART_ReceiveData:
+
+00000000 <USART_ReceiveData>:
+USART_ReceiveData():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:40
+
+uint16_t USART_ReceiveData(USART_TypeDef* USARTx)
+{
+  /* Receive Data */
+  return (uint16_t)(USARTx->DR & (uint16_t)0x01FF);
+   0:	8880      	ldrh	r0, [r0, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:41
+}
+   2:	05c0      	lsls	r0, r0, #23
+   4:	0dc0      	lsrs	r0, r0, #23
+   6:	4770      	bx	lr
+Disassembly of section .text.USART_GetFlagStatus:
+
+00000000 <USART_GetFlagStatus>:
+USART_GetFlagStatus():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:47
+
+FlagStatus USART_GetFlagStatus(USART_TypeDef* USARTx, uint16_t USART_FLAG)
+{
+  FlagStatus bitstatus = RESET;
+  
+  if ((USARTx->SR & USART_FLAG) != (uint16_t)RESET)
+   0:	8803      	ldrh	r3, [r0, #0]
+   2:	4219      	tst	r1, r3
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:56
+  else
+  {
+    bitstatus = RESET;
+  }
+  return bitstatus;
+}
+   4:	bf0c      	ite	eq
+   6:	2000      	moveq	r0, #0
+   8:	2001      	movne	r0, #1
+   a:	4770      	bx	lr
+Disassembly of section .text.RCC_GetClocksFreq:
+
+00000000 <RCC_GetClocksFreq>:
+RCC_GetClocksFreq():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:71
+
+static __I uint8_t APBAHBPrescTable[16] = {0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4, 6, 7, 8, 9};
+static __I uint8_t ADCPrescTable[4] = {2, 4, 6, 8};
+
+void RCC_GetClocksFreq(RCC_ClocksTypeDef* RCC_Clocks)
+{
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:75
+  uint32_t tmp = 0, pllmull = 0, pllsource = 0, presc = 0;
+    
+  /* Get SYSCLK source -------------------------------------------------------*/
+  tmp = RCC->CFGR & CFGR_SWS_Mask;
+   4:	481e      	ldr	r0, [pc, #120]	(80 <RCC_GetClocksFreq+0x80>)
+   6:	6843      	ldr	r3, [r0, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:77
+  
+  switch (tmp)
+   8:	f003 030c 	and.w	r3, r3, #12	; 0xc
+   c:	2b04      	cmp	r3, #4
+   e:	d002      	beq.n	16 <RCC_GetClocksFreq+0x16>
+  10:	2b08      	cmp	r3, #8
+  12:	d114      	bne.n	3e <RCC_GetClocksFreq+0x3e>
+  14:	e001      	b.n	1a <RCC_GetClocksFreq+0x1a>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:84
+    case 0x00:  /* HSI used as system clock */
+      RCC_Clocks->SYSCLK_Frequency = HSI_Value;
+      break;
+
+    case 0x04:  /* HSE used as system clock */
+      RCC_Clocks->SYSCLK_Frequency = HSE_Value;
+  16:	4b1b      	ldr	r3, [pc, #108]	(84 <RCC_GetClocksFreq+0x84>)
+  18:	e012      	b.n	40 <RCC_GetClocksFreq+0x40>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:89
+      break;
+
+    case 0x08:  /* PLL used as system clock */
+      /* Get PLL clock source and multiplication factor ----------------------*/
+      pllmull = RCC->CFGR & CFGR_PLLMull_Mask;
+  1a:	6843      	ldr	r3, [r0, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:90
+      pllsource = RCC->CFGR & CFGR_PLLSRC_Mask;
+  1c:	6842      	ldr	r2, [r0, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:92
+      
+      pllmull = ( pllmull >> 18) + 2;
+  1e:	f3c3 4383 	ubfx	r3, r3, #18, #4
+  22:	1c99      	adds	r1, r3, #2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:94
+      
+      if (pllsource == 0x00)
+  24:	f412 3f80 	tst.w	r2, #65536	; 0x10000
+  28:	d101      	bne.n	2e <RCC_GetClocksFreq+0x2e>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:96
+      {/* HSI oscillator clock divided by 2 selected as PLL clock entry */
+        RCC_Clocks->SYSCLK_Frequency = (HSI_Value >> 1) * pllmull;
+  2a:	4b17      	ldr	r3, [pc, #92]	(88 <RCC_GetClocksFreq+0x88>)
+  2c:	e005      	b.n	3a <RCC_GetClocksFreq+0x3a>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:100
+      }
+      else
+      {/* HSE selected as PLL clock entry */
+        if ((RCC->CFGR & CFGR_PLLXTPRE_Mask) != (uint32_t)RESET)
+  2e:	6843      	ldr	r3, [r0, #4]
+  30:	f413 3f00 	tst.w	r3, #131072	; 0x20000
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:102
+        {/* HSE oscillator clock divided by 2 */
+          RCC_Clocks->SYSCLK_Frequency = (HSE_Value >> 1) * pllmull;
+  34:	bf14      	ite	ne
+  36:	4b15      	ldrne	r3, [pc, #84]	(8c <RCC_GetClocksFreq+0x8c>)
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:106
+        }
+        else
+        {
+          RCC_Clocks->SYSCLK_Frequency = HSE_Value * pllmull;
+  38:	4b12      	ldreq	r3, [pc, #72]	(84 <RCC_GetClocksFreq+0x84>)
+  3a:	434b      	muls	r3, r1
+  3c:	e000      	b.n	40 <RCC_GetClocksFreq+0x40>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:112
+        }
+      }
+      break;
+
+    default:
+      RCC_Clocks->SYSCLK_Frequency = HSI_Value;
+  3e:	4b14      	ldr	r3, [pc, #80]	(90 <RCC_GetClocksFreq+0x90>)
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:118
+      break;
+  }
+
+  /* Compute HCLK, PCLK1, PCLK2 and ADCCLK clocks frequencies ----------------*/
+  /* Get HCLK prescaler */
+  tmp = RCC->CFGR & CFGR_HPRE_Set_Mask;
+  40:	480f      	ldr	r0, [pc, #60]	(80 <RCC_GetClocksFreq+0x80>)
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:112
+        }
+      }
+      break;
+
+    default:
+      RCC_Clocks->SYSCLK_Frequency = HSI_Value;
+  42:	6023      	str	r3, [r4, #0]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:118
+      break;
+  }
+
+  /* Compute HCLK, PCLK1, PCLK2 and ADCCLK clocks frequencies ----------------*/
+  /* Get HCLK prescaler */
+  tmp = RCC->CFGR & CFGR_HPRE_Set_Mask;
+  44:	6843      	ldr	r3, [r0, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:120
+  tmp = tmp >> 4;
+  presc = APBAHBPrescTable[tmp];
+  46:	4913      	ldr	r1, [pc, #76]	(94 <RCC_GetClocksFreq+0x94>)
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:119
+  }
+
+  /* Compute HCLK, PCLK1, PCLK2 and ADCCLK clocks frequencies ----------------*/
+  /* Get HCLK prescaler */
+  tmp = RCC->CFGR & CFGR_HPRE_Set_Mask;
+  tmp = tmp >> 4;
+  48:	f3c3 1303 	ubfx	r3, r3, #4, #4
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:120
+  presc = APBAHBPrescTable[tmp];
+  4c:	5ccb      	ldrb	r3, [r1, r3]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:122
+  /* HCLK clock frequency */
+  RCC_Clocks->HCLK_Frequency = RCC_Clocks->SYSCLK_Frequency >> presc;
+  4e:	6822      	ldr	r2, [r4, #0]
+  50:	40da      	lsrs	r2, r3
+  52:	6062      	str	r2, [r4, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:125
+
+  /* Get PCLK1 prescaler */
+  tmp = RCC->CFGR & CFGR_PPRE1_Set_Mask;
+  54:	6843      	ldr	r3, [r0, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:126
+  tmp = tmp >> 8;
+  56:	f3c3 2302 	ubfx	r3, r3, #8, #3
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:127
+  presc = APBAHBPrescTable[tmp];
+  5a:	5ccb      	ldrb	r3, [r1, r3]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:129
+  /* PCLK1 clock frequency */
+  RCC_Clocks->PCLK1_Frequency = RCC_Clocks->HCLK_Frequency >> presc;
+  5c:	fa32 f303 	lsrs.w	r3, r2, r3
+  60:	60a3      	str	r3, [r4, #8]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:132
+
+  /* Get PCLK2 prescaler */
+  tmp = RCC->CFGR & CFGR_PPRE2_Set_Mask;
+  62:	6843      	ldr	r3, [r0, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:133
+  tmp = tmp >> 11;
+  64:	f3c3 23c2 	ubfx	r3, r3, #11, #3
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:134
+  presc = APBAHBPrescTable[tmp];
+  68:	5ccb      	ldrb	r3, [r1, r3]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:136
+  /* PCLK2 clock frequency */
+  RCC_Clocks->PCLK2_Frequency = RCC_Clocks->HCLK_Frequency >> presc;
+  6a:	40da      	lsrs	r2, r3
+  6c:	60e2      	str	r2, [r4, #12]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:139
+
+  /* Get ADCCLK prescaler */
+  tmp = RCC->CFGR & CFGR_ADCPRE_Set_Mask;
+  6e:	6843      	ldr	r3, [r0, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:140
+  tmp = tmp >> 14;
+  70:	f3c3 3381 	ubfx	r3, r3, #14, #2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:141
+  presc = ADCPrescTable[tmp];
+  74:	18c9      	adds	r1, r1, r3
+  76:	7c0b      	ldrb	r3, [r1, #16]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:143
+  /* ADCCLK clock frequency */
+  RCC_Clocks->ADCCLK_Frequency = RCC_Clocks->PCLK2_Frequency / presc;
+  78:	fbb2 f2f3 	udiv	r2, r2, r3
+  7c:	6122      	str	r2, [r4, #16]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:144
+}
+  7e:	bd10      	pop	{r4, pc}
+  80:	40021000 	.word	0x40021000
+  84:	00b71b00 	.word	0x00b71b00
+  88:	003d0900 	.word	0x003d0900
+  8c:	005b8d80 	.word	0x005b8d80
+  90:	007a1200 	.word	0x007a1200
+  94:	00000000 	.word	0x00000000
+Disassembly of section .text.USART_Init:
+
+00000000 <USART_Init>:
+USART_Init():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:157
+
+  uint32_t integerdivider = 0x00;
+  uint32_t fractionaldivider = 0x00;
+
+/*---------------------------- USART CR2 Configuration -----------------------*/
+  tmpreg = USARTx->CR2;
+   0:	8a03      	ldrh	r3, [r0, #16]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:165
+  /* Configure the USART Stop Bits, Clock, CPOL, CPHA and LastBit ------------*/
+  /* Set STOP[13:12] bits according to USART_StopBits value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_StopBits;
+  
+  /* Write to USART CR2 */
+  USARTx->CR2 = (uint16_t)tmpreg;
+   2:	88ca      	ldrh	r2, [r1, #6]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:159
+  uint32_t fractionaldivider = 0x00;
+
+/*---------------------------- USART CR2 Configuration -----------------------*/
+  tmpreg = USARTx->CR2;
+  /* Clear STOP[13:12] bits */
+  tmpreg &= CR2_STOP_CLEAR_Mask;
+   4:	f423 5340 	bic.w	r3, r3, #12288	; 0x3000
+   8:	041b      	lsls	r3, r3, #16
+   a:	0c1b      	lsrs	r3, r3, #16
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:165
+  /* Configure the USART Stop Bits, Clock, CPOL, CPHA and LastBit ------------*/
+  /* Set STOP[13:12] bits according to USART_StopBits value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_StopBits;
+  
+  /* Write to USART CR2 */
+  USARTx->CR2 = (uint16_t)tmpreg;
+   c:	4313      	orrs	r3, r2
+   e:	8203      	strh	r3, [r0, #16]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:168
+
+/*---------------------------- USART CR1 Configuration -----------------------*/
+  tmpreg = USARTx->CR1;
+  10:	8982      	ldrh	r2, [r0, #12]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:178
+  /* Set PCE and PS bits according to USART_Parity value */
+  /* Set TE and RE bits according to USART_Mode value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
+            USART_InitStruct->USART_Mode;
+  /* Write to USART CR1 */
+  USARTx->CR1 = (uint16_t)tmpreg;
+  12:	890b      	ldrh	r3, [r1, #8]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:147
+  /* ADCCLK clock frequency */
+  RCC_Clocks->ADCCLK_Frequency = RCC_Clocks->PCLK2_Frequency / presc;
+}
+
+void USART_Init(USART_TypeDef* USARTx, USART_InitTypeDef* USART_InitStruct)
+{
+  14:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:178
+  /* Set PCE and PS bits according to USART_Parity value */
+  /* Set TE and RE bits according to USART_Mode value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
+            USART_InitStruct->USART_Mode;
+  /* Write to USART CR1 */
+  USARTx->CR1 = (uint16_t)tmpreg;
+  16:	888c      	ldrh	r4, [r1, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:170
+  USARTx->CR2 = (uint16_t)tmpreg;
+
+/*---------------------------- USART CR1 Configuration -----------------------*/
+  tmpreg = USARTx->CR1;
+  /* Clear M, PCE, PS, TE and RE bits */
+  tmpreg &= CR1_CLEAR_Mask;
+  18:	f422 52b0 	bic.w	r2, r2, #5632	; 0x1600
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:178
+  /* Set PCE and PS bits according to USART_Parity value */
+  /* Set TE and RE bits according to USART_Mode value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
+            USART_InitStruct->USART_Mode;
+  /* Write to USART CR1 */
+  USARTx->CR1 = (uint16_t)tmpreg;
+  1c:	4323      	orrs	r3, r4
+  1e:	894c      	ldrh	r4, [r1, #10]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:170
+  USARTx->CR2 = (uint16_t)tmpreg;
+
+/*---------------------------- USART CR1 Configuration -----------------------*/
+  tmpreg = USARTx->CR1;
+  /* Clear M, PCE, PS, TE and RE bits */
+  tmpreg &= CR1_CLEAR_Mask;
+  20:	f022 020c 	bic.w	r2, r2, #12	; 0xc
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:178
+  /* Set PCE and PS bits according to USART_Parity value */
+  /* Set TE and RE bits according to USART_Mode value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
+            USART_InitStruct->USART_Mode;
+  /* Write to USART CR1 */
+  USARTx->CR1 = (uint16_t)tmpreg;
+  24:	4323      	orrs	r3, r4
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:170
+  USARTx->CR2 = (uint16_t)tmpreg;
+
+/*---------------------------- USART CR1 Configuration -----------------------*/
+  tmpreg = USARTx->CR1;
+  /* Clear M, PCE, PS, TE and RE bits */
+  tmpreg &= CR1_CLEAR_Mask;
+  26:	0412      	lsls	r2, r2, #16
+  28:	0c12      	lsrs	r2, r2, #16
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:178
+  /* Set PCE and PS bits according to USART_Parity value */
+  /* Set TE and RE bits according to USART_Mode value */
+  tmpreg |= (uint32_t)USART_InitStruct->USART_WordLength | USART_InitStruct->USART_Parity |
+            USART_InitStruct->USART_Mode;
+  /* Write to USART CR1 */
+  USARTx->CR1 = (uint16_t)tmpreg;
+  2a:	b29b      	uxth	r3, r3
+  2c:	4313      	orrs	r3, r2
+  2e:	8183      	strh	r3, [r0, #12]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:181
+
+/*---------------------------- USART CR3 Configuration -----------------------*/  
+  tmpreg = USARTx->CR3;
+  30:	8a83      	ldrh	r3, [r0, #20]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:188
+  tmpreg &= CR3_CLEAR_Mask;
+  /* Configure the USART HFC -------------------------------------------------*/
+  /* Set CTSE and RTSE bits according to USART_HardwareFlowControl value */
+  tmpreg |= USART_InitStruct->USART_HardwareFlowControl;
+  /* Write to USART CR3 */
+  USARTx->CR3 = (uint16_t)tmpreg;
+  32:	898a      	ldrh	r2, [r1, #12]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:183
+  USARTx->CR1 = (uint16_t)tmpreg;
+
+/*---------------------------- USART CR3 Configuration -----------------------*/  
+  tmpreg = USARTx->CR3;
+  /* Clear CTSE and RTSE bits */
+  tmpreg &= CR3_CLEAR_Mask;
+  34:	f423 7340 	bic.w	r3, r3, #768	; 0x300
+  38:	041b      	lsls	r3, r3, #16
+  3a:	0c1b      	lsrs	r3, r3, #16
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:188
+  /* Configure the USART HFC -------------------------------------------------*/
+  /* Set CTSE and RTSE bits according to USART_HardwareFlowControl value */
+  tmpreg |= USART_InitStruct->USART_HardwareFlowControl;
+  /* Write to USART CR3 */
+  USARTx->CR3 = (uint16_t)tmpreg;
+  3c:	4313      	orrs	r3, r2
+  3e:	8283      	strh	r3, [r0, #20]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:193
+
+/*---------------------------- USART BRR Configuration -----------------------*/
+  /* Configure the USART Baud Rate -------------------------------------------*/
+  /* Determine the integer part */
+  integerdivider = ((0x19 * apbclock) / (0x04 * (USART_InitStruct->USART_BaudRate)));
+  40:	680b      	ldr	r3, [r1, #0]
+  42:	4a0a      	ldr	r2, [pc, #40]	(6c <USART_Init+0x6c>)
+  44:	009b      	lsls	r3, r3, #2
+  46:	fbb2 f2f3 	udiv	r2, r2, r3
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:194
+  tmpreg = (integerdivider / 0x64) << 0x04;
+  4a:	2464      	movs	r4, #100
+  4c:	fbb2 f1f4 	udiv	r1, r2, r4
+  50:	0109      	lsls	r1, r1, #4
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:197
+  /* Determine the fractional part */
+  fractionaldivider = integerdivider - (0x64 * (tmpreg >> 0x04));
+  tmpreg |= ((((fractionaldivider * 0x10) + 0x32) / 0x64)) & ((uint8_t)0x0F);
+  52:	090b      	lsrs	r3, r1, #4
+  54:	fb04 2313 	mls	r3, r4, r3, r2
+  58:	011b      	lsls	r3, r3, #4
+  5a:	3332      	adds	r3, #50
+  5c:	fbb3 f3f4 	udiv	r3, r3, r4
+  60:	f003 030f 	and.w	r3, r3, #15	; 0xf
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:199
+  /* Write to USART BRR */
+  USARTx->BRR = (uint16_t)tmpreg;
+  64:	430b      	orrs	r3, r1
+  66:	b29b      	uxth	r3, r3
+  68:	8103      	strh	r3, [r0, #8]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:200
+}
+  6a:	bd10      	pop	{r4, pc}
+  6c:	6b49d200 	.word	0x6b49d200
+Disassembly of section .text.GPIO_Init:
+
+00000000 <GPIO_Init>:
+GPIO_Init():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:203
+
+void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef* GPIO_InitStruct)
+{
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:208
+  uint32_t currentmode = 0x00, currentpin = 0x00, pinpos = 0x00, pos = 0x00;
+  uint32_t tmpreg = 0x00, pinmask = 0x00;
+  
+/*---------------------------- GPIO Mode Configuration -----------------------*/
+  currentmode = ((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x0F);
+   2:	78cd      	ldrb	r5, [r1, #3]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:216
+    /* Output mode */
+    currentmode |= (uint32_t)GPIO_InitStruct->GPIO_Speed;
+  }
+/*---------------------------- GPIO CRL Configuration ------------------------*/
+  /* Configure the eight low port pins */
+  if (((uint32_t)GPIO_InitStruct->GPIO_Pin & ((uint32_t)0x00FF)) != 0x00)
+   4:	880e      	ldrh	r6, [r1, #0]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:209
+  uint32_t currentmode = 0x00, currentpin = 0x00, pinpos = 0x00, pos = 0x00;
+  uint32_t tmpreg = 0x00, pinmask = 0x00;
+  
+/*---------------------------- GPIO Mode Configuration -----------------------*/
+  currentmode = ((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x0F);
+  if ((((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x10)) != 0x00)
+   6:	f015 0f10 	tst.w	r5, #16	; 0x10
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:212
+  { 
+    /* Output mode */
+    currentmode |= (uint32_t)GPIO_InitStruct->GPIO_Speed;
+   a:	bf18      	it	ne
+   c:	788b      	ldrbne	r3, [r1, #2]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:208
+{
+  uint32_t currentmode = 0x00, currentpin = 0x00, pinpos = 0x00, pos = 0x00;
+  uint32_t tmpreg = 0x00, pinmask = 0x00;
+  
+/*---------------------------- GPIO Mode Configuration -----------------------*/
+  currentmode = ((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x0F);
+   e:	f005 070f 	and.w	r7, r5, #15	; 0xf
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:212
+  if ((((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x10)) != 0x00)
+  { 
+    /* Output mode */
+    currentmode |= (uint32_t)GPIO_InitStruct->GPIO_Speed;
+  12:	bf18      	it	ne
+  14:	431f      	orrne	r7, r3
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:216
+  }
+/*---------------------------- GPIO CRL Configuration ------------------------*/
+  /* Configure the eight low port pins */
+  if (((uint32_t)GPIO_InitStruct->GPIO_Pin & ((uint32_t)0x00FF)) != 0x00)
+  16:	f016 0fff 	tst.w	r6, #255	; 0xff
+  1a:	d020      	beq.n	5e <GPIO_Init+0x5e>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:218
+  {
+    tmpreg = GPIOx->CRL;
+  1c:	6804      	ldr	r4, [r0, #0]
+  1e:	f04f 0c00 	mov.w	ip, #0	; 0x0
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:221
+    for (pinpos = 0x00; pinpos < 0x08; pinpos++)
+    {
+      pos = ((uint32_t)0x01) << pinpos;
+  22:	2301      	movs	r3, #1
+  24:	fa03 f30c 	lsl.w	r3, r3, ip
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:223
+      /* Get the port pins position */
+      currentpin = (GPIO_InitStruct->GPIO_Pin) & pos;
+  28:	ea03 0106 	and.w	r1, r3, r6
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:224
+      if (currentpin == pos)
+  2c:	4299      	cmp	r1, r3
+  2e:	d110      	bne.n	52 <GPIO_Init+0x52>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:228
+      {
+        pos = pinpos << 2;
+        /* Clear the corresponding low control register bits */
+        pinmask = ((uint32_t)0x0F) << pos;
+  30:	ea4f 028c 	mov.w	r2, ip, lsl #2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:229
+        tmpreg &= ~pinmask;
+  34:	230f      	movs	r3, #15
+  36:	4093      	lsls	r3, r2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:231
+        /* Write the mode configuration in the corresponding bits */
+        tmpreg |= (currentmode << pos);
+  38:	fa17 f202 	lsls.w	r2, r7, r2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:229
+      if (currentpin == pos)
+      {
+        pos = pinpos << 2;
+        /* Clear the corresponding low control register bits */
+        pinmask = ((uint32_t)0x0F) << pos;
+        tmpreg &= ~pinmask;
+  3c:	ea24 0303 	bic.w	r3, r4, r3
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:233
+        /* Write the mode configuration in the corresponding bits */
+        tmpreg |= (currentmode << pos);
+        /* Reset the corresponding ODR bit */
+        if (GPIO_InitStruct->GPIO_Mode == GPIO_Mode_IPD)
+  40:	2d28      	cmp	r5, #40
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:231
+        pos = pinpos << 2;
+        /* Clear the corresponding low control register bits */
+        pinmask = ((uint32_t)0x0F) << pos;
+        tmpreg &= ~pinmask;
+        /* Write the mode configuration in the corresponding bits */
+        tmpreg |= (currentmode << pos);
+  42:	ea43 0402 	orr.w	r4, r3, r2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:233
+        /* Reset the corresponding ODR bit */
+        if (GPIO_InitStruct->GPIO_Mode == GPIO_Mode_IPD)
+  46:	d101      	bne.n	4c <GPIO_Init+0x4c>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:235
+        {
+          GPIOx->BRR = (((uint32_t)0x01) << pinpos);
+  48:	6141      	str	r1, [r0, #20]
+  4a:	e002      	b.n	52 <GPIO_Init+0x52>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:240
+        }
+        else
+        {
+          /* Set the corresponding ODR bit */
+          if (GPIO_InitStruct->GPIO_Mode == GPIO_Mode_IPU)
+  4c:	2d48      	cmp	r5, #72
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:242
+          {
+            GPIOx->BSRR = (((uint32_t)0x01) << pinpos);
+  4e:	bf08      	it	eq
+  50:	6101      	streq	r1, [r0, #16]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:219
+/*---------------------------- GPIO CRL Configuration ------------------------*/
+  /* Configure the eight low port pins */
+  if (((uint32_t)GPIO_InitStruct->GPIO_Pin & ((uint32_t)0x00FF)) != 0x00)
+  {
+    tmpreg = GPIOx->CRL;
+    for (pinpos = 0x00; pinpos < 0x08; pinpos++)
+  52:	f10c 0c01 	add.w	ip, ip, #1	; 0x1
+  56:	f1bc 0f08 	cmp.w	ip, #8	; 0x8
+  5a:	d1e2      	bne.n	22 <GPIO_Init+0x22>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:247
+            GPIOx->BSRR = (((uint32_t)0x01) << pinpos);
+          }
+        }
+      }
+    }
+    GPIOx->CRL = tmpreg;
+  5c:	6004      	str	r4, [r0, #0]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:251
+  }
+/*---------------------------- GPIO CRH Configuration ------------------------*/
+  /* Configure the eight high port pins */
+  if (GPIO_InitStruct->GPIO_Pin > 0x00FF)
+  5e:	2eff      	cmp	r6, #255
+  60:	d921      	bls.n	a6 <GPIO_Init+0xa6>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:253
+  {
+    tmpreg = GPIOx->CRH;
+  62:	6844      	ldr	r4, [r0, #4]
+  64:	f04f 0c00 	mov.w	ip, #0	; 0x0
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:256
+    for (pinpos = 0x00; pinpos < 0x08; pinpos++)
+    {
+      pos = (((uint32_t)0x01) << (pinpos + 0x08));
+  68:	2301      	movs	r3, #1
+  6a:	f10c 0208 	add.w	r2, ip, #8	; 0x8
+  6e:	4093      	lsls	r3, r2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:258
+      /* Get the port pins position */
+      currentpin = ((GPIO_InitStruct->GPIO_Pin) & pos);
+  70:	ea03 0106 	and.w	r1, r3, r6
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:259
+      if (currentpin == pos)
+  74:	4299      	cmp	r1, r3
+  76:	d110      	bne.n	9a <GPIO_Init+0x9a>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:263
+      {
+        pos = pinpos << 2;
+        /* Clear the corresponding high control register bits */
+        pinmask = ((uint32_t)0x0F) << pos;
+  78:	ea4f 028c 	mov.w	r2, ip, lsl #2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:264
+        tmpreg &= ~pinmask;
+  7c:	230f      	movs	r3, #15
+  7e:	4093      	lsls	r3, r2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:266
+        /* Write the mode configuration in the corresponding bits */
+        tmpreg |= (currentmode << pos);
+  80:	fa17 f202 	lsls.w	r2, r7, r2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:264
+      if (currentpin == pos)
+      {
+        pos = pinpos << 2;
+        /* Clear the corresponding high control register bits */
+        pinmask = ((uint32_t)0x0F) << pos;
+        tmpreg &= ~pinmask;
+  84:	ea24 0303 	bic.w	r3, r4, r3
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:268
+        /* Write the mode configuration in the corresponding bits */
+        tmpreg |= (currentmode << pos);
+        /* Reset the corresponding ODR bit */
+        if (GPIO_InitStruct->GPIO_Mode == GPIO_Mode_IPD)
+  88:	2d28      	cmp	r5, #40
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:266
+        pos = pinpos << 2;
+        /* Clear the corresponding high control register bits */
+        pinmask = ((uint32_t)0x0F) << pos;
+        tmpreg &= ~pinmask;
+        /* Write the mode configuration in the corresponding bits */
+        tmpreg |= (currentmode << pos);
+  8a:	ea43 0402 	orr.w	r4, r3, r2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:268
+        /* Reset the corresponding ODR bit */
+        if (GPIO_InitStruct->GPIO_Mode == GPIO_Mode_IPD)
+  8e:	d101      	bne.n	94 <GPIO_Init+0x94>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:270
+        {
+          GPIOx->BRR = (((uint32_t)0x01) << (pinpos + 0x08));
+  90:	6141      	str	r1, [r0, #20]
+  92:	e002      	b.n	9a <GPIO_Init+0x9a>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:273
+        }
+        /* Set the corresponding ODR bit */
+        if (GPIO_InitStruct->GPIO_Mode == GPIO_Mode_IPU)
+  94:	2d48      	cmp	r5, #72
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:275
+        {
+          GPIOx->BSRR = (((uint32_t)0x01) << (pinpos + 0x08));
+  96:	bf08      	it	eq
+  98:	6101      	streq	r1, [r0, #16]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:254
+/*---------------------------- GPIO CRH Configuration ------------------------*/
+  /* Configure the eight high port pins */
+  if (GPIO_InitStruct->GPIO_Pin > 0x00FF)
+  {
+    tmpreg = GPIOx->CRH;
+    for (pinpos = 0x00; pinpos < 0x08; pinpos++)
+  9a:	f10c 0c01 	add.w	ip, ip, #1	; 0x1
+  9e:	f1bc 0f08 	cmp.w	ip, #8	; 0x8
+  a2:	d1e1      	bne.n	68 <GPIO_Init+0x68>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:279
+        {
+          GPIOx->BSRR = (((uint32_t)0x01) << (pinpos + 0x08));
+        }
+      }
+    }
+    GPIOx->CRH = tmpreg;
+  a4:	6044      	str	r4, [r0, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:281
+  }
+}
+  a6:	bdf0      	pop	{r4, r5, r6, r7, pc}
+Disassembly of section .text.NVIC_SetPriority:
+
+00000000 <NVIC_SetPriority>:
+NVIC_SetPriority():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:285
+
+void NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
+{
+  if(IRQn < 0) {
+   0:	2800      	cmp	r0, #0
+   2:	ea4f 1101 	mov.w	r1, r1, lsl #4
+   6:	da06      	bge.n	16 <NVIC_SetPriority+0x16>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:286
+    SCB->SHP[((uint32_t)(IRQn) & 0xF)-4] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff); } /* set Priority for Cortex-M3 System Interrupts */
+   8:	4a06      	ldr	r2, [pc, #24]	(24 <NVIC_SetPriority+0x24>)
+   a:	f000 030f 	and.w	r3, r0, #15	; 0xf
+   e:	b2c9      	uxtb	r1, r1
+  10:	189a      	adds	r2, r3, r2
+  12:	7611      	strb	r1, [r2, #24]
+  14:	e004      	b.n	20 <NVIC_SetPriority+0x20>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:288
+  else {
+    NVIC->IP[(uint32_t)(IRQn)] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff);    }        /* set Priority for device specific Interrupts      */
+  16:	4b04      	ldr	r3, [pc, #16]	(28 <NVIC_SetPriority+0x28>)
+  18:	b2ca      	uxtb	r2, r1
+  1a:	18c3      	adds	r3, r0, r3
+  1c:	f883 2300 	strb.w	r2, [r3, #768]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:289
+}
+  20:	4770      	bx	lr
+  22:	46c0      	nop			(mov r8, r8)
+  24:	e000ecfc 	.word	0xe000ecfc
+  28:	e000e100 	.word	0xe000e100
+Disassembly of section .text.SysTick_Config:
+
+00000000 <SysTick_Config>:
+SysTick_Config():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:293
+
+uint32_t SysTick_Config(uint32_t ticks)
+{ 
+  if (ticks > SYSTICK_MAXCOUNT)  return (1);                                             /* Reload value impossible */
+   0:	f1b0 7f80 	cmp.w	r0, #16777216	; 0x1000000
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:292
+  else {
+    NVIC->IP[(uint32_t)(IRQn)] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff);    }        /* set Priority for device specific Interrupts      */
+}
+
+uint32_t SysTick_Config(uint32_t ticks)
+{ 
+   4:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:293
+  if (ticks > SYSTICK_MAXCOUNT)  return (1);                                             /* Reload value impossible */
+   6:	d301      	bcc.n	c <SysTick_Config+0xc>
+   8:	2001      	movs	r0, #1
+   a:	e00e      	b.n	2a <SysTick_Config+0x2a>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:295
+
+  SysTick->LOAD  =  (ticks & SYSTICK_MAXCOUNT) - 1;                                      /* set reload register */
+   c:	4c07      	ldr	r4, [pc, #28]	(2c <SysTick_Config+0x2c>)
+   e:	f020 437f 	bic.w	r3, r0, #4278190080	; 0xff000000
+  12:	3b01      	subs	r3, #1
+  14:	6063      	str	r3, [r4, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:296
+  NVIC_SetPriority (SysTick_IRQn, (1<<__NVIC_PRIO_BITS) - 1);                            /* set Priority for Cortex-M0 System Interrupts */
+  16:	f04f 30ff 	mov.w	r0, #4294967295	; 0xffffffff
+  1a:	210f      	movs	r1, #15
+  1c:	f7ff fffe 	bl	0 <SysTick_Config>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:297
+  SysTick->VAL   =  (0x00);                                                              /* Load the SysTick Counter Value */
+  20:	2200      	movs	r2, #0
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:298
+  SysTick->CTRL = (1 << SYSTICK_CLKSOURCE) | (1<<SYSTICK_ENABLE) | (1<<SYSTICK_TICKINT); /* Enable SysTick IRQ and SysTick Timer */
+  22:	2307      	movs	r3, #7
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:297
+{ 
+  if (ticks > SYSTICK_MAXCOUNT)  return (1);                                             /* Reload value impossible */
+
+  SysTick->LOAD  =  (ticks & SYSTICK_MAXCOUNT) - 1;                                      /* set reload register */
+  NVIC_SetPriority (SysTick_IRQn, (1<<__NVIC_PRIO_BITS) - 1);                            /* set Priority for Cortex-M0 System Interrupts */
+  SysTick->VAL   =  (0x00);                                                              /* Load the SysTick Counter Value */
+  24:	60a2      	str	r2, [r4, #8]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:298
+  SysTick->CTRL = (1 << SYSTICK_CLKSOURCE) | (1<<SYSTICK_ENABLE) | (1<<SYSTICK_TICKINT); /* Enable SysTick IRQ and SysTick Timer */
+  26:	4610      	mov	r0, r2
+  28:	6023      	str	r3, [r4, #0]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:300
+  return (0);                                                                            /* Function successful */
+}
+  2a:	bd10      	pop	{r4, pc}
+  2c:	e000e010 	.word	0xe000e010
+Disassembly of section .text.EXTI_GetITStatus:
+
+00000000 <EXTI_GetITStatus>:
+EXTI_GetITStatus():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:312
+ITStatus EXTI_GetITStatus(uint32_t EXTI_Line)
+{
+  ITStatus bitstatus = RESET;
+  uint32_t enablestatus = 0;
+  
+  enablestatus =  EXTI->IMR & EXTI_Line;
+   0:	4b05      	ldr	r3, [pc, #20]	(18 <EXTI_GetITStatus+0x18>)
+   2:	681a      	ldr	r2, [r3, #0]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:313
+  if (((EXTI->PR & EXTI_Line) != (uint32_t)RESET) && (enablestatus != (uint32_t)RESET))
+   4:	695b      	ldr	r3, [r3, #20]
+   6:	4003      	ands	r3, r0
+   8:	d101      	bne.n	e <EXTI_GetITStatus+0xe>
+   a:	4618      	mov	r0, r3
+   c:	e003      	b.n	16 <EXTI_GetITStatus+0x16>
+   e:	4210      	tst	r0, r2
+  10:	bf0c      	ite	eq
+  12:	2000      	moveq	r0, #0
+  14:	2001      	movne	r0, #1
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:322
+  else
+  {
+    bitstatus = RESET;
+  }
+  return bitstatus;
+}
+  16:	4770      	bx	lr
+  18:	40010400 	.word	0x40010400
+Disassembly of section .text.EXTI_ClearITPendingBit:
+
+00000000 <EXTI_ClearITPendingBit>:
+EXTI_ClearITPendingBit():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:326
+
+void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
+{
+  EXTI->PR = EXTI_Line;
+   0:	4b01      	ldr	r3, [pc, #4]	(8 <EXTI_ClearITPendingBit+0x8>)
+   2:	6158      	str	r0, [r3, #20]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:327
+}
+   4:	4770      	bx	lr
+   6:	46c0      	nop			(mov r8, r8)
+   8:	40010400 	.word	0x40010400
+Disassembly of section .text.NVIC_PriorityGroupConfig:
+
+00000000 <NVIC_PriorityGroupConfig>:
+NVIC_PriorityGroupConfig():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:350
+#define AIRCR_VECTKEY_MASK    ((uint32_t)0x05FA0000)
+
+void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup)
+{
+  /* Set the PRIGROUP[10:8] bits according to NVIC_PriorityGroup value */
+  SCB->AIRCR = AIRCR_VECTKEY_MASK | NVIC_PriorityGroup;
+   0:	f040 60be 	orr.w	r0, r0, #99614720	; 0x5f00000
+   4:	4b02      	ldr	r3, [pc, #8]	(10 <NVIC_PriorityGroupConfig+0x10>)
+   6:	f440 2020 	orr.w	r0, r0, #655360	; 0xa0000
+   a:	60d8      	str	r0, [r3, #12]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:351
+}
+   c:	4770      	bx	lr
+   e:	46c0      	nop			(mov r8, r8)
+  10:	e000ed00 	.word	0xe000ed00
+Disassembly of section .text.NVIC_Init:
+
+00000000 <NVIC_Init>:
+NVIC_Init():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:357
+
+void NVIC_Init(NVIC_InitTypeDef* NVIC_InitStruct)
+{
+  uint32_t tmppriority = 0x00, tmppre = 0x00, tmpsub = 0x0F;
+  
+  if (NVIC_InitStruct->NVIC_IRQChannelCmd != DISABLE)
+   0:	78c3      	ldrb	r3, [r0, #3]
+   2:	f890 c000 	ldrb.w	ip, [r0]
+   6:	b1d3      	cbz	r3, 3e <NVIC_Init+0x3e>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:360
+  {
+    /* Compute the Corresponding IRQ Priority --------------------------------*/    
+    tmppriority = (0x700 - ((SCB->AIRCR) & (uint32_t)0x700))>> 0x08;
+   8:	4b12      	ldr	r3, [pc, #72]	(54 <NVIC_Init+0x54>)
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:364
+    tmppre = (0x4 - tmppriority);
+    tmpsub = tmpsub >> tmppriority;
+
+    tmppriority = (uint32_t)NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority << tmppre;
+   a:	7841      	ldrb	r1, [r0, #1]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:360
+  uint32_t tmppriority = 0x00, tmppre = 0x00, tmpsub = 0x0F;
+  
+  if (NVIC_InitStruct->NVIC_IRQChannelCmd != DISABLE)
+  {
+    /* Compute the Corresponding IRQ Priority --------------------------------*/    
+    tmppriority = (0x700 - ((SCB->AIRCR) & (uint32_t)0x700))>> 0x08;
+   c:	68da      	ldr	r2, [r3, #12]
+   e:	43d2      	mvns	r2, r2
+  10:	f3c2 2202 	ubfx	r2, r2, #8, #3
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:364
+    tmppre = (0x4 - tmppriority);
+    tmpsub = tmpsub >> tmppriority;
+
+    tmppriority = (uint32_t)NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority << tmppre;
+  14:	f1c2 0304 	rsb	r3, r2, #4	; 0x4
+  18:	4099      	lsls	r1, r3
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:365
+    tmppriority |=  NVIC_InitStruct->NVIC_IRQChannelSubPriority & tmpsub;
+  1a:	230f      	movs	r3, #15
+  1c:	40d3      	lsrs	r3, r2
+  1e:	7882      	ldrb	r2, [r0, #2]
+  20:	4013      	ands	r3, r2
+  22:	430b      	orrs	r3, r1
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:368
+    tmppriority = tmppriority << 0x04;
+        
+    NVIC->IP[NVIC_InitStruct->NVIC_IRQChannel] = tmppriority;
+  24:	4a0c      	ldr	r2, [pc, #48]	(58 <NVIC_Init+0x58>)
+  26:	011b      	lsls	r3, r3, #4
+  28:	b2db      	uxtb	r3, r3
+  2a:	4462      	add	r2, ip
+  2c:	f882 3300 	strb.w	r3, [r2, #768]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:371
+    
+    /* Enable the Selected IRQ Channels --------------------------------------*/
+    NVIC->ISER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05] =
+  30:	f00c 021f 	and.w	r2, ip, #31	; 0x1f
+  34:	2301      	movs	r3, #1
+  36:	ea4f 115c 	mov.w	r1, ip, lsr #5
+  3a:	4093      	lsls	r3, r2
+  3c:	e006      	b.n	4c <NVIC_Init+0x4c>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:377
+      (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+  }
+  else
+  {
+    /* Disable the Selected IRQ Channels -------------------------------------*/
+    NVIC->ICER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05] =
+  3e:	f00c 021f 	and.w	r2, ip, #31	; 0x1f
+  42:	2301      	movs	r3, #1
+  44:	4093      	lsls	r3, r2
+  46:	ea4f 115c 	mov.w	r1, ip, lsr #5
+  4a:	3120      	adds	r1, #32
+  4c:	4a02      	ldr	r2, [pc, #8]	(58 <NVIC_Init+0x58>)
+  4e:	f842 3021 	str.w	r3, [r2, r1, lsl #2]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:380
+      (uint32_t)0x01 << (NVIC_InitStruct->NVIC_IRQChannel & (uint8_t)0x1F);
+  }
+}
+  52:	4770      	bx	lr
+  54:	e000ed00 	.word	0xe000ed00
+  58:	e000e100 	.word	0xe000e100
+Disassembly of section .text.GPIO_EXTILineConfig:
+
+00000000 <GPIO_EXTILineConfig>:
+GPIO_EXTILineConfig():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:383
+
+void GPIO_EXTILineConfig(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource)
+{
+   0:	b530      	push	{r4, r5, lr}
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:386
+  uint32_t tmp = 0x00;
+  
+  tmp = ((uint32_t)0x0F) << (0x04 * (GPIO_PinSource & (uint8_t)0x03));
+   2:	f001 0503 	and.w	r5, r1, #3	; 0x3
+   6:	00ad      	lsls	r5, r5, #2
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:387
+  AFIO->EXTICR[GPIO_PinSource >> 0x02] &= ~tmp;
+   8:	230f      	movs	r3, #15
+   a:	40ab      	lsls	r3, r5
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:388
+  AFIO->EXTICR[GPIO_PinSource >> 0x02] |= (((uint32_t)GPIO_PortSource) << (0x04 * (GPIO_PinSource & (uint8_t)0x03)));
+   c:	40a8      	lsls	r0, r5
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:387
+void GPIO_EXTILineConfig(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource)
+{
+  uint32_t tmp = 0x00;
+  
+  tmp = ((uint32_t)0x0F) << (0x04 * (GPIO_PinSource & (uint8_t)0x03));
+  AFIO->EXTICR[GPIO_PinSource >> 0x02] &= ~tmp;
+   e:	4c07      	ldr	r4, [pc, #28]	(2c <GPIO_EXTILineConfig+0x2c>)
+  10:	0889      	lsrs	r1, r1, #2
+  12:	3102      	adds	r1, #2
+  14:	f854 2021 	ldr.w	r2, [r4, r1, lsl #2]
+  18:	ea22 0203 	bic.w	r2, r2, r3
+  1c:	f844 2021 	str.w	r2, [r4, r1, lsl #2]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:388
+  AFIO->EXTICR[GPIO_PinSource >> 0x02] |= (((uint32_t)GPIO_PortSource) << (0x04 * (GPIO_PinSource & (uint8_t)0x03)));
+  20:	f854 3021 	ldr.w	r3, [r4, r1, lsl #2]
+  24:	4318      	orrs	r0, r3
+  26:	f844 0021 	str.w	r0, [r4, r1, lsl #2]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:389
+}
+  2a:	bd30      	pop	{r4, r5, pc}
+  2c:	40010000 	.word	0x40010000
+Disassembly of section .text.EXTI_Init:
+
+00000000 <EXTI_Init>:
+EXTI_Init():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:397
+{
+  uint32_t tmp = 0;
+
+  tmp = (uint32_t)EXTI_BASE;
+     
+  if (EXTI_InitStruct->EXTI_LineCmd != DISABLE)
+   0:	7983      	ldrb	r3, [r0, #6]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:392
+  AFIO->EXTICR[GPIO_PinSource >> 0x02] &= ~tmp;
+  AFIO->EXTICR[GPIO_PinSource >> 0x02] |= (((uint32_t)GPIO_PortSource) << (0x04 * (GPIO_PinSource & (uint8_t)0x03)));
+}
+
+void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct)
+{
+   2:	b510      	push	{r4, lr}
+   4:	f890 c004 	ldrb.w	ip, [r0, #4]
+   8:	6804      	ldr	r4, [r0, #0]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:397
+  uint32_t tmp = 0;
+
+  tmp = (uint32_t)EXTI_BASE;
+     
+  if (EXTI_InitStruct->EXTI_LineCmd != DISABLE)
+   a:	b34b      	cbz	r3, 60 <EXTI_Init+0x60>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:400
+  {
+    /* Clear EXTI line configuration */
+    EXTI->IMR &= ~EXTI_InitStruct->EXTI_Line;
+   c:	4919      	ldr	r1, [pc, #100]	(74 <EXTI_Init+0x74>)
+   e:	43e2      	mvns	r2, r4
+  10:	680b      	ldr	r3, [r1, #0]
+  12:	ea02 0303 	and.w	r3, r2, r3
+  16:	600b      	str	r3, [r1, #0]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:401
+    EXTI->EMR &= ~EXTI_InitStruct->EXTI_Line;
+  18:	684b      	ldr	r3, [r1, #4]
+  1a:	401a      	ands	r2, r3
+  1c:	604a      	str	r2, [r1, #4]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:405
+    
+    tmp += EXTI_InitStruct->EXTI_Mode;
+
+    *(__IO uint32_t *) tmp |= EXTI_InitStruct->EXTI_Line;
+  1e:	f10c 4280 	add.w	r2, ip, #1073741824	; 0x40000000
+  22:	f502 3282 	add.w	r2, r2, #66560	; 0x10400
+  26:	6813      	ldr	r3, [r2, #0]
+  28:	4323      	orrs	r3, r4
+  2a:	6013      	str	r3, [r2, #0]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:408
+
+    /* Clear Rising Falling edge configuration */
+    EXTI->RTSR &= ~EXTI_InitStruct->EXTI_Line;
+  2c:	6804      	ldr	r4, [r0, #0]
+  2e:	688b      	ldr	r3, [r1, #8]
+  30:	43e2      	mvns	r2, r4
+  32:	ea02 0303 	and.w	r3, r2, r3
+  36:	608b      	str	r3, [r1, #8]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:409
+    EXTI->FTSR &= ~EXTI_InitStruct->EXTI_Line;
+  38:	68cb      	ldr	r3, [r1, #12]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:412
+    
+    /* Select the trigger for the selected external interrupts */
+    if (EXTI_InitStruct->EXTI_Trigger == EXTI_Trigger_Rising_Falling)
+  3a:	7940      	ldrb	r0, [r0, #5]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:409
+
+    *(__IO uint32_t *) tmp |= EXTI_InitStruct->EXTI_Line;
+
+    /* Clear Rising Falling edge configuration */
+    EXTI->RTSR &= ~EXTI_InitStruct->EXTI_Line;
+    EXTI->FTSR &= ~EXTI_InitStruct->EXTI_Line;
+  3c:	401a      	ands	r2, r3
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:412
+    
+    /* Select the trigger for the selected external interrupts */
+    if (EXTI_InitStruct->EXTI_Trigger == EXTI_Trigger_Rising_Falling)
+  3e:	2810      	cmp	r0, #16
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:409
+
+    *(__IO uint32_t *) tmp |= EXTI_InitStruct->EXTI_Line;
+
+    /* Clear Rising Falling edge configuration */
+    EXTI->RTSR &= ~EXTI_InitStruct->EXTI_Line;
+    EXTI->FTSR &= ~EXTI_InitStruct->EXTI_Line;
+  40:	60ca      	str	r2, [r1, #12]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:412
+    
+    /* Select the trigger for the selected external interrupts */
+    if (EXTI_InitStruct->EXTI_Trigger == EXTI_Trigger_Rising_Falling)
+  42:	d106      	bne.n	52 <EXTI_Init+0x52>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:415
+    {
+      /* Rising Falling edge */
+      EXTI->RTSR |= EXTI_InitStruct->EXTI_Line;
+  44:	688b      	ldr	r3, [r1, #8]
+  46:	4323      	orrs	r3, r4
+  48:	608b      	str	r3, [r1, #8]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:416
+      EXTI->FTSR |= EXTI_InitStruct->EXTI_Line;
+  4a:	68cb      	ldr	r3, [r1, #12]
+  4c:	4323      	orrs	r3, r4
+  4e:	60cb      	str	r3, [r1, #12]
+  50:	e00e      	b.n	70 <EXTI_Init+0x70>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:423
+    else
+    {
+      tmp = (uint32_t)EXTI_BASE;
+      tmp += EXTI_InitStruct->EXTI_Trigger;
+
+      *(__IO uint32_t *) tmp |= EXTI_InitStruct->EXTI_Line;
+  52:	f100 4280 	add.w	r2, r0, #1073741824	; 0x40000000
+  56:	f502 3282 	add.w	r2, r2, #66560	; 0x10400
+  5a:	6813      	ldr	r3, [r2, #0]
+  5c:	4323      	orrs	r3, r4
+  5e:	e006      	b.n	6e <EXTI_Init+0x6e>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:431
+  else
+  {
+    tmp += EXTI_InitStruct->EXTI_Mode;
+
+    /* Disable the selected external lines */
+    *(__IO uint32_t *) tmp &= ~EXTI_InitStruct->EXTI_Line;
+  60:	f10c 4280 	add.w	r2, ip, #1073741824	; 0x40000000
+  64:	f502 3282 	add.w	r2, r2, #66560	; 0x10400
+  68:	6813      	ldr	r3, [r2, #0]
+  6a:	ea23 0304 	bic.w	r3, r3, r4
+  6e:	6013      	str	r3, [r2, #0]
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:433
+  }
+}
+  70:	bd10      	pop	{r4, pc}
+  72:	46c0      	nop			(mov r8, r8)
+  74:	40010400 	.word	0x40010400
+Disassembly of section .text.EXTI1_IRQHandler:
+
+00000000 <EXTI1_IRQHandler>:
+EXTI1_IRQHandler():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:338
+        printf("Left-WKUP Button Press\n");
+    }
+}
+
+void EXTI1_IRQHandler(void)
+{
+   0:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:339
+    if(EXTI_GetITStatus(GPIO_EXTI_Line_KEY2) != RESET) {
+   2:	2002      	movs	r0, #2
+   4:	f7ff fffe 	bl	0 <EXTI1_IRQHandler>
+   8:	b128      	cbz	r0, 16 <EXTI1_IRQHandler+0x16>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:340
+        EXTI_ClearITPendingBit(GPIO_EXTI_Line_KEY2);
+   a:	2002      	movs	r0, #2
+   c:	f7ff fffe 	bl	0 <EXTI1_IRQHandler>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:341
+        printf("Right-USER Button Press\n");
+  10:	4801      	ldr	r0, [pc, #4]	(8 <puts+0x8>)
+  12:	f7ff fffe 	bl	0 <puts>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:343
+    }
+}
+  16:	bd10      	pop	{r4, pc}
+  18:	00000000 	.word	0x00000000
+Disassembly of section .text.EXTI0_IRQHandler:
+
+00000000 <EXTI0_IRQHandler>:
+EXTI0_IRQHandler():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:330
+{
+  EXTI->PR = EXTI_Line;
+}
+
+void EXTI0_IRQHandler(void)
+{
+   0:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:331
+    if(EXTI_GetITStatus(GPIO_EXTI_Line_KEY1) != RESET) {
+   2:	2001      	movs	r0, #1
+   4:	f7ff fffe 	bl	0 <EXTI0_IRQHandler>
+   8:	b128      	cbz	r0, 16 <EXTI0_IRQHandler+0x16>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:332
+        EXTI_ClearITPendingBit(GPIO_EXTI_Line_KEY1);
+   a:	2001      	movs	r0, #1
+   c:	f7ff fffe 	bl	0 <EXTI0_IRQHandler>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:333
+        printf("Left-WKUP Button Press\n");
+  10:	4801      	ldr	r0, [pc, #4]	(8 <puts+0x8>)
+  12:	f7ff fffe 	bl	0 <puts>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:335
+    }
+}
+  16:	bd10      	pop	{r4, pc}
+  18:	00000018 	.word	0x00000018
+Disassembly of section .text.SysTick_Handler:
+
+00000000 <SysTick_Handler>:
+SysTick_Handler():
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:303
+  SysTick->CTRL = (1 << SYSTICK_CLKSOURCE) | (1<<SYSTICK_ENABLE) | (1<<SYSTICK_TICKINT); /* Enable SysTick IRQ and SysTick Timer */
+  return (0);                                                                            /* Function successful */
+}
+
+void SysTick_Handler(void)
+{
+   0:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:304
+    TimingDelay_Decrement();
+   2:	f7ff fffe 	bl	0 <TimingDelay_Decrement>
+D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src016.KeyInterrupt\src/stm.c:305
+}
+   6:	bd10      	pop	{r4, pc}

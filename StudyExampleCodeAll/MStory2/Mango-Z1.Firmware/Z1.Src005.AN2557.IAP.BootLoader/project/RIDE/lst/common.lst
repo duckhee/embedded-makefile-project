@@ -1,0 +1,1048 @@
+
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\project\RIDE\obj\common.o:     file format elf32-littlearm
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\project\RIDE\obj\common.o
+
+Disassembly of section .text.Int2Str:
+
+00000000 <Int2Str>:
+Int2Str():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:48
+  * @param  str: The string
+  * @param  intnum: The intger to be converted
+  * @retval None
+  */
+void Int2Str(uint8_t* str, int32_t intnum)
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	460d      	mov	r5, r1
+   4:	4c0f      	ldr	r4, [pc, #60]	(44 <Int2Str+0x44>)
+   6:	2100      	movs	r1, #0
+   8:	4606      	mov	r6, r0
+   a:	468c      	mov	ip, r1
+   c:	4608      	mov	r0, r1
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:53
+  uint32_t i, Div = 1000000000, j = 0, Status = 0;
+
+  for (i = 0; i < 10; i++)
+  {
+    str[j++] = (intnum / Div) + 48;
+   e:	fbb5 f2f4 	udiv	r2, r5, r4
+  12:	f102 0330 	add.w	r3, r2, #48	; 0x30
+  16:	f806 300c 	strb.w	r3, [r6, ip]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:56
+
+    intnum = intnum % Div;
+    Div /= 10;
+  1a:	230a      	movs	r3, #10
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:53
+{
+  uint32_t i, Div = 1000000000, j = 0, Status = 0;
+
+  for (i = 0; i < 10; i++)
+  {
+    str[j++] = (intnum / Div) + 48;
+  1c:	f10c 0c01 	add.w	ip, ip, #1	; 0x1
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:55
+
+    intnum = intnum % Div;
+  20:	fb04 5512 	mls	r5, r4, r2, r5
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:56
+    Div /= 10;
+  24:	fbb4 f4f3 	udiv	r4, r4, r3
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:57
+    if ((str[j-1] == '0') & (Status == 0))
+  28:	eb06 030c 	add.w	r3, r6, ip
+  2c:	f813 3c01 	ldrb.w	r3, [r3, #-1]
+  30:	2b30      	cmp	r3, #48
+  32:	d102      	bne.n	3a <Int2Str+0x3a>
+  34:	b908      	cbnz	r0, 3a <Int2Str+0x3a>
+  36:	4684      	mov	ip, r0
+  38:	e000      	b.n	3c <Int2Str+0x3c>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:63
+    {
+      j = 0;
+    }
+    else
+    {
+      Status++;
+  3a:	3001      	adds	r0, #1
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:51
+  */
+void Int2Str(uint8_t* str, int32_t intnum)
+{
+  uint32_t i, Div = 1000000000, j = 0, Status = 0;
+
+  for (i = 0; i < 10; i++)
+  3c:	3101      	adds	r1, #1
+  3e:	290a      	cmp	r1, #10
+  40:	d1e5      	bne.n	e <Int2Str+0xe>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:66
+    else
+    {
+      Status++;
+    }
+  }
+}
+  42:	bd70      	pop	{r4, r5, r6, pc}
+  44:	3b9aca00 	.word	0x3b9aca00
+Disassembly of section .text.Str2Int:
+
+00000000 <Str2Int>:
+Str2Int():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:76
+  * @param  intnum: The intger value
+  * @retval 1: Correct
+  *         0: Error
+  */
+uint32_t Str2Int(uint8_t *inputstr, int32_t *intnum)
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:80
+  uint32_t i = 0, res = 0;
+  uint32_t val = 0;
+
+  if (inputstr[0] == '0' && (inputstr[1] == 'x' || inputstr[1] == 'X'))
+   2:	7803      	ldrb	r3, [r0, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:76
+  * @param  intnum: The intger value
+  * @retval 1: Correct
+  *         0: Error
+  */
+uint32_t Str2Int(uint8_t *inputstr, int32_t *intnum)
+{
+   4:	4605      	mov	r5, r0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:80
+  uint32_t i = 0, res = 0;
+  uint32_t val = 0;
+
+  if (inputstr[0] == '0' && (inputstr[1] == 'x' || inputstr[1] == 'X'))
+   6:	2b30      	cmp	r3, #48
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:76
+  * @param  intnum: The intger value
+  * @retval 1: Correct
+  *         0: Error
+  */
+uint32_t Str2Int(uint8_t *inputstr, int32_t *intnum)
+{
+   8:	460e      	mov	r6, r1
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:80
+  uint32_t i = 0, res = 0;
+  uint32_t val = 0;
+
+  if (inputstr[0] == '0' && (inputstr[1] == 'x' || inputstr[1] == 'X'))
+   a:	d130      	bne.n	6e <Str2Int+0x6e>
+   c:	7843      	ldrb	r3, [r0, #1]
+   e:	2b78      	cmp	r3, #120
+  10:	d001      	beq.n	16 <Str2Int+0x16>
+  12:	2b58      	cmp	r3, #88
+  14:	d12b      	bne.n	6e <Str2Int+0x6e>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:82
+  {
+    if (inputstr[2] == '\0')
+  16:	78ab      	ldrb	r3, [r5, #2]
+  18:	2b00      	cmp	r3, #0
+  1a:	d04f      	beq.n	bc <Str2Int+0xbc>
+  1c:	2002      	movs	r0, #2
+  1e:	2100      	movs	r1, #0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:88
+    {
+      return 0;
+    }
+    for (i = 2; i < 11; i++)
+    {
+      if (inputstr[i] == '\0')
+  20:	5c2a      	ldrb	r2, [r5, r0]
+  22:	b90a      	cbnz	r2, 28 <Str2Int+0x28>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:90
+      {
+        *intnum = val;
+  24:	6031      	str	r1, [r6, #0]
+  26:	e027      	b.n	78 <Str2Int+0x78>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:95
+        /* return 1; */
+        res = 1;
+        break;
+      }
+      if (ISVALIDHEX(inputstr[i]))
+  28:	f1a2 0341 	sub.w	r3, r2, #65	; 0x41
+  2c:	b2dc      	uxtb	r4, r3
+  2e:	2c05      	cmp	r4, #5
+  30:	d909      	bls.n	46 <Str2Int+0x46>
+  32:	f1a2 0361 	sub.w	r3, r2, #97	; 0x61
+  36:	b2db      	uxtb	r3, r3
+  38:	2b05      	cmp	r3, #5
+  3a:	d904      	bls.n	46 <Str2Int+0x46>
+  3c:	f1a2 0330 	sub.w	r3, r2, #48	; 0x30
+  40:	b2db      	uxtb	r3, r3
+  42:	2b09      	cmp	r3, #9
+  44:	d83a      	bhi.n	bc <Str2Int+0xbc>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:97
+      {
+        val = (val << 4) + CONVERTHEX(inputstr[i]);
+  46:	f1a2 0c30 	sub.w	ip, r2, #48	; 0x30
+  4a:	fa5f f38c 	uxtb.w	r3, ip
+  4e:	2b09      	cmp	r3, #9
+  50:	d801      	bhi.n	56 <Str2Int+0x56>
+  52:	4663      	mov	r3, ip
+  54:	e005      	b.n	62 <Str2Int+0x62>
+  56:	2c05      	cmp	r4, #5
+  58:	bf94      	ite	ls
+  5a:	f1a2 0337 	subls.w	r3, r2, #55	; 0x37
+  5e:	f1a2 0357 	subhi.w	r3, r2, #87	; 0x57
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:86
+  {
+    if (inputstr[2] == '\0')
+    {
+      return 0;
+    }
+    for (i = 2; i < 11; i++)
+  62:	3001      	adds	r0, #1
+  64:	280b      	cmp	r0, #11
+  66:	d029      	beq.n	bc <Str2Int+0xbc>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:97
+        res = 1;
+        break;
+      }
+      if (ISVALIDHEX(inputstr[i]))
+      {
+        val = (val << 4) + CONVERTHEX(inputstr[i]);
+  68:	eb03 1101 	add.w	r1, r3, r1, lsl #4
+  6c:	e7d8      	b.n	20 <Str2Int+0x20>
+  6e:	2000      	movs	r0, #0
+  70:	4602      	mov	r2, r0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:116
+  }
+  else /* max 10-digit decimal input */
+  {
+    for (i = 0;i < 11;i++)
+    {
+      if (inputstr[i] == '\0')
+  72:	5c2b      	ldrb	r3, [r5, r0]
+  74:	b92b      	cbnz	r3, 82 <Str2Int+0x82>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:118
+      {
+        *intnum = val;
+  76:	6032      	str	r2, [r6, #0]
+  78:	280a      	cmp	r0, #10
+  7a:	bf8c      	ite	hi
+  7c:	2000      	movhi	r0, #0
+  7e:	2001      	movls	r0, #1
+  80:	e01d      	b.n	be <Str2Int+0xbe>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:123
+        /* return 1 */
+        res = 1;
+        break;
+      }
+      else if ((inputstr[i] == 'k' || inputstr[i] == 'K') && (i > 0))
+  82:	2b6b      	cmp	r3, #107
+  84:	d001      	beq.n	8a <Str2Int+0x8a>
+  86:	2b4b      	cmp	r3, #75
+  88:	d102      	bne.n	90 <Str2Int+0x90>
+  8a:	b108      	cbz	r0, 90 <Str2Int+0x90>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:126
+      {
+        val = val << 10;
+        *intnum = val;
+  8c:	0293      	lsls	r3, r2, #10
+  8e:	e005      	b.n	9c <Str2Int+0x9c>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:130
+        res = 1;
+        break;
+      }
+      else if ((inputstr[i] == 'm' || inputstr[i] == 'M') && (i > 0))
+  90:	2b6d      	cmp	r3, #109
+  92:	d001      	beq.n	98 <Str2Int+0x98>
+  94:	2b4d      	cmp	r3, #77
+  96:	d104      	bne.n	a2 <Str2Int+0xa2>
+  98:	b118      	cbz	r0, a2 <Str2Int+0xa2>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:133
+      {
+        val = val << 20;
+        *intnum = val;
+  9a:	0513      	lsls	r3, r2, #20
+  9c:	6033      	str	r3, [r6, #0]
+  9e:	2001      	movs	r0, #1
+  a0:	e00d      	b.n	be <Str2Int+0xbe>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:137
+        res = 1;
+        break;
+      }
+      else if (ISVALIDDEC(inputstr[i]))
+  a2:	f1a3 0c30 	sub.w	ip, r3, #48	; 0x30
+  a6:	fa5f f38c 	uxtb.w	r3, ip
+  aa:	2b09      	cmp	r3, #9
+  ac:	d806      	bhi.n	bc <Str2Int+0xbc>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:114
+      res = 0;
+    }
+  }
+  else /* max 10-digit decimal input */
+  {
+    for (i = 0;i < 11;i++)
+  ae:	3001      	adds	r0, #1
+  b0:	280b      	cmp	r0, #11
+  b2:	d003      	beq.n	bc <Str2Int+0xbc>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:139
+        res = 1;
+        break;
+      }
+      else if (ISVALIDDEC(inputstr[i]))
+      {
+        val = val * 10 + CONVERTDEC(inputstr[i]);
+  b4:	230a      	movs	r3, #10
+  b6:	fb03 c202 	mla	r2, r3, r2, ip
+  ba:	e7da      	b.n	72 <Str2Int+0x72>
+  bc:	2000      	movs	r0, #0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:156
+      res = 0;
+    }
+  }
+
+  return res;
+}
+  be:	bd70      	pop	{r4, r5, r6, pc}
+Disassembly of section .text.FLASH_PagesMask:
+
+00000000 <FLASH_PagesMask>:
+FLASH_PagesMask():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:298
+  * @brief  Calculate the number of pages
+  * @param  Size: The image size
+  * @retval The number of pages
+  */
+uint32_t FLASH_PagesMask(__IO uint32_t Size)
+{
+   0:	b082      	sub	sp, #8
+   2:	9001      	str	r0, [sp, #4]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:300
+  uint32_t pagenumber = 0x0;
+  uint32_t size = Size;
+   4:	9a01      	ldr	r2, [sp, #4]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:302
+
+  if ((size % PAGE_SIZE) != 0)
+   6:	0593      	lsls	r3, r2, #22
+   8:	0d9b      	lsrs	r3, r3, #22
+   a:	0a90      	lsrs	r0, r2, #10
+   c:	b103      	cbz	r3, 10 <FLASH_PagesMask+0x10>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:304
+  {
+    pagenumber = (size / PAGE_SIZE) + 1;
+   e:	3001      	adds	r0, #1
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:312
+  {
+    pagenumber = size / PAGE_SIZE;
+  }
+  return pagenumber;
+
+}
+  10:	b002      	add	sp, #8
+  12:	4770      	bx	lr
+Disassembly of section .text.SerialPutChar:
+
+00000000 <SerialPutChar>:
+SerialPutChar():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:234
+  * @param  c: The character to be printed
+  * @retval None
+  */
+void SerialPutChar(uint8_t c)
+{
+  USART_SendData(EVAL_COM1, c);
+   0:	4601      	mov	r1, r0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:233
+  * @brief  Print a character on the HyperTerminal
+  * @param  c: The character to be printed
+  * @retval None
+  */
+void SerialPutChar(uint8_t c)
+{
+   2:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:234
+  USART_SendData(EVAL_COM1, c);
+   4:	4804      	ldr	r0, [pc, #16]	(18 <SerialPutChar+0x18>)
+   6:	f7ff fffe 	bl	0 <USART_SendData>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:235
+  while (USART_GetFlagStatus(EVAL_COM1, USART_FLAG_TXE) == RESET);
+   a:	4803      	ldr	r0, [pc, #12]	(18 <SerialPutChar+0x18>)
+   c:	2180      	movs	r1, #128
+   e:	f7ff fffe 	bl	0 <USART_GetFlagStatus>
+  12:	2800      	cmp	r0, #0
+  14:	d0f9      	beq.n	a <USART_GetFlagStatus+0xa>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:236
+}
+  16:	bd10      	pop	{r4, pc}
+  18:	40013800 	.word	0x40013800
+Disassembly of section .text.Serial_PutString:
+
+00000000 <Serial_PutString>:
+Serial_PutString():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:244
+  * @brief  Print a string on the HyperTerminal
+  * @param  s: The string to be printed
+  * @retval None
+  */
+void Serial_PutString(uint8_t *s)
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4605      	mov	r5, r0
+   4:	2400      	movs	r4, #0
+   6:	e001      	b.n	c <Serial_PutString+0xc>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:247
+  while (*s != '\0')
+  {
+    SerialPutChar(*s);
+   8:	f7ff fffe 	bl	0 <Serial_PutString>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:245
+  * @param  s: The string to be printed
+  * @retval None
+  */
+void Serial_PutString(uint8_t *s)
+{
+  while (*s != '\0')
+   c:	5d28      	ldrb	r0, [r5, r4]
+   e:	3401      	adds	r4, #1
+  10:	2800      	cmp	r0, #0
+  12:	d1f9      	bne.n	8 <Serial_PutString+0x8>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:250
+  {
+    SerialPutChar(*s);
+    s ++;
+  }
+}
+  14:	bd70      	pop	{r4, r5, r6, pc}
+  16:	46c0      	nop			(mov r8, r8)
+Disassembly of section .text.FLASH_DisableWriteProtectionPages:
+
+00000000 <FLASH_DisableWriteProtectionPages>:
+FLASH_DisableWriteProtectionPages():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:320
+  * @brief  Disable the write protection of desired pages
+  * @param  None
+  * @retval None
+  */
+void FLASH_DisableWriteProtectionPages(void)
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:325
+  uint32_t useroptionbyte = 0, WRPR = 0;
+  uint16_t var1 = OB_IWDG_SW, var2 = OB_STOP_NoRST, var3 = OB_STDBY_NoRST;
+  FLASH_Status status = FLASH_BUSY;
+
+  WRPR = FLASH_GetWriteProtectionOptionByte();
+   2:	f7ff fffe 	bl	0 <FLASH_GetWriteProtectionOptionByte>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:328
+
+  /* Test if user memory is write protected */
+  if ((WRPR & UserMemoryMask) != UserMemoryMask)
+   6:	4d1e      	ldr	r5, [pc, #120]	(80 <FLASH_DisableWriteProtectionPages+0x80>)
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:325
+{
+  uint32_t useroptionbyte = 0, WRPR = 0;
+  uint16_t var1 = OB_IWDG_SW, var2 = OB_STOP_NoRST, var3 = OB_STDBY_NoRST;
+  FLASH_Status status = FLASH_BUSY;
+
+  WRPR = FLASH_GetWriteProtectionOptionByte();
+   8:	4606      	mov	r6, r0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:328
+
+  /* Test if user memory is write protected */
+  if ((WRPR & UserMemoryMask) != UserMemoryMask)
+   a:	682a      	ldr	r2, [r5, #0]
+   c:	ea00 0302 	and.w	r3, r0, r2
+  10:	4293      	cmp	r3, r2
+  12:	d030      	beq.n	76 <FLASH_DisableWriteProtectionPages+0x76>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:330
+  {
+    useroptionbyte = FLASH_GetUserOptionByte();
+  14:	f7ff fffe 	bl	0 <FLASH_GetUserOptionByte>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:332
+
+    UserMemoryMask |= WRPR;
+  18:	682b      	ldr	r3, [r5, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:330
+  WRPR = FLASH_GetWriteProtectionOptionByte();
+
+  /* Test if user memory is write protected */
+  if ((WRPR & UserMemoryMask) != UserMemoryMask)
+  {
+    useroptionbyte = FLASH_GetUserOptionByte();
+  1a:	4604      	mov	r4, r0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:332
+
+    UserMemoryMask |= WRPR;
+  1c:	ea46 0303 	orr.w	r3, r6, r3
+  20:	602b      	str	r3, [r5, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:334
+
+    status = FLASH_EraseOptionBytes();
+  22:	f7ff fffe 	bl	0 <FLASH_EraseOptionBytes>
+  26:	4606      	mov	r6, r0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:336
+
+    if (UserMemoryMask != 0xFFFFFFFF)
+  28:	6828      	ldr	r0, [r5, #0]
+  2a:	f1b0 3fff 	cmp.w	r0, #4294967295	; 0xffffffff
+  2e:	d003      	beq.n	38 <FLASH_DisableWriteProtectionPages+0x38>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:338
+    {
+      status = FLASH_EnableWriteProtection((uint32_t)~UserMemoryMask);
+  30:	43c0      	mvns	r0, r0
+  32:	f7ff fffe 	bl	0 <FLASH_EnableWriteProtection>
+  36:	4606      	mov	r6, r0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:342
+    }
+
+    /* Test if user Option Bytes are programmed */
+    if ((useroptionbyte & 0x07) != 0x07)
+  38:	f004 0307 	and.w	r3, r4, #7	; 0x7
+  3c:	2b07      	cmp	r3, #7
+  3e:	d007      	beq.n	50 <FLASH_DisableWriteProtectionPages+0x50>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:357
+      if ((useroptionbyte & 0x04) == 0x0)
+      {
+        var3 = OB_STDBY_RST;
+      }
+
+      FLASH_UserOptionByteConfig(var1, var2, var3);
+  40:	f004 0001 	and.w	r0, r4, #1	; 0x1
+  44:	f004 0102 	and.w	r1, r4, #2	; 0x2
+  48:	f004 0204 	and.w	r2, r4, #4	; 0x4
+  4c:	f7ff fffe 	bl	0 <FLASH_UserOptionByteConfig>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:360
+    }
+
+    if (status == FLASH_COMPLETE)
+  50:	2e04      	cmp	r6, #4
+  52:	d10e      	bne.n	72 <FLASH_DisableWriteProtectionPages+0x72>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:362
+    {
+      SerialPutString("Write Protection disabled...\r\n");
+  54:	480b      	ldr	r0, [pc, #44]	(84 <FLASH_DisableWriteProtectionPages+0x84>)
+  56:	f7ff fffe 	bl	0 <FLASH_DisableWriteProtectionPages>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:364
+
+      SerialPutString("...and a System Reset will be generated to re-load the new option bytes\r\n");
+  5a:	480b      	ldr	r0, [pc, #44]	(30 <FLASH_DisableWriteProtectionPages+0x30>)
+  5c:	f7ff fffe 	bl	0 <FLASH_DisableWriteProtectionPages>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:367
+
+      /* Enable WWDG clock */
+      RCC_APB1PeriphClockCmd(RCC_APB1Periph_WWDG, ENABLE);
+  60:	f44f 6000 	mov.w	r0, #2048	; 0x800
+  64:	2101      	movs	r1, #1
+  66:	f7ff fffe 	bl	0 <RCC_APB1PeriphClockCmd>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:371
+
+      /* Generate a system Reset to re-load the new option bytes: enable WWDG and set
+        counter value to 0x4F, as T6 bit is cleared this will generate a WWDG reset */
+      WWDG_Enable(0x4F);
+  6a:	204f      	movs	r0, #79
+  6c:	f7ff fffe 	bl	0 <WWDG_Enable>
+  70:	e004      	b.n	7c <FLASH_DisableWriteProtectionPages+0x7c>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:375
+    }
+    else
+    {
+      SerialPutString("Error: Flash write unprotection failed...\r\n");
+  72:	4806      	ldr	r0, [pc, #24]	(8c <FLASH_DisableWriteProtectionPages+0x8c>)
+  74:	e000      	b.n	78 <FLASH_DisableWriteProtectionPages+0x78>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:380
+    }
+  }
+  else
+  {
+    SerialPutString("Flash memory not write protected\r\n");
+  76:	4806      	ldr	r0, [pc, #24]	(90 <FLASH_DisableWriteProtectionPages+0x90>)
+  78:	f7ff fffe 	bl	0 <FLASH_DisableWriteProtectionPages>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:382
+  }
+}
+  7c:	bd70      	pop	{r4, r5, r6, pc}
+  7e:	46c0      	nop			(mov r8, r8)
+	...
+  88:	0000001f 	.word	0x0000001f
+  8c:	00000069 	.word	0x00000069
+  90:	00000095 	.word	0x00000095
+Disassembly of section .text.SerialKeyPressed:
+
+00000000 <SerialKeyPressed>:
+SerialKeyPressed():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:196
+  * @param  key: The key pressed
+  * @retval 1: Correct
+  *         0: Error
+  */
+uint32_t SerialKeyPressed(uint8_t *key)
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:198
+
+  if ( USART_GetFlagStatus(EVAL_COM1, USART_FLAG_RXNE) != RESET)
+   2:	4d06      	ldr	r5, [pc, #24]	(1c <SerialKeyPressed+0x1c>)
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:196
+  * @param  key: The key pressed
+  * @retval 1: Correct
+  *         0: Error
+  */
+uint32_t SerialKeyPressed(uint8_t *key)
+{
+   4:	4604      	mov	r4, r0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:198
+
+  if ( USART_GetFlagStatus(EVAL_COM1, USART_FLAG_RXNE) != RESET)
+   6:	2120      	movs	r1, #32
+   8:	4628      	mov	r0, r5
+   a:	f7ff fffe 	bl	0 <USART_GetFlagStatus>
+   e:	b900      	cbnz	r0, 12 <USART_GetFlagStatus+0x12>
+  10:	e002      	b.n	18 <USART_GetFlagStatus+0x18>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:200
+  {
+    *key = (uint8_t)EVAL_COM1->DR;
+  12:	88ab      	ldrh	r3, [r5, #4]
+  14:	2001      	movs	r0, #1
+  16:	7023      	strb	r3, [r4, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:207
+  }
+  else
+  {
+    return 0;
+  }
+}
+  18:	bd70      	pop	{r4, r5, r6, pc}
+  1a:	46c0      	nop			(mov r8, r8)
+  1c:	40013800 	.word	0x40013800
+Disassembly of section .text.GetKey:
+
+00000000 <GetKey>:
+GetKey():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:215
+  * @brief  Get a key from the HyperTerminal
+  * @param  None
+  * @retval The Key Pressed
+  */
+uint8_t GetKey(void)
+{
+   0:	b507      	push	{r0, r1, r2, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:216
+  uint8_t key = 0;
+   2:	2300      	movs	r3, #0
+   4:	f88d 3007 	strb.w	r3, [sp, #7]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:221
+
+  /* Waiting for user input */
+  while (1)
+  {
+    if (SerialKeyPressed((uint8_t*)&key)) break;
+   8:	f10d 0007 	add.w	r0, sp, #7	; 0x7
+   c:	f7ff fffe 	bl	0 <GetKey>
+  10:	2800      	cmp	r0, #0
+  12:	d0f9      	beq.n	8 <GetKey+0x8>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:225
+  }
+  return key;
+
+}
+  14:	f89d 0007 	ldrb.w	r0, [sp, #7]
+  18:	bd0e      	pop	{r1, r2, r3, pc}
+  1a:	46c0      	nop			(mov r8, r8)
+Disassembly of section .text.Main_Menu:
+
+00000000 <Main_Menu>:
+Main_Menu():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:394
+void Main_Menu(void)
+{
+  uint8_t key = 0;
+
+  /* Get the number of block (4 or 2 pages) from where the user program will be loaded */
+  BlockNbr = (FlashDestination - 0x08000000) >> 12;
+   0:	4b2c      	ldr	r3, [pc, #176]	(b4 <Main_Menu+0xb4>)
+   2:	492d      	ldr	r1, [pc, #180]	(b8 <Main_Menu+0xb8>)
+   4:	681b      	ldr	r3, [r3, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:390
+  * @brief  Display the Main Menu on to HyperTerminal
+  * @param  None
+  * @retval None
+  */
+void Main_Menu(void)
+{
+   6:	b510      	push	{r4, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:394
+  uint8_t key = 0;
+
+  /* Get the number of block (4 or 2 pages) from where the user program will be loaded */
+  BlockNbr = (FlashDestination - 0x08000000) >> 12;
+   8:	f103 4378 	add.w	r3, r3, #4160749568	; 0xf8000000
+   c:	0b1a      	lsrs	r2, r3, #12
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:401
+  /* Compute the mask to test if the Flash memory, where the user program will be
+     loaded, is write protected */
+#ifdef USE_STM3210B_EVAL
+  UserMemoryMask = ((uint32_t)~((1 << BlockNbr) - 1));
+#else /* USE_STM3210E_EVAL */
+  if (BlockNbr < 62)
+   e:	2a3d      	cmp	r2, #61
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:394
+void Main_Menu(void)
+{
+  uint8_t key = 0;
+
+  /* Get the number of block (4 or 2 pages) from where the user program will be loaded */
+  BlockNbr = (FlashDestination - 0x08000000) >> 12;
+  10:	604a      	str	r2, [r1, #4]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:401
+  /* Compute the mask to test if the Flash memory, where the user program will be
+     loaded, is write protected */
+#ifdef USE_STM3210B_EVAL
+  UserMemoryMask = ((uint32_t)~((1 << BlockNbr) - 1));
+#else /* USE_STM3210E_EVAL */
+  if (BlockNbr < 62)
+  12:	d803      	bhi.n	1c <Main_Menu+0x1c>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:403
+  {
+    UserMemoryMask = ((uint32_t)~((1 << BlockNbr) - 1));
+  14:	f04f 33ff 	mov.w	r3, #4294967295	; 0xffffffff
+  18:	4093      	lsls	r3, r2
+  1a:	e001      	b.n	20 <Main_Menu+0x20>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:407
+  }
+  else
+  {
+    UserMemoryMask = ((uint32_t)0x80000000);
+  1c:	f04f 4300 	mov.w	r3, #2147483648	; 0x80000000
+  20:	600b      	str	r3, [r1, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:413
+  }
+#endif /* USE_STM3210B_EVAL */
+
+
+  /* Test if any page of Flash memory where program user will be loaded is write protected */
+  if ((FLASH_GetWriteProtectionOptionByte() & UserMemoryMask) != UserMemoryMask)
+  22:	f7ff fffe 	bl	0 <FLASH_GetWriteProtectionOptionByte>
+  26:	4a24      	ldr	r2, [pc, #144]	(b8 <Main_Menu+0xb8>)
+  28:	6813      	ldr	r3, [r2, #0]
+  2a:	4018      	ands	r0, r3
+  2c:	4298      	cmp	r0, r3
+  2e:	d00c      	beq.n	4a <Main_Menu+0x4a>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:415
+  {
+    FlashProtection = TRUE;
+  30:	2301      	movs	r3, #1
+  32:	7213      	strb	r3, [r2, #8]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:416
+    SerialPutString("\r\n================== Main Menu ============================\r\n\n");
+  34:	4821      	ldr	r0, [pc, #132]	(bc <Main_Menu+0xbc>)
+  36:	f7ff fffe 	bl	0 <Main_Menu>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:417
+    SerialPutString("  Download Image To the STM32F10x Internal Flash ------- 1\r\n\n");
+  3a:	4821      	ldr	r0, [pc, #132]	(88 <Main_Menu+0x88>)
+  3c:	f7ff fffe 	bl	0 <Main_Menu>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:418
+    SerialPutString("  Execute The New Program ------------------------------ 2\r\n\n");
+  40:	4820      	ldr	r0, [pc, #128]	(84 <Main_Menu+0x84>)
+  42:	f7ff fffe 	bl	0 <Main_Menu>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:419
+    SerialPutString("  Disable the write protection ------------------------- 3\r\n\n");
+  46:	4820      	ldr	r0, [pc, #128]	(c8 <Main_Menu+0xc8>)
+  48:	e008      	b.n	5c <Main_Menu+0x5c>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:424
+    SerialPutString("==========================================================\r\n\n");
+  }
+  else
+  {
+    FlashProtection = FALSE;
+  4a:	2300      	movs	r3, #0
+  4c:	7213      	strb	r3, [r2, #8]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:425
+    SerialPutString("\r\n================== Main Menu ============================\r\n\n");
+  4e:	481b      	ldr	r0, [pc, #108]	(bc <Main_Menu+0xbc>)
+  50:	f7ff fffe 	bl	0 <Main_Menu>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:426
+    SerialPutString("  Download Image To the STM32F10x Internal Flash ------- 1\r\n\n");
+  54:	481a      	ldr	r0, [pc, #104]	(6c <Main_Menu+0x6c>)
+  56:	f7ff fffe 	bl	0 <Main_Menu>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:427
+    SerialPutString("  Execute The New Program ------------------------------ 2\r\n\n");
+  5a:	481a      	ldr	r0, [pc, #104]	(6c <Main_Menu+0x6c>)
+  5c:	f7ff fffe 	bl	0 <Main_Menu>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:428
+    SerialPutString("==========================================================\r\n\n");
+  60:	481a      	ldr	r0, [pc, #104]	(6c <Main_Menu+0x6c>)
+  62:	f7ff fffe 	bl	0 <Main_Menu>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:433
+  }
+
+  while (1)
+  {
+    key = GetKey();
+  66:	f7ff fffe 	bl	0 <Main_Menu>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:435
+
+    if (key == 0x31)
+  6a:	2831      	cmp	r0, #49
+  6c:	d102      	bne.n	74 <Main_Menu+0x74>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:438
+    {
+      /* Download user application in the Flash */
+      SerialDownload();
+  6e:	f7ff fffe 	bl	0 <SerialDownload>
+  72:	e7f8      	b.n	66 <Main_Menu+0x66>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:440
+    }
+    else if (key == 0x32)
+  74:	2832      	cmp	r0, #50
+  76:	d10c      	bne.n	92 <Main_Menu+0x92>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:442
+    {
+      JumpAddress = *(__IO uint32_t*) (ApplicationAddress + 4);
+  78:	4b15      	ldr	r3, [pc, #84]	(d0 <Main_Menu+0xd0>)
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:445
+
+      /* Jump to user application */
+      Jump_To_Application = (pFunction) JumpAddress;
+  7a:	4c16      	ldr	r4, [pc, #88]	(d4 <Main_Menu+0xd4>)
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:442
+      /* Download user application in the Flash */
+      SerialDownload();
+    }
+    else if (key == 0x32)
+    {
+      JumpAddress = *(__IO uint32_t*) (ApplicationAddress + 4);
+  7c:	681a      	ldr	r2, [r3, #0]
+  7e:	4b16      	ldr	r3, [pc, #88]	(d8 <Main_Menu+0xd8>)
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:445
+
+      /* Jump to user application */
+      Jump_To_Application = (pFunction) JumpAddress;
+  80:	6022      	str	r2, [r4, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:442
+      /* Download user application in the Flash */
+      SerialDownload();
+    }
+    else if (key == 0x32)
+    {
+      JumpAddress = *(__IO uint32_t*) (ApplicationAddress + 4);
+  82:	601a      	str	r2, [r3, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:447
+
+      /* Jump to user application */
+      Jump_To_Application = (pFunction) JumpAddress;
+      /* Initialize user application's Stack Pointer */
+      __set_MSP(*(__IO uint32_t*) ApplicationAddress);
+  84:	4b15      	ldr	r3, [pc, #84]	(dc <Main_Menu+0xdc>)
+  86:	6818      	ldr	r0, [r3, #0]
+  88:	f7ff fffe 	bl	0 <__set_MSP>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:448
+      Jump_To_Application();
+  8c:	6823      	ldr	r3, [r4, #0]
+  8e:	4798      	blx	r3
+  90:	e7e9      	b.n	66 <Main_Menu+0x66>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:450
+    }
+    else if ((key == 0x33) && (FlashProtection == TRUE))
+  92:	2833      	cmp	r0, #51
+  94:	d106      	bne.n	a4 <Main_Menu+0xa4>
+  96:	4b08      	ldr	r3, [pc, #32]	(b8 <Main_Menu+0xb8>)
+  98:	7a1b      	ldrb	r3, [r3, #8]
+  9a:	2b01      	cmp	r3, #1
+  9c:	d102      	bne.n	a4 <Main_Menu+0xa4>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:453
+    {
+      /* Disable the write protection of desired pages */
+      FLASH_DisableWriteProtectionPages();
+  9e:	f7ff fffe 	bl	0 <Main_Menu>
+  a2:	e7e0      	b.n	66 <Main_Menu+0x66>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:457
+    }
+    else
+    {
+      if (FlashProtection == FALSE)
+  a4:	4b04      	ldr	r3, [pc, #16]	(b8 <Main_Menu+0xb8>)
+  a6:	7a1b      	ldrb	r3, [r3, #8]
+  a8:	b90b      	cbnz	r3, ae <Main_Menu+0xae>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:459
+      {
+        SerialPutString("Invalid Number ! ==> The number should be either 1 or 2\r");
+  aa:	480d      	ldr	r0, [pc, #52]	(e0 <Main_Menu+0xe0>)
+  ac:	e7d9      	b.n	62 <Main_Menu+0x62>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:463
+      }
+      else
+      {
+        SerialPutString("Invalid Number ! ==> The number should be either 1, 2 or 3\r");
+  ae:	480d      	ldr	r0, [pc, #52]	(e4 <Main_Menu+0xe4>)
+  b0:	e7d7      	b.n	62 <Main_Menu+0x62>
+  b2:	46c0      	nop			(mov r8, r8)
+	...
+  bc:	000000b8 	.word	0x000000b8
+  c0:	000000f7 	.word	0x000000f7
+  c4:	00000135 	.word	0x00000135
+  c8:	00000173 	.word	0x00000173
+  cc:	000001b1 	.word	0x000001b1
+  d0:	08002004 	.word	0x08002004
+	...
+  dc:	08002000 	.word	0x08002000
+  e0:	000001ef 	.word	0x000001ef
+  e4:	00000228 	.word	0x00000228
+Disassembly of section .text.GetInputString:
+
+00000000 <GetInputString>:
+GetInputString():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:258
+  * @brief  Get Input string from the HyperTerminal
+  * @param  buffP: The input string
+  * @retval None
+  */
+void GetInputString (uint8_t * buffP)
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4605      	mov	r5, r0
+   4:	2400      	movs	r4, #0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:263
+  uint32_t bytes_read = 0;
+  uint8_t c = 0;
+  do
+  {
+    c = GetKey();
+   6:	f7ff fffe 	bl	0 <GetInputString>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:264
+    if (c == '\r')
+   a:	280d      	cmp	r0, #13
+   c:	d018      	beq.n	40 <GetInputString+0x40>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:266
+      break;
+    if (c == '\b') /* Backspace */
+   e:	2808      	cmp	r0, #8
+  10:	d106      	bne.n	20 <GetInputString+0x20>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:268
+    {
+      if (bytes_read > 0)
+  12:	2c00      	cmp	r4, #0
+  14:	d0f7      	beq.n	6 <GetInputString+0x6>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:270
+      {
+        SerialPutString("\b \b");
+  16:	480d      	ldr	r0, [pc, #52]	(4c <GetInputString+0x4c>)
+  18:	f7ff fffe 	bl	0 <GetInputString>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:271
+        bytes_read --;
+  1c:	3c01      	subs	r4, #1
+  1e:	e7f2      	b.n	6 <GetInputString+0x6>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:275
+      }
+      continue;
+    }
+    if (bytes_read >= CMD_STRING_SIZE )
+  20:	2c7f      	cmp	r4, #127
+  22:	d903      	bls.n	2c <GetInputString+0x2c>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:277
+    {
+      SerialPutString("Command string size overflow\r\n");
+  24:	480a      	ldr	r0, [pc, #40]	(50 <GetInputString+0x50>)
+  26:	f7ff fffe 	bl	0 <GetInputString>
+  2a:	e7eb      	b.n	4 <GetInputString+0x4>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:281
+      bytes_read = 0;
+      continue;
+    }
+    if (c >= 0x20 && c <= 0x7E)
+  2c:	f1a0 0320 	sub.w	r3, r0, #32	; 0x20
+  30:	b2db      	uxtb	r3, r3
+  32:	2b5e      	cmp	r3, #94
+  34:	d8e7      	bhi.n	6 <GetInputString+0x6>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:283
+    {
+      buffP[bytes_read++] = c;
+  36:	5528      	strb	r0, [r5, r4]
+  38:	3401      	adds	r4, #1
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:284
+      SerialPutChar(c);
+  3a:	f7ff fffe 	bl	0 <GetInputString>
+  3e:	e7e2      	b.n	6 <GetInputString+0x6>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:288
+    }
+  }
+  while (1);
+  SerialPutString(("\n\r"));
+  40:	4804      	ldr	r0, [pc, #16]	(54 <GetInputString+0x54>)
+  42:	f7ff fffe 	bl	0 <GetInputString>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:289
+  buffP[bytes_read] = '\0';
+  46:	2300      	movs	r3, #0
+  48:	552b      	strb	r3, [r5, r4]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:290
+}
+  4a:	bd70      	pop	{r4, r5, r6, pc}
+  4c:	00000264 	.word	0x00000264
+  50:	00000268 	.word	0x00000268
+  54:	00000287 	.word	0x00000287
+Disassembly of section .text.GetIntegerInput:
+
+00000000 <GetIntegerInput>:
+GetIntegerInput():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:165
+  * @param  num: The inetger
+  * @retval 1: Correct
+  *         0: Error
+  */
+uint32_t GetIntegerInput(int32_t * num)
+{
+   0:	b530      	push	{r4, r5, lr}
+   2:	4605      	mov	r5, r0
+   4:	b085      	sub	sp, #20
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:170
+  uint8_t inputstr[16];
+
+  while (1)
+  {
+    GetInputString(inputstr);
+   6:	4668      	mov	r0, sp
+   8:	f7ff fffe 	bl	0 <GetIntegerInput>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:171
+    if (inputstr[0] == '\0') continue;
+   c:	f89d 3000 	ldrb.w	r3, [sp]
+  10:	2b00      	cmp	r3, #0
+  12:	d0f8      	beq.n	6 <GetIntegerInput+0x6>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:172
+    if ((inputstr[0] == 'a' || inputstr[0] == 'A') && inputstr[1] == '\0')
+  14:	2b61      	cmp	r3, #97
+  16:	d001      	beq.n	1c <GetIntegerInput+0x1c>
+  18:	2b41      	cmp	r3, #65
+  1a:	d107      	bne.n	2c <GetIntegerInput+0x2c>
+  1c:	f89d 4001 	ldrb.w	r4, [sp, #1]
+  20:	b924      	cbnz	r4, 2c <GetIntegerInput+0x2c>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:174
+    {
+      SerialPutString("User Cancelled \r\n");
+  22:	4808      	ldr	r0, [pc, #32]	(44 <GetIntegerInput+0x44>)
+  24:	f7ff fffe 	bl	0 <GetIntegerInput>
+  28:	4620      	mov	r0, r4
+  2a:	e009      	b.n	40 <GetIntegerInput+0x40>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:178
+      return 0;
+    }
+
+    if (Str2Int(inputstr, num) == 0)
+  2c:	4668      	mov	r0, sp
+  2e:	4629      	mov	r1, r5
+  30:	f7ff fffe 	bl	0 <GetIntegerInput>
+  34:	b918      	cbnz	r0, 3e <GetIntegerInput+0x3e>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:180
+    {
+      SerialPutString("Error, Input again: \r\n");
+  36:	4804      	ldr	r0, [pc, #16]	(48 <GetIntegerInput+0x48>)
+  38:	f7ff fffe 	bl	0 <GetIntegerInput>
+  3c:	e7e3      	b.n	6 <GetIntegerInput+0x6>
+  3e:	2001      	movs	r0, #1
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/common.c:187
+    else
+    {
+      return 1;
+    }
+  }
+}
+  40:	b005      	add	sp, #20
+  42:	bd30      	pop	{r4, r5, pc}
+  44:	0000028a 	.word	0x0000028a
+  48:	0000029c 	.word	0x0000029c

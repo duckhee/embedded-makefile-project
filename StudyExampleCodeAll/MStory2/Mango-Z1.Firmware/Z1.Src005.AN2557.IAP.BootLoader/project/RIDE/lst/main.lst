@@ -1,0 +1,209 @@
+
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\project\RIDE\obj\main.o:     file format elf32-littlearm
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\project\RIDE\obj\main.o
+
+Disassembly of section .text.main:
+
+00000000 <main>:
+main():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:46
+  * @brief  Main program.
+  * @param  None
+  * @retval None
+  */
+int main(void)
+{
+   0:	b51f      	push	{r0, r1, r2, r3, r4, lr}
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:48
+  /* Flash unlock */
+  FLASH_Unlock();
+   2:	f7ff fffe 	bl	0 <FLASH_Unlock>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:51
+
+  /* Initialize Key Button mounted on STM3210X-EVAL board */       
+  STM_EVAL_PBInit(Button_KEY, Mode_GPIO);   
+   6:	2001      	movs	r0, #1
+   8:	2100      	movs	r1, #0
+   a:	f7ff fffe 	bl	0 <STM_EVAL_PBInit>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:54
+
+  /* Test if Key push-button on STM3210X-EVAL Board is pressed */
+  if (STM_EVAL_PBGetState(Button_KEY) != 0x00)
+   e:	2001      	movs	r0, #1
+  10:	f7ff fffe 	bl	0 <STM_EVAL_PBGetState>
+  14:	2800      	cmp	r0, #0
+  16:	d034      	beq.n	82 <main+0x82>
+IAP_Init():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:101
+{
+ USART_InitTypeDef USART_InitStructure;
+
+  /* Setup the microcontroller system. Initialize the Embedded Flash Interface,
+     initialize the PLL and update the SystemFrequency variable. */
+  SystemInit();
+  18:	f7ff fffe 	bl	0 <SystemInit>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:112
+        - One Stop Bit
+        - No parity
+        - Hardware flow control disabled (RTS and CTS signals)
+        - Receive and transmit enabled
+  */
+  USART_InitStructure.USART_BaudRate = 115200;
+  1c:	f44f 33e1 	mov.w	r3, #115200	; 0x1c200
+  20:	9300      	str	r3, [sp, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:113
+  USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+  22:	f04f 0300 	mov.w	r3, #0	; 0x0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:119
+  USART_InitStructure.USART_StopBits = USART_StopBits_1;
+  USART_InitStructure.USART_Parity = USART_Parity_No;
+  USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+  USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+
+  STM_EVAL_COMInit(COM1, &USART_InitStructure);  
+  26:	4669      	mov	r1, sp
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:113
+        - No parity
+        - Hardware flow control disabled (RTS and CTS signals)
+        - Receive and transmit enabled
+  */
+  USART_InitStructure.USART_BaudRate = 115200;
+  USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+  28:	f8ad 3004 	strh.w	r3, [sp, #4]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:114
+  USART_InitStructure.USART_StopBits = USART_StopBits_1;
+  2c:	f8ad 3006 	strh.w	r3, [sp, #6]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:115
+  USART_InitStructure.USART_Parity = USART_Parity_No;
+  30:	f8ad 3008 	strh.w	r3, [sp, #8]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:116
+  USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+  34:	f8ad 300c 	strh.w	r3, [sp, #12]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:119
+  USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+
+  STM_EVAL_COMInit(COM1, &USART_InitStructure);  
+  38:	2000      	movs	r0, #0
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:117
+  USART_InitStructure.USART_BaudRate = 115200;
+  USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+  USART_InitStructure.USART_StopBits = USART_StopBits_1;
+  USART_InitStructure.USART_Parity = USART_Parity_No;
+  USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+  USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+  3a:	f04f 030c 	mov.w	r3, #12	; 0xc
+  3e:	f8ad 300a 	strh.w	r3, [sp, #10]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:119
+
+  STM_EVAL_COMInit(COM1, &USART_InitStructure);  
+  42:	f7ff fffe 	bl	0 <STM_EVAL_COMInit>
+main():
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:60
+  { /* If Key is pressed */
+
+    /* Execute the IAP driver in order to re-program the Flash */
+    IAP_Init();
+
+    SerialPutString("\r\n[POOH IAP]\r\n");
+  46:	4819      	ldr	r0, [pc, #100]	(68 <Serial_PutString+0x68>)
+  48:	f7ff fffe 	bl	0 <Serial_PutString>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:62
+
+    SerialPutString("\r\n======================================================================");
+  4c:	4818      	ldr	r0, [pc, #96]	(64 <Serial_PutString+0x64>)
+  4e:	f7ff fffe 	bl	0 <Serial_PutString>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:63
+    SerialPutString("\r\n=              (C) COPYRIGHT 2009 STMicroelectronics                 =");
+  52:	4818      	ldr	r0, [pc, #96]	(64 <Serial_PutString+0x64>)
+  54:	f7ff fffe 	bl	0 <Serial_PutString>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:64
+    SerialPutString("\r\n=                                                                    =");
+  58:	4817      	ldr	r0, [pc, #92]	(60 <Serial_PutString+0x60>)
+  5a:	f7ff fffe 	bl	0 <Serial_PutString>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:65
+    SerialPutString("\r\n=     In-Application Programming Application  (Version 3.1.0)        =");
+  5e:	4817      	ldr	r0, [pc, #92]	(60 <Serial_PutString+0x60>)
+  60:	f7ff fffe 	bl	0 <Serial_PutString>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:66
+    SerialPutString("\r\n=                                                                    =");
+  64:	4814      	ldr	r0, [pc, #80]	(54 <Serial_PutString+0x54>)
+  66:	f7ff fffe 	bl	0 <Serial_PutString>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:67
+    SerialPutString("\r\n=                                   By MCD Application Team          =");
+  6a:	4815      	ldr	r0, [pc, #84]	(58 <Serial_PutString+0x58>)
+  6c:	f7ff fffe 	bl	0 <Serial_PutString>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:68
+    SerialPutString("\r\n======================================================================");
+  70:	480f      	ldr	r0, [pc, #60]	(40 <Serial_PutString+0x40>)
+  72:	f7ff fffe 	bl	0 <Serial_PutString>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:69
+    SerialPutString("\r\n\r\n");
+  76:	4813      	ldr	r0, [pc, #76]	(50 <Serial_PutString+0x50>)
+  78:	f7ff fffe 	bl	0 <Serial_PutString>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:70
+    Main_Menu ();
+  7c:	f7ff fffe 	bl	0 <Main_Menu>
+  80:	e012      	b.n	a8 <main+0xa8>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:76
+  }
+  /* Keep the user application running */
+  else
+  {
+    /* Test if user code is programmed starting from address "ApplicationAddress" */
+    if (((*(__IO uint32_t*)ApplicationAddress) & 0x2FFE0000 ) == 0x20000000)
+  82:	4811      	ldr	r0, [pc, #68]	(c8 <main+0xc8>)
+  84:	4b11      	ldr	r3, [pc, #68]	(cc <main+0xcc>)
+  86:	6802      	ldr	r2, [r0, #0]
+  88:	ea02 0303 	and.w	r3, r2, r3
+  8c:	f1b3 5f00 	cmp.w	r3, #536870912	; 0x20000000
+  90:	d10a      	bne.n	a8 <main+0xa8>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:78
+    { /* Jump to user application */
+      JumpAddress = *(__IO uint32_t*) (ApplicationAddress + 4);
+  92:	4b0f      	ldr	r3, [pc, #60]	(d0 <main+0xd0>)
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:79
+      Jump_To_Application = (pFunction) JumpAddress;
+  94:	4c0f      	ldr	r4, [pc, #60]	(d4 <main+0xd4>)
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:78
+  else
+  {
+    /* Test if user code is programmed starting from address "ApplicationAddress" */
+    if (((*(__IO uint32_t*)ApplicationAddress) & 0x2FFE0000 ) == 0x20000000)
+    { /* Jump to user application */
+      JumpAddress = *(__IO uint32_t*) (ApplicationAddress + 4);
+  96:	681a      	ldr	r2, [r3, #0]
+  98:	4b0f      	ldr	r3, [pc, #60]	(d8 <main+0xd8>)
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:79
+      Jump_To_Application = (pFunction) JumpAddress;
+  9a:	6022      	str	r2, [r4, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:78
+  else
+  {
+    /* Test if user code is programmed starting from address "ApplicationAddress" */
+    if (((*(__IO uint32_t*)ApplicationAddress) & 0x2FFE0000 ) == 0x20000000)
+    { /* Jump to user application */
+      JumpAddress = *(__IO uint32_t*) (ApplicationAddress + 4);
+  9c:	601a      	str	r2, [r3, #0]
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:81
+      Jump_To_Application = (pFunction) JumpAddress;
+      /* Initialize user application's Stack Pointer */
+      __set_MSP(*(__IO uint32_t*) ApplicationAddress);
+  9e:	6800      	ldr	r0, [r0, #0]
+  a0:	f7ff fffe 	bl	0 <__set_MSP>
+D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src005.AN2557.IAP.BootLoader\src/main.c:82
+      Jump_To_Application();
+  a4:	6823      	ldr	r3, [r4, #0]
+  a6:	4798      	blx	r3
+  a8:	e7fe      	b.n	a8 <main+0xa8>
+  aa:	46c0      	nop			(mov r8, r8)
+  ac:	00000000 	.word	0x00000000
+  b0:	0000000f 	.word	0x0000000f
+  b4:	00000058 	.word	0x00000058
+  b8:	000000a1 	.word	0x000000a1
+  bc:	000000ea 	.word	0x000000ea
+  c0:	00000133 	.word	0x00000133
+  c4:	0000017c 	.word	0x0000017c
+  c8:	08002000 	.word	0x08002000
+  cc:	2ffe0000 	.word	0x2ffe0000
+  d0:	08002004 	.word	0x08002004
+	...

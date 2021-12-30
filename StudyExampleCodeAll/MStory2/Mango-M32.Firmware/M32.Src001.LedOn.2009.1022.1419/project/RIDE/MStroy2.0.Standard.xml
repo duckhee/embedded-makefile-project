@@ -1,0 +1,11 @@
+<!-- DWF2XML 2.00.01 - Raisonance Dwarf information extractor -->
+<aoffile Filename="MStroy2.0" dwarf="1">
+ <modulelist>
+  <module Name="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src001.LedOn\src\main.c" >
+   <type Family="Base" Name="int" ID="60"/>
+   <function Name="main" TI="60" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src001.LedOn\src\main.c" Line="17">
+   </function >
+  </module>
+ </modulelist>
+</aoffile>
+

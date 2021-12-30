@@ -1,0 +1,82 @@
+---- systick Matches (85 in 6 files) ----
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):  SysTick_IRQn                    = -1,       /*!&lt; 15 Cortex-M3 System Tick Interrupt                    */
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):      <td class="kt" nowrap="nowrap">__Vendor_SysTickConfig</td>
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):      <td class="kt">When this define is setup to 1, the <strong>SysTickConfig</strong> function 
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):  __IO uint32_t CTRL;      /* SysTick Control and Status Register */
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):  __IO uint32_t LOAD;      /* SysTick Reload Value Register       */
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):  __IO uint32_t VAL;       /* SysTick Current Value Register      */
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):  __I  uint32_t CALIB;     /* SysTick Calibration Register        */
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):  } SysTick_Type;</pre>
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):#define SysTick_BASE (SCS_BASE + 0x0010)            /* SysTick Base Address */</pre>
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):#define SysTick ((SysTick_Type *) SysTick_BASE)     /* SysTick access definition */</pre>
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):<pre>SysTick-&gt;CTRL = 0;</pre>
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):                DCD     SysTick_Handler           ; SysTick Handler</pre>
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):                DCD     SysTick_Handler           ; SysTick Handler</pre>
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):                     to the SysTick timer and the processor core clock). This variable can be 
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):                     to setup the SysTick timer or configure other parameters. It may also be 
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):      <td class="kt" nowrap="nowrap">SysTick_IRQn</td>
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):<h3>SysTick Configuration Function</h3>
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):<p>The following function is used to configure the SysTick timer and start the 
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):SysTick interrupt.</p>
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):      <td class="kt">ticks is SysTick counter reload value</td>
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):      <td class="kt">Setup the SysTick timer and enable the SysTick interrupt. After this 
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):		call the SysTick timer creates interrupts with the specified time 
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):void SysTick_Handler (void)  {                   // SysTick Interrupt Handler
+CMSIS_Core.htm (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\Documentation):  if (SysTick_Config (SystemFrequency / 1000)) { // Setup SysTick Timer for 1 msec interrupts
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):/* memory mapping struct for SysTick */
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):  __IO uint32_t CTRL;                         /*!< SysTick Control and Status Register */
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):  __IO uint32_t LOAD;                         /*!< SysTick Reload Value Register       */
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):  __IO uint32_t VAL;                          /*!< SysTick Current Value Register      */
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):  __I  uint32_t CALIB;                        /*!< SysTick Calibration Register        */
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):} SysTick_Type;
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define SysTick_BASE        (SCS_BASE +  0x0010)                      /*!< SysTick Base Address                 */
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define SysTick             ((SysTick_Type *)       SysTick_BASE)     /*!< SysTick configuration struct         */
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):/* ##################################    SysTick function  ############################################ */
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#if (!defined (__Vendor_SysTickConfig)) || (__Vendor_SysTickConfig == 0)
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):/* SysTick constants */
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define SYSTICK_ENABLE              0                                          /* Config-Bit to start or stop the SysTick Timer                         */
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define SYSTICK_TICKINT             1                                          /* Config-Bit to enable or disable the SysTick interrupt                 */
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define SYSTICK_CLKSOURCE           2                                          /* Clocksource has the offset 2 in SysTick Control and Status Register   */
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define SYSTICK_MAXCOUNT       ((1<<24) -1)                                    /* SysTick MaxCount                                                      */
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3): * @brief  Initialize and start the SysTick counter and its interrupt.
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):static __INLINE uint32_t SysTick_Config(uint32_t ticks)
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):  if (ticks > SYSTICK_MAXCOUNT)  return (1);                                             /* Reload value impossible */
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):  SysTick->LOAD  =  (ticks & SYSTICK_MAXCOUNT) - 1;                                      /* set reload register */
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):  NVIC_SetPriority (SysTick_IRQn, (1<<__NVIC_PRIO_BITS) - 1);                            /* set Priority for Cortex-M0 System Interrupts */
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):  SysTick->VAL   =  (0x00);                                                              /* Load the SysTick Counter Value */
+core_cm3.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):  SysTick->CTRL = (1 << SYSTICK_CLKSOURCE) | (1<<SYSTICK_ENABLE) | (1<<SYSTICK_TICKINT); /* Enable SysTick IRQ and SysTick Timer */
+misc.c (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src):  * @brief  Configures the SysTick clock source.
+misc.c (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src):  * @param  SysTick_CLKSource: specifies the SysTick clock source.
+misc.c (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src):  *     @arg SysTick_CLKSource_HCLK_Div8: AHB clock divided by 8 selected as SysTick clock source.
+misc.c (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src):  *     @arg SysTick_CLKSource_HCLK: AHB clock selected as SysTick clock source.
+misc.c (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src):void SysTick_CLKSourceConfig(uint32_t SysTick_CLKSource)
+misc.c (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src):  assert_param(IS_SYSTICK_CLK_SOURCE(SysTick_CLKSource));
+misc.c (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src):  if (SysTick_CLKSource == SysTick_CLKSource_HCLK)
+misc.c (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src):    SysTick->CTRL |= SysTick_CLKSource_HCLK;
+misc.c (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\src):    SysTick->CTRL &= SysTick_CLKSource_HCLK_Div8;
+misc.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc):/** @defgroup SysTick_clock_source 
+misc.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc):#define SysTick_CLKSource_HCLK_Div8    ((uint32_t)0xFFFFFFFB)
+misc.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc):#define SysTick_CLKSource_HCLK         ((uint32_t)0x00000004)
+misc.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc):#define IS_SYSTICK_CLK_SOURCE(SOURCE) (((SOURCE) == SysTick_CLKSource_HCLK) || \
+misc.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc):                                       ((SOURCE) == SysTick_CLKSource_HCLK_Div8))
+misc.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\STM32F10x_StdPeriph_Driver\inc):void SysTick_CLKSourceConfig(uint32_t SysTick_CLKSource);
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define __Vendor_SysTickConfig    0 /*!< Set to 1 if different SysTick Config is used */
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):  SysTick_IRQn                = -1,     /*!< 15 Cortex-M3 System Tick Interrupt                   */
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):/*****************  Bit definition for SysTick_CTRL register  *****************/
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define  SysTick_CTRL_ENABLE                 ((uint32_t)0x00000001)        /*!< Counter enable */
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define  SysTick_CTRL_TICKINT                ((uint32_t)0x00000002)        /*!< Counting down to 0 pends the SysTick handler */
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define  SysTick_CTRL_CLKSOURCE              ((uint32_t)0x00000004)        /*!< Clock source */
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define  SysTick_CTRL_COUNTFLAG              ((uint32_t)0x00010000)        /*!< Count Flag */
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):/*****************  Bit definition for SysTick_LOAD register  *****************/
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define  SysTick_LOAD_RELOAD                 ((uint32_t)0x00FFFFFF)        /*!< Value to load into the SysTick Current Value Register when the counter reaches 0 */
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):/*****************  Bit definition for SysTick_VAL register  ******************/
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define  SysTick_VAL_CURRENT                 ((uint32_t)0x00FFFFFF)        /*!< Current value at the time the register is accessed */
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):/*****************  Bit definition for SysTick_CALIB register  ****************/
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define  SysTick_CALIB_TENMS                 ((uint32_t)0x00FFFFFF)        /*!< Reload value to use for 10ms timing */
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define  SysTick_CALIB_SKEW                  ((uint32_t)0x40000000)        /*!< Calibration value is not exactly 10 ms */
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define  SysTick_CALIB_NOREF                 ((uint32_t)0x80000000)        /*!< The reference clock is not provided */
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define  SCB_ICSR_PENDSTCLR                  ((uint32_t)0x02000000)        /*!< Clear pending SysTick bit */
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define  SCB_ICSR_PENDSTSET                  ((uint32_t)0x04000000)        /*!< Set pending SysTick bit */
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define  SCB_SHPR_PRI_N3                     ((uint32_t)0xFF000000)        /*!< Priority of system handler 7,11, and 15. Reserved, SVCall and SysTick */
+stm32f10x.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Libraries\CMSIS\Core\CM3):#define  SCB_SHCSR_SYSTICKACT                ((uint32_t)0x00000800)        /*!< SysTick is active */
+stm32f10x_conf.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src001.HelloWorld\inc):#include "misc.h" /* High level functions for NVIC and SysTick (add-on to CMSIS functions) */

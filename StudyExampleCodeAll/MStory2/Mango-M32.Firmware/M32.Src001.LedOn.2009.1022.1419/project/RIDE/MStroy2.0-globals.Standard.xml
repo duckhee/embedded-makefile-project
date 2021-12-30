@@ -1,0 +1,10 @@
+<!-- DWF2XML 2.00.01 - Raisonance Dwarf information extractor -->
+<aoffile Header="MStroy2.0" Path="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src001.LedOn\project\RIDE\MStroy2.0.elf">
+ <Def>
+  <Col Header="DeclFile" Desc="File"/>
+  <Col Header="Type" Desc="Type"/>
+  <Col Header="Header" Desc="Name"/>
+ </Def>
+ <func Header="main" Icon="3" Type="func" Desc=":   long" DeclFile="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src001.LedOn\src\main.c" DeclLine="17"/>
+</aoffile>
+

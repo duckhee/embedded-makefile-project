@@ -1,0 +1,15 @@
+<!-- DWF2XML 2.00.01 - Raisonance Dwarf information extractor -->
+<aoffile Filename="MStroy2.0" dwarf="1">
+ <modulelist>
+  <module Name="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src\main.c" >
+   <function Name="delay_int_count" TI="0" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src\main.c" Line="11">
+   <type Family="Base" Name="unsigned int" ID="82"/>
+    <parameter Name="nTime" TI="77" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src\main.c" Line="11" Addr="0x0" Param="Yes"/>
+   </function >
+   <type Family="Base" Name="int" ID="128"/>
+   <function Name="main" TI="128" FileName="D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src003.LedOff\src\main.c" Line="22">
+   </function >
+  </module>
+ </modulelist>
+</aoffile>
+
