@@ -1,3 +1,0 @@
----- USB_LP_CAN1_RX0_IRQHandler Matches (2 in 2 files) ----
-stm32f10x_it.c (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src004.KeyInterrupt\src):void USB_LP_CAN1_RX0_IRQHandler(void)
-stm32f10x_it.h (D:\WkPjt\MStory2.0\Mango-Z1.Firmware\Z1.Src004.KeyInterrupt\inc):void USB_LP_CAN1_RX0_IRQHandler(void);

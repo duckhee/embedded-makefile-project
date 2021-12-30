@@ -1,2 +1,0 @@
----- FunctionalState Matches (1 in 1 files) ----
-main.c (D:\WkPjt\MStory2.0\Mango-M32.Firmware\M32.Src001.LedOn\src):typedef enum {DISABLE = 0, ENABLE = !DISABLE} FunctionalState;

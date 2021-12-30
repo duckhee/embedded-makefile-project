@@ -1,4 +1,0 @@
-
-<Project Header="Project 'MStroy2.0'" Path=".\MStroy2.0.rprj" Project="Yes" OutputFile="" sate="96" ActiveApp="MStroy2.0" >
-	<ApplicationBuild Header="MStroy2.0" Extern=".\MStroy2.0.rapp" Path=".\MStroy2.0.rapp" OutputFile=".\MStroy2.0.elf" sate="98" />
-</Project>

@@ -1,0 +1,46 @@
+###############################################################################
+# SPDX-License-Identifier: GPL-3.0-or-later
+###############################################################################
+
+config GPIO_TEST_EDU
+    bool "01.GPIO Test Select Using HAL Driver"
+    default n
+    select HAL_DRIVER
+    select EDU_BOARD
+
+config UART_POLLING_EDU
+    bool "02.UART polling Mode Test Select Using HAL Driver "
+    default n
+    select HAL_DRIVER
+    select EDU_BOARD
+
+config UART_PRINTF_EDU
+    bool "03.UART Printf Test Select Using HAL Driver"
+    default n
+    select HAL_DRIVER
+    select EDU_BOARD
+
+config UART_INTERRUPT_EDU
+    bool "04.UART Interrupt Test Select Using HAL Driver"
+    default n
+    select HAL_DRIVER
+    select EDU_BOARD
+
+config LCD_PRINT_EDU
+    bool "05.LCD Moudle print Test Select Using HAL Driver"
+    default n
+    select HAL_DRIVER
+    select EDU_BOARD
+    select EDU_CLCD
+
+
+config TIM_INTERRUPT_EDU
+    bool "06.TIM-Interrupt Timer Test Select Using HAL Driver"
+    default n
+    select HAL_DRIVER
+    select EDU_BOARD
+    select EDU_CLCD
+
+
+
+###############################################################################

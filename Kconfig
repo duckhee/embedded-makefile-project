@@ -1,0 +1,42 @@
+###############################################################################
+# SPDX-License-Identifier: GPL-3.0-or-later
+###############################################################################
+
+mainmenu "Make Project"
+
+# Board Seelct Section
+menu "Select Board Menu"
+    source "board/Kconfig"
+endmenu
+
+# Select Core architecture
+menu "Select Core Menu"
+    source "CMSIS/Kconfig"
+endmenu
+
+# Driver Selection Section
+menu "Select Driver Menu"
+    source "driver/Kconfig"
+endmenu
+
+# lwIP or FatFS Selection Section
+menu "Select Library Menu"
+    source "Library/Kconfig"
+endmenu
+
+# FreeRTOS Selection Section
+menu "Select FreeRTOS Menu"
+    source "kernel/Kconfig"
+endmenu
+
+# Study Code Chapter Select
+menu "Select Sample Study Chapter Menu"
+    source "StudyProject/Kconfig"
+endmenu
+
+# module Test Project Select
+menu "Select Module Sample Test Menu"
+    source "moduleTestCode/Kconfig"
+endmenu
+
+###############################################################################
