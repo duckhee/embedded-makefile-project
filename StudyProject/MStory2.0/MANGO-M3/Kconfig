@@ -1,0 +1,68 @@
+###############################################################################
+# SPDX-License-Identifier: GPL-3.0-or-later
+###############################################################################
+
+
+
+config MSTORY_V2_0_SRC_LED_1
+    bool "MStory Version 2.0 Chapter LED ON OFF First Test "
+    default n
+
+config MSTORY_V2_0_SRC_LED_2
+    bool "MStory Version 2.0 Chapter LED ON OFF GPIO RESET SET Use"
+    default n
+
+config MSTORY_V2_0_SRC_LED_3
+    bool "MStory Version 2.0 Chapter LED OFF GPIO SET Use"
+    default n
+
+config MSTORY_V2_0_SRC_LED_4
+    bool "MStory Version 2.0 Chapter LED ON OFF ALL SET RESET Use"
+    default n
+
+config MSTORY_V2_0_SRC_LED_5
+    bool "MStory Version 2.0 Chapter LED ON OFF ALL Chnage coding style"
+    default n
+
+config MSTORY_V2_0_SRC_LED_6
+    bool "MStory Version 2.0 Chapter LED ON OFF ALL Change coding style version 2"
+    default n
+
+config MSTORY_V2_0_SRC_KEY_PRESS
+    bool "MStory Version 2.0 Chapter KEY PRESS "
+    default n
+
+config MSTORY_V2_0_SRC_HELLO_WORLD
+    bool "MStory Version 2.0 Chapter Hello World 1"
+    default n
+
+config MSTORY_V2_0_SRC_HELLO_WORLD_TWO
+    bool "MStory Version 2.0 Chapter Hello World 2"
+    default n
+
+config MSTORY_V2_0_SRC_GETCHAR
+    bool "MStory Version 2.0 Chapter Get Char "
+    default n
+
+config MSTORY_V2_0_SRC_SEVEN_SEGMENT
+    bool "MStory Version 2.0 Chapter 7 Segment"
+    default n
+
+config MSTORY_V2_0_SRC_CLOCK_SYSTEM
+    bool "MStory Version 2.0 Chapter clock system"
+    default n
+
+config MSTORY_V2_0_SRC_CLOCK_SYSTEM2
+    bool "MStory Version 2.0 Chapter clock system2"
+    default n
+
+config MSTORY_V2_0_SRC_SYSCLOCK
+    bool "MStory Version 2.0 Chapter sys clock perfect 1 second delay"
+    default n
+
+config MSTORY_V2_0_SRC_EXTI
+    bool "MStory Versoin 2.0 Chapter EXTI Interrupt"
+    default n
+
+    
+###############################################################################

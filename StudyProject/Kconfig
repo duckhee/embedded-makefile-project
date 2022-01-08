@@ -2,13 +2,13 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 ###############################################################################
 
-# menu "Study Sample Chapter Project Mstory2.0"
-#     source "StudyProject/Mstory2.0/Kconfig"
-# endmenu
+menu "Study Sample Chapter Project Mstory2.0"
+    source "StudyProject/Mstory2.0/Kconfig"
+endmenu
 
-# menu "Study Sample Chapter Project Mstory3.0"
-#     source "StudyProject/Mstory3.0/Kconfig"
-# endmenu
+menu "Study Sample Chapter Project Mstory3.0"
+    source "StudyProject/Mstory3.0/Kconfig"
+endmenu
 
 menu "Study Sample Chapter Project EDU-Board"
     source "StudyProject/Edu_Board/Kconfig"

@@ -1,0 +1,61 @@
+###############################################################################
+# SPDX-License-Identifier: GPL-3.0-or-later
+###############################################################################
+
+
+config CMSIS_SAMPLE_HELLO_WORLD_Z1
+    bool "CMSIS Standard driver Start Sample Z1"
+    default n
+    select STANDARD_DRIVER
+
+config CMSIS_LED_KEY_CONTROL
+    bool "CMSIS Standard Driver LED KEY Control Z1"
+    default n
+    select STANDARD_DRIVER
+    
+config CMSIS_CLOCK_CONTROL
+    bool "CMSIS Standard Driver Clock Control Z1"
+    default n
+    select STANDARD_DRIVER
+
+config CMSIS_KEY_INTERRUPT
+    bool "CMSIS Standard Driver key interrupt push button Z1"
+    default n
+    select STANDARD_DRIVER
+
+config CMSIS_IAP_BOOTLOADER
+    bool "CMSIS Standard Driver use IAP Boot Loader"
+    default n
+    select STANDARD_DRIVER
+
+config CMSIS_SPI_TEST
+    bool "CMSIS Standard Driver Testing CC2520 zigbee chip(use mango-z1 board)"
+    default n
+    select STANDARD_DRIVER
+    select CC2520
+    select MANGO_Z1
+
+config CMSIS_ZIGBEE_RX_TX_ONE_TEST
+    bool "CMSIS Standard Driver Testing CC2520 zigbee one byte rx tx test"
+    default n
+    select STANDARD_DRIVER
+    select CC2520
+    select MANGO_Z1
+
+config CMSIS_ONE_BYTE_RX_TX_TEST
+    bool "CMSIS Standard Driver Testing Multi Packet Transmit Rx Tx Test"
+    default n
+    select STANDARD_DRIVER
+    select CC2520
+    select MANGO_Z1
+    
+config CMSIS_USB_HID_TEST
+    bool "CMSIS Standard Driver Testing USB.HID "
+    default n
+    select STANDARD_DRIVER
+    select CC2520
+    select USB_HID
+    select USB_FS_DEVICE_DRIVER
+    select MANGO_Z1
+
+###############################################################################
